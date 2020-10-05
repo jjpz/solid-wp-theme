@@ -1,0 +1,10 @@
+{
+	"name": "jjpz/solid",
+	"description": "",
+	"config": {
+		"vendor-dir": "vendor"
+	},
+	"require": {
+		"htmlburger/carbon-fields": "^3.1"
+	}
+}
