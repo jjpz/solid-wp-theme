@@ -1,18 +1,24 @@
 window.addEventListener('load', () => {
 	checkMobile();
 	loading();
-	checkSiteHeaderWidth();
-	checkSiteHeader();
-	checkStickyNav();
+	if (siteHeader) {
+		checkSiteHeaderWidth();
+		checkSiteHeader();
+		checkStickyNav();
+	}
 });
 
 window.addEventListener('scroll', () => {
-	checkStickyNav();
+	if (siteHeader) {
+		checkStickyNav();
+	}
 });
 
 window.addEventListener('resize', () => {
 	checkMobile();
 	checkImages();
-	checkSiteHeader();
-	checkStickyNav();
+	if (siteHeader) {
+		checkSiteHeader();
+		checkStickyNav();
+	}
 });

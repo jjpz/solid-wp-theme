@@ -15,7 +15,7 @@ function adminCSS() {
 		.pipe(autoprefix())
 		.pipe(concatCSS('admin.css'))
 		.pipe(cleanCSS({ format: { breaks: { afterComment: true } } }))
-		.pipe(dest('app/assets/css/'))
+		.pipe(dest('public/assets/css/'))
 		.pipe(browserSync.stream());
 }
 
@@ -28,7 +28,7 @@ function css() {
 		.pipe(autoprefix())
 		.pipe(concatCSS('style.css'))
 		.pipe(cleanCSS({ format: { breaks: { afterComment: true } } }))
-		.pipe(dest('app/'))
+		.pipe(dest('public/'))
 		.pipe(browserSync.stream());
 }
 
@@ -44,17 +44,17 @@ function js() {
 		.pipe(babel({ presets: ['@babel/env'] }))
 		.pipe(concat('script.js'))
 		.pipe(uglify())
-		.pipe(dest('app/assets/js/'))
+		.pipe(dest('public/assets/js/'))
 		.pipe(browserSync.stream());
 }
 
 /*function config() {
 	return src('src/config/*.php')
-		.pipe(dest('app/config/'))
+		.pipe(dest('public/config/'))
 		.pipe(browserSync.stream());
 }*/
 
-/*function php() { return src('src/*.php').pipe(dest('app/')).pipe(browserSync.stream()); }*/
+/*function php() { return src('src/*.php').pipe(dest('public/')).pipe(browserSync.stream()); }*/
 
 exports.default = () => {
 	browserSync.init({
@@ -62,7 +62,10 @@ exports.default = () => {
 		port: 3000,
 		open: true,
 	});
-	watch(['app/*.php', 'app/includes/*.php']).on('change', browserSync.reload);
+	watch(['public/*.php', 'public/includes/*.php']).on(
+		'change',
+		browserSync.reload
+	);
 	//watch('src/*.php', php);
 	//watch('src/config/*.php', config);
 	watch('src/assets/css/admin.css', adminCSS);

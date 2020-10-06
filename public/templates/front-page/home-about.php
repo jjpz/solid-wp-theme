@@ -10,13 +10,13 @@
             <div class="col-md-6"></div>
             <div class="col-md-6"></div>
             <div class="col-md-6">
-                <h1><?php echo $home_about_bigtext; ?></h1>
+                <h1 class="home-about-bigtext"><?php echo $home_about_bigtext; ?></h1>
             </div>
             <?php } else { ?>
             <div class="col-12">
                 <?php if (!empty($home_about_paragraph)) { echo $home_about_paragraph; } ?>
                 <?php if (!empty($home_about_bigtext)) { ?>
-                <h1><?php echo $home_about_bigtext; ?></h1>
+                <h1 class="home-about-bigtext"><?php echo $home_about_bigtext; ?></h1>
                 <?php } ?>
             </div>
             <?php } ?>

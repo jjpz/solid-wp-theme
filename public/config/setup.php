@@ -33,7 +33,7 @@ if (!function_exists('solid_setup')) {
 function sample_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Blog Sidebar', 'sample' ),
+			'name'          => esc_html__( 'Sidebar', 'sample' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'sample' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -43,7 +43,7 @@ function sample_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'sample_widgets_init' );
+//add_action('widgets_init', 'sample_widgets_init');
 
 // Add custom class to menu li elements
 function custom_menu_li_class($classes, $item, $args) {

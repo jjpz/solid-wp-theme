@@ -1,8 +1,13 @@
 const html = document.documentElement;
 const body = document.body;
-const siteHeader = document.querySelector('.site-header');
-const siteNav = siteHeader.querySelector('.site-nav');
-const navToggle = siteHeader.querySelector('.nav-toggle');
+if (
+	typeof document.querySelector('.site-header') !== 'undefined' &&
+	document.querySelector('.site-header') !== null
+) {
+	const siteHeader = document.querySelector('.site-header');
+	const siteNav = siteHeader.querySelector('.site-nav');
+	const navToggle = siteHeader.querySelector('.nav-toggle');
+}
 const siteMain = document.querySelector('.site-main');
 const siteFooter = document.querySelector('.site-footer');
 const images = document.querySelectorAll('.image');
