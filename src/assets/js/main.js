@@ -47,3 +47,62 @@ function loading() {
 		document.getElementById('overlay').style.display = 'none';
 	}, 1500);
 }
+
+// Slide Toggle
+
+let slideUp = (target, duration) => {
+	target.style.transitionProperty = 'height';
+	target.style.transitionDuration = duration + 'ms';
+	target.style.height = 0;
+	target.addEventListener(
+		'transitionend',
+		() => {
+			target.style.display = 'none';
+			target.style.removeProperty('display');
+			target.style.removeProperty('height');
+			target.style.removeProperty('overflow');
+			target.style.removeProperty('transition-property');
+			target.style.removeProperty('transition-duration');
+			target.classList.remove('open');
+		},
+		{
+			once: true,
+		}
+	);
+};
+
+let slideDown = (target, duration) => {
+	target.style.removeProperty('display');
+	let display = window.getComputedStyle(target).display;
+	if (display === 'none') {
+		display = 'block';
+	}
+	target.style.display = display;
+	target.style.height = 'auto';
+	let height = target.scrollHeight;
+	target.style.height = 0;
+	target.style.overflow = 'hidden';
+	target.style.transitionProperty = 'height';
+	target.style.transitionDuration = duration + 'ms';
+	target.classList.add('open');
+
+	window.setTimeout(() => {
+		target.style.height = height + 'px';
+	}, 25);
+};
+
+let slideToggle = (target, duration) => {
+	if (window.getComputedStyle(target).display === 'none') {
+		return slideDown(target, duration);
+	} else {
+		return slideUp(target, duration);
+	}
+};
+
+document.querySelectorAll('.toggle-trigger').forEach(trigger => {
+	trigger.addEventListener('click', function (e) {
+		e.preventDefault();
+		trigger.classList.toggle('toggled');
+		slideToggle(document.getElementById(this.dataset.toggle), 250);
+	});
+});

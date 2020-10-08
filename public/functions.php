@@ -58,7 +58,7 @@ function private_redirect() {
 	$object = $wp_query->queried_object;
 	if ($object) {
 		$status = $object->post_status;
-		if ($status == 'private' && !is_user_logged_in()) {
+		if ($status === 'private' && !is_user_logged_in()) {
 			wp_redirect(wp_login_url($_SERVER['REQUEST_URI']));
 		}
 	}
