@@ -48,26 +48,17 @@ function js() {
 		.pipe(browserSync.stream());
 }
 
-/*function config() {
-	return src('src/config/*.php')
-		.pipe(dest('public/config/'))
-		.pipe(browserSync.stream());
-}*/
-
-/*function php() { return src('src/*.php').pipe(dest('public/')).pipe(browserSync.stream()); }*/
-
 exports.default = () => {
 	browserSync.init({
 		proxy: 'http://localhost/solid',
 		port: 3000,
 		open: true,
 	});
-	watch(['public/*.php', 'public/includes/*.php']).on(
-		'change',
-		browserSync.reload
-	);
-	//watch('src/*.php', php);
-	//watch('src/config/*.php', config);
+	watch([
+		'public/*.php',
+		'public/includes/*.php',
+		'public/templates/*.php',
+	]).on('change', browserSync.reload);
 	watch('src/assets/css/admin.css', adminCSS);
 	watch(['src/assets/css/*.css', '!src/assets/css/admin.css'], css);
 	watch('src/assets/js/*.js', js);
