@@ -2,7 +2,7 @@
 
 <?php global $g_footer_vars; ?>
 
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer" role="contentinfo">
     <diV class="container">
         <div class="site-info">
             <div class="footer-title">
