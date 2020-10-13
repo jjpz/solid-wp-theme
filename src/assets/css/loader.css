@@ -20,7 +20,7 @@
 	left: 50%;
 	transform: translate(-50%, -55%);
 	width: 100%;
-	max-width: 300px;
+	max-width: 100px;
 	padding: 0 15px;
 	text-align: center;
 	opacity: 1;
@@ -40,44 +40,41 @@
 	transition: all 0.5s linear;
 }
 
-.loader-logo {
-	width: 100%;
-	height: auto;
-	max-width: 300px;
-	margin: auto;
-	color: var(--dark-color);
-}
-
-.loader-title {
-	font-size: 30px;
-}
-
 .spinner {
-	width: 4rem;
-	height: 5px;
-	margin: 10px auto 0;
-	overflow: hidden;
 	position: relative;
-	background: rgba(0, 44, 63, 0.25);
+	width: 100%;
+	height: 5px;
+	margin: 0 auto;
+	background: rgba(51, 51, 51, 0.25);
+	overflow: hidden;
 }
 
 .spinner::before {
 	content: '';
 	position: absolute;
-	left: -130%;
+	left: -105%;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 1);
-	animation: progress 4s linear infinite;
+	background: rgba(0, 0, 0, 0.5);
+	animation: progress 3s linear infinite;
 }
 
 @keyframes progress {
 	0% {
-		left: -130%;
+		left: -105%;
+	}
+	50% {
+		left: 105%;
+	}
+}
+
+@keyframes progress2 {
+	0% {
+		left: -105%;
 		background: rgba(0, 0, 0, 0.5);
 	}
 	50% {
-		left: 130%;
+		left: 105%;
 		background: rgba(0, 0, 0, 0.5);
 	}
 	51% {
