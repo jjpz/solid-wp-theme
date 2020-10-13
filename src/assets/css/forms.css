@@ -1,0 +1,102 @@
+/* FORMS */
+
+/* Contact Forms */
+
+form p {
+	margin-bottom: 10px;
+}
+
+input:focus {
+	outline: var(--dark-color) auto 1px;
+	transition: all 0.25s;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='number'],
+input[type='tel'],
+input[type='range'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='color'],
+textarea {
+	width: 100%;
+	padding: 10px 15px;
+	border: 0;
+	border-radius: 0;
+	background: var(--bg-color);
+	line-height: 1.5;
+	font-family: var(--main-font);
+	font-size: 20px;
+	font-weight: normal;
+	color: var(--dark-color);
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	font-family: var(--main-font);
+	font-size: 20px;
+	font-weight: normal;
+	color: var(--dark-color);
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	font-family: var(--main-font);
+	font-size: 20px;
+	font-weight: normal;
+	color: var(--dark-color);
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	font-family: var(--main-font);
+	font-size: 20px;
+	font-weight: normal;
+	color: var(--dark-color);
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	width: 100%;
+	padding: 10px 15px;
+	border: 0;
+	border-radius: 3px;
+	line-height: 1.5;
+	font-family: var(--main-font);
+	font-size: 20px;
+	font-weight: normal;
+	background: var(--dark-color);
+	color: var(--white);
+	text-transform: uppercase;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+span.wpcf7-not-valid-tip {
+	font-family: 'FranklinGothic-Book';
+	font-size: 16px;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+div.wpcf7-response-output {
+	margin: 0;
+	padding: 0;
+	border: 0 !important;
+	line-height: 1;
+	font-family: 'FranklinGothic-Book';
+	font-size: 16px;
+	font-weight: bold;
+	color: #ff0000;
+}

@@ -9,11 +9,11 @@ if ( isset($categories) && !empty($categories) ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
         <?php if (!empty($category)) { ?>
-        <div class="entry-category"><span><?php echo $cat_name; ?></span></div>
+        <h4 class="entry-category"><?php echo $cat_name; ?></h4>
         <?php } ?>
         <?php
         if (is_singular()) {
-            the_title('<h1 class="entry-title">', '</h1>');
+            the_title('<h2 class="entry-title">', '</h2>');
         } else {
         ?>
         <h2 class="entry-title">
@@ -30,16 +30,18 @@ if ( isset($categories) && !empty($categories) ) {
         <?php } ?>
         <?php if (get_post_type() === 'post') { ?>
         <div class="entry-meta">
+            <p class="p2">
             <?php
-				solid_posted_on();
-				solid_posted_by();
-				?>
+            solid_posted_on();
+            solid_posted_by();
+            ?>
+            </p>
         </div>
         <?php } ?>
     </header>
     <section class="entry-content">
         <?php
-            if (is_home()) {
+            if (is_home() || is_category()) {
                 the_excerpt();
             } else {
                 the_content();

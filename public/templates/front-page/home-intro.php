@@ -13,7 +13,7 @@
                 <h1 class="home-intro-title">
                     <?php echo (!empty($home_intro_title)) ? $home_intro_title : $site_title; ?>
                 </h1>
-                <h3 class="home-intro-subtitle">
+                <h3 class="h3 home-intro-subtitle">
                     <span>
                         <?php echo (!empty($home_intro_subtitle)) ? $home_intro_subtitle : $site_tagline; ?>
                     </span>

@@ -23,7 +23,13 @@ function css() {
 	return src([
 		'src/assets/css/style.css',
 		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
+		'src/assets/css/vars.css',
+		'src/assets/css/typography.css',
+		'src/assets/css/loader.css',
+		'src/assets/css/nav.css',
+		'src/assets/css/forms.css',
 		'src/assets/css/custom.css',
+		'src/assets/css/footer.css',
 	])
 		.pipe(autoprefix())
 		.pipe(concatCSS('style.css'))

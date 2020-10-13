@@ -23,7 +23,7 @@
                     <div class="<?php echo $class; ?>">
                         <div class="team-popup-content">
                             <div class="team-popup-name">
-                                <h4><?php echo $name; ?></h4>
+                                <h3><?php echo $name; ?></h3>
                             </div>
                             <?php if ( !empty($title) ) { ?>
                             <div class="team-popup-title">

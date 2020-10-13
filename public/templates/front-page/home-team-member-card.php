@@ -13,7 +13,7 @@
     <?php } ?>
     <div class="member-info">
         <div class="member-name">
-            <h4><?php echo $name; ?></h4>
+            <h3><?php echo $name; ?></h3>
         </div>
         <?php if ( !empty($title) ) { ?>
         <div class="member-title">

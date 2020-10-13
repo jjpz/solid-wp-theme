@@ -6,7 +6,7 @@
         <?php get_template_part('templates/blog/blog-nav'); ?>
         <main id="main" class="col-lg-8 order-lg-1 site-main blog-main">
             <header class="archive-header">
-                <?php the_archive_title( '<h2 class="page-title archive-title">', '</h2>' ); ?>
+                <?php the_archive_title( '<h3 class="h3 page-title archive-title">', '</h3>' ); ?>
             </header>
             <?php
         if (have_posts()) {

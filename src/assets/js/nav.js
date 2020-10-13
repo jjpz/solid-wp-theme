@@ -19,7 +19,6 @@ if (siteHeader) {
 			mainNavWidth +
 			buttonNavWidth +
 			siteHeaderPadding;
-		//console.log('Header Width: ' + siteHeaderWidth);
 		return siteHeaderWidth;
 	}
 
@@ -61,4 +60,15 @@ if (siteHeader) {
 		navToggle.classList.toggle('on');
 		siteNav.classList.toggle('show');
 	});
+
+	function mouseEnterHandler() {
+		siteHeader.classList.add('active');
+	}
+	
+	function mouseLeaveHandler() {
+		siteHeader.classList.remove('active');
+	}
+	
+	siteHeader.addEventListener('mouseenter', mouseEnterHandler);
+	siteHeader.addEventListener('mouseleave', mouseLeaveHandler);
 }

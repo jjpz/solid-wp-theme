@@ -10,7 +10,7 @@ $categories = get_categories('post');
     <?php if (isset($categories) && !empty($categories)) { ?>
     <div class="side-nav right-nav category-nav">
         <a href="#" class="side-nav-toggle toggle-trigger" data-toggle="toggle">
-            <span>Categories</span>
+            <h4 class="h4">Categories</h4>
             <svg class="arrow-down-small" width="5" height="10" viewBox="0 0 5 15">
                 <g>
                     <polygon style="fill:currentColor;"
@@ -18,7 +18,7 @@ $categories = get_categories('post');
                 </g>
             </svg>
         </a>
-        <h6 class="side-nav-menu-title">Categories</h6>
+        <h4 class="h4 side-nav-menu-title">Categories</h4>
         <ul id="toggle" class="side-nav-menu toggle-target">
             <?php foreach ($categories as $category) { ?>
             <li class="side-nav-item cat-nav-item">
@@ -32,7 +32,7 @@ $categories = get_categories('post');
 
     <?php if (isset($_posts) && !empty($_posts)) { ?>
     <div class="side-nav right-nav post-nav">
-        <h6 class="side-nav-menu-title">Latest Review Articles</h6>
+        <h4 class="h4 side-nav-menu-title">Latest Review Articles</h4>
         <ul class="side-nav-menu">
             <?php
             foreach ($_posts as $_post) {

@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h3 class="section-title"><?php echo $home_team_title; ?></h3>
+                    <h3 class="h3 section-title"><?php echo $home_team_title; ?></h3>
                     <div class="section-paragraph">
                         <?php echo $home_team_paragraph; ?>
                     </div>
