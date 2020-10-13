@@ -176,7 +176,7 @@ function cpt_team () {
 		'show_in_admin_bar'     => true,
 		'show_in_rest'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-portfolio',
+		'menu_icon'             => 'dashicons-groups',
 		'capability_type'       => 'post',
 		'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
 		'taxonomies'            => array(),

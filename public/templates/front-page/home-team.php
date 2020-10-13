@@ -22,7 +22,7 @@
     <section class="section-body">
         <div class="services">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <?php foreach ($team as $key => $member) { ?>
                     <?php require 'home-team-member.php'; ?>
                     <?php } ?>
