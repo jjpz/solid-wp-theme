@@ -289,9 +289,9 @@ article.post {
 	transform: rotate(180deg);
 }
 
-.icon-lighthouse {
-	width: 155px;
-	height: 155px;
+.icon-crown {
+	width: 221px;
+	height: 125px;
 	margin-top: 60px;
 	color: var(--dark-color);
 }
@@ -306,12 +306,14 @@ article.post {
 	transition: all 0.25s;
 }
 
-/* SVGs */
-
-.svg-loader {
-	width: 100px;
-	height: 100px;
+@media (max-width: 767px) {
+	.icon-crown {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
+
+/* SVGs */
 
 .svg-award {
 	width: 26px;
@@ -330,9 +332,9 @@ article.post {
 	margin-left: 25px;
 }
 
-.svg-lighthouse {
-	width: 155px;
-	height: 155px;
+.svg-crown {
+	width: 221px;
+	height: 125px;
 }
 
 .svg-facebook {
