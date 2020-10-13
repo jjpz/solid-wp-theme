@@ -20,7 +20,7 @@
 	left: 50%;
 	transform: translate(-50%, -55%);
 	width: 100%;
-	max-width: 100px;
+	max-width: 300px;
 	padding: 0 15px;
 	text-align: center;
 	opacity: 1;
@@ -40,9 +40,20 @@
 	transition: all 0.5s linear;
 }
 
+.loader-logo {
+	width: 110px;
+	height: 62px;
+	margin: 0 auto 10px;
+}
+
+.svg-loader {
+	width: 110px;
+	height: 62px;
+}
+
 .spinner {
 	position: relative;
-	width: 100%;
+	width: 100px;
 	height: 5px;
 	margin: 0 auto;
 	background: rgba(51, 51, 51, 0.25);
