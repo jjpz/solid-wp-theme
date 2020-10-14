@@ -79,6 +79,7 @@ h1.site-title {
 
 .site-nav ul {
 	display: flex;
+	align-items: center;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -88,6 +89,7 @@ h1.site-title {
 	display: inline-flex;
 	flex-wrap: wrap;
 	flex-shrink: 0;
+	align-items: center;
 	margin-left: 30px;
 }
 
@@ -328,17 +330,20 @@ h1.site-title {
 }
 
 .site-nav.mobile nav {
+	width: 100%;
 	padding: 0;
 }
 
 .site-nav.mobile ul {
-	flex-direction: column;
-	align-items: flex-start;
+	flex-wrap: wrap;
 }
 
 .site-nav.mobile li {
 	display: flex;
-	margin: 0 30px 15px;
+	width: 100%;
+	margin-left: 0;
+	margin-bottom: 15px;
+	padding: 0 30px;
 }
 
 .site-nav.mobile .main-nav a {
