@@ -10,8 +10,6 @@ if (file_exists(__DIR__ . '/config')) {
 	echo 'Error: The required directory does not exist, please check functions.php file.';
 }
 
-// CUSTOM
-
 function change_category_title_prefix($title) {
     if (is_category()) {
         $title = single_cat_title( '', false );
