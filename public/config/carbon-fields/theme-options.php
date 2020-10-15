@@ -7,7 +7,8 @@ add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
 
     // General Options
-	$theme_options = Container::make( 'theme_options', __( 'Theme Options' ) )
+    $theme_options = Container::make( 'theme_options', __( 'Theme Options' . crb_lang_name() ) )
+        ->set_page_file( 'theme-options' )
 		->set_page_menu_position( 4 )
         ->set_icon( 'dashicons-admin-generic' )
         //->set_page_menu_title( 'Custom Options' )
@@ -31,64 +32,65 @@ function crb_attach_theme_options() {
         ) );
 
     // Home Intro Section
-    Container::make( 'theme_options', __( 'Intro' ) )
+    Container::make( 'theme_options', __( 'Intro' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
+        ->set_page_file( 'theme-options-intro' )
 		->add_fields( array(
 			Field::make( 'separator', 'crb_intro_separator', 'Banner' ),
 			Field::make( 'image', 'crb_home_banner_desktop', 'Desktop Banner Image' )->set_classes( 'col-6' ),
 			Field::make( 'image', 'crb_home_banner_mobile', 'Mobile Banner Image' )->set_classes( 'col-6' ),
-            Field::make( 'textarea', 'crb_home_intro_title', 'Banner Title' )
+            Field::make( 'textarea', 'crb_home_intro_title' . crb_lang_slug(), 'Banner Title' . crb_lang_name() )
                 ->set_rows( 3 ),
-            Field::make( 'textarea', 'crb_home_intro_subtitle', 'Banner Subtitle' )
+            Field::make( 'textarea', 'crb_home_intro_subtitle' . crb_lang_slug(), 'Banner Subtitle' . crb_lang_name() )
                 ->set_rows( 3 )
 		) );
 
     // Home About Section
-    Container::make( 'theme_options', __( 'About' ) )
+    Container::make( 'theme_options', __( 'About' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
+        ->set_page_file( 'theme-options-about' )
 		->add_fields( array(
-			//Field::make( 'separator', 'crb_about_separator', 'About' ),
-			Field::make( 'rich_text', 'crb_home_about_paragraph', 'Section Paragraph' )->set_help_text( 'Left column paragraph text.' ),
-            Field::make( 'textarea', 'crb_home_about_bigtext', 'Section Big Text' )
+			Field::make( 'rich_text', 'crb_home_about_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )->set_help_text( 'Left column paragraph text.' ),
+            Field::make( 'textarea', 'crb_home_about_bigtext' . crb_lang_slug(), 'Section Big Text' . crb_lang_name() )
                 ->set_rows( 3 )
                 ->set_help_text( 'Right column big text.' )
         ) );
 
     // Home Awards Section
-    Container::make( 'theme_options', __( 'Awards' ) )
+    Container::make( 'theme_options', __( 'Awards' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
+        ->set_page_file( 'theme-options-awards' )
 		->add_fields( array(
-			//Field::make( 'separator', 'crb_awards_separator', 'Awards' ),
-            Field::make( 'text', 'crb_home_awards_title', 'Section Title' ),
-            Field::make( 'rich_text', 'crb_home_awards_paragraph', 'Section Paragraph' )
+            Field::make( 'text', 'crb_home_awards_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
+            Field::make( 'rich_text', 'crb_home_awards_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
 		) );
 
     // Home Services Section
-    Container::make( 'theme_options', __( 'Services' ) )
+    Container::make( 'theme_options', __( 'Services' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
+        ->set_page_file( 'theme-options-services' )
 		->add_fields( array(
-			//Field::make( 'separator', 'crb_services_separator', 'Services' ),
-            Field::make( 'text', 'crb_home_services_title', 'Section Title' ),
-            Field::make( 'rich_text', 'crb_home_services_paragraph', 'Section Paragraph' )
+            Field::make( 'text', 'crb_home_services_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
+            Field::make( 'rich_text', 'crb_home_services_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
 		) );
 
     // Home Team Section
-    Container::make( 'theme_options', __( 'Team' ) )
+    Container::make( 'theme_options', __( 'Team' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
+        ->set_page_file( 'theme-options-team' )
 		->add_fields( array(
-			//Field::make( 'separator', 'crb_team_separator', 'Team' ),
-			Field::make( 'text', 'crb_home_team_title', 'Section Title' ),
-			Field::make( 'rich_text', 'crb_home_team_paragraph', 'Section Paragraph' )
+			Field::make( 'text', 'crb_home_team_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
+			Field::make( 'rich_text', 'crb_home_team_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
 		) );
 
     // Home Contact Section
-    Container::make( 'theme_options', __( 'Contact Form' ) )
+    Container::make( 'theme_options', __( 'Contact Form' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
+        ->set_page_file( 'theme-options-contact' )
 		->add_fields( array(
-			//Field::make( 'separator', 'crb_contact_separator', 'Contact' ),
-            Field::make( 'textarea', 'crb_home_contact_bigtext', 'Section Big Text' )
+            Field::make( 'textarea', 'crb_home_contact_bigtext' . crb_lang_slug(), 'Section Big Text' . crb_lang_name() )
                 ->set_rows( 3 )->set_help_text( 'Left column big text.' ),
-			Field::make( 'rich_text', 'crb_home_contact_paragraph', 'Section Paragraph' )->set_help_text( 'Right column paragraph text.' ),
-			Field::make( 'text', 'crb_contactform_shortcode', 'Contact Form Shortcode' ),
+			Field::make( 'rich_text', 'crb_home_contact_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )->set_help_text( 'Right column paragraph text.' ),
+			Field::make( 'text', 'crb_contactform_shortcode' . crb_lang_slug(), 'Contact Form Shortcode' . crb_lang_name() ),
 		) );
 }

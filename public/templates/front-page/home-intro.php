@@ -1,3 +1,16 @@
+<?php
+global $wpdb;
+$alloptions = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE autoload = 'no'" );
+$options = array();
+foreach ($alloptions as $o) {
+    $options[$o->option_name] = $o->option_value;
+}
+foreach ($options as $key => $value) {
+    if (substr($key, -3) === '_ja') {
+        print_r($value);
+    }
+}
+?>
 <section class="home-intro offset-height">
     <div class="banner image home-intro-banner">
         <?php if (!empty($mobile_banner_id) || !empty($desktop_banner_id)) { ?>
@@ -10,14 +23,18 @@
         <?php } ?>
         <div class="home-intro-content">
             <div class="container">
+                <?php if (isset(${'home_intro_title' . crb_lang_slug()}) && !empty(${'home_intro_title' . crb_lang_slug()})) { ?>
                 <h1 class="home-intro-title">
-                    <?php echo (!empty($home_intro_title)) ? $home_intro_title : $site_title; ?>
+                    <?php echo ${'home_intro_title' . crb_lang_slug()}; ?>
                 </h1>
+                <?php } ?>
+                <?php if (isset(${'home_intro_subtitle' . crb_lang_slug()}) && !empty(${'home_intro_subtitle' . crb_lang_slug()})) { ?>
                 <h3 class="h3 home-intro-subtitle">
                     <span>
-                        <?php echo (!empty($home_intro_subtitle)) ? $home_intro_subtitle : $site_tagline; ?>
+                        <?php echo ${'home_intro_subtitle' . crb_lang_slug()}; ?>
                     </span>
                 </h3>
+                <?php } ?>
             </div>
         </div>
     </div>

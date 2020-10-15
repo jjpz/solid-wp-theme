@@ -1,15 +1,15 @@
 <?php $team = get_items('member'); ?>
 
-<?php if (!empty($team) || !empty($home_team_title) || !empty($home_team_paragraph)) { ?>
+<?php if (!empty($team) || !empty(${'home_team_title' . crb_lang_slug()}) || !empty(${'home_team_paragraph' . crb_lang_slug()})) { ?>
 <section class="home-section-w-bg home-team">
-    <?php if (!empty($home_team_title) || !empty($home_team_paragraph)) { ?>
+    <?php if (!empty(${'home_team_title' . crb_lang_slug()}) || !empty(${'home_team_paragraph' . crb_lang_slug()})) { ?>
     <header class="section-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h3 class="h3 section-title"><?php echo $home_team_title; ?></h3>
+                    <h3 class="h3 section-title"><?php echo ${'home_team_title' . crb_lang_slug()}; ?></h3>
                     <div class="section-paragraph">
-                        <?php echo $home_team_paragraph; ?>
+                        <?php echo ${'home_team_paragraph' . crb_lang_slug()}; ?>
                     </div>
                 </div>
             </div>

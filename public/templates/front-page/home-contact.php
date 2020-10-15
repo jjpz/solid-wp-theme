@@ -1,9 +1,9 @@
-<?php if (!empty($home_contact_form) || !empty($home_contact_bigtext) || !empty($home_contact_paragraph)) { ?>
+<?php if (!empty(${'home_contact_form' . crb_lang_slug()}) || !empty(${'home_contact_bigtext' . crb_lang_slug()}) || !empty(${'home_contact_paragraph' . crb_lang_slug()})) { ?>
 <section class="home-section-pt home-contact">
     <div class="container">
         <div class="row align-items-baseline">
             <?php
-            if (!empty($home_contact_bigtext) && (!empty($home_contact_paragraph) || !empty($home_contact_form))) {
+            if (!empty(${'home_contact_bigtext' . crb_lang_slug()}) && (!empty(${'home_contact_paragraph' . crb_lang_slug()}) || !empty(${'home_contact_form' . crb_lang_slug()}))) {
                 $class = 'col-md-6';
                 $text_align = 'text-right';
             } else {
@@ -12,17 +12,17 @@
             }
             ?>
             <div class="<?php echo $class; ?>">
-                <?php if (!empty($home_contact_bigtext)) { ?>
-                <h1 class="home-contact-bigtext <?php echo $text_align; ?>"><?php echo $home_contact_bigtext; ?></h1>
+                <?php if (!empty(${'home_contact_bigtext' . crb_lang_slug()})) { ?>
+                <h1 class="home-contact-bigtext <?php echo $text_align; ?>"><?php echo ${'home_contact_bigtext' . crb_lang_slug()}; ?></h1>
                 <?php } ?>
             </div>
             <div class="<?php echo $class; ?>">
                 <div class="contact-form <?php echo $text_align; ?>">
-                    <?php if (!empty($home_contact_paragraph)) { ?>
-                    <?php echo $home_contact_paragraph; ?>
+                    <?php if (!empty(${'home_contact_paragraph' . crb_lang_slug()})) { ?>
+                    <?php echo ${'home_contact_paragraph' . crb_lang_slug()}; ?>
                     <?php } ?>
-                    <?php if (!empty($home_contact_form)) { ?>
-                    <?php echo do_shortcode($home_contact_form); ?>
+                    <?php if (!empty(${'home_contact_form' . crb_lang_slug()})) { ?>
+                    <?php echo do_shortcode(${'home_contact_form' . crb_lang_slug()}); ?>
                     <?php } ?>
                 </div>
             </div>

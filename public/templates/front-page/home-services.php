@@ -1,15 +1,15 @@
 <?php $services = get_items('service'); ?>
 
-<?php if (!empty($services) || !empty($home_services_title) || !empty($home_services_paragraph)) { ?>
+<?php if (!empty($services) || !empty(${'home_services_title' . crb_lang_slug()}) || !empty(${'home_services_paragraph' . crb_lang_slug()})) { ?>
 <section class="home-section home-services">
-    <?php if (!empty($home_services_title) || !empty($home_services_paragraph)) { ?>
+    <?php if (!empty(${'home_services_title' . crb_lang_slug()}) || !empty(${'home_services_paragraph' . crb_lang_slug()})) { ?>
     <header class="section-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h3 class="h3 section-title"><?php echo $home_services_title; ?></h3>
+                    <h3 class="h3 section-title"><?php echo ${'home_services_title' . crb_lang_slug()}; ?></h3>
                     <div class="section-paragraph">
-                        <?php echo $home_services_paragraph; ?>
+                        <?php echo ${'home_services_paragraph' . crb_lang_slug()}; ?>
                     </div>
                 </div>
             </div>
