@@ -22,11 +22,15 @@
         'container' => 'nav',
         'container_class' => 'main-nav'
         )); ?>
-        <?php wp_nav_menu(array(
-        'theme_location' => 'main-button',
-        'container' => 'nav',
-        'container_class' => 'button-nav'
-        )); ?>
+        <?php
+        if (has_nav_menu('main-button')) {
+            wp_nav_menu(array(
+            'theme_location' => 'main-button',
+            'container' => 'nav',
+            'container_class' => 'button-nav'
+            ));
+        }
+        ?>
     </div>
     <div class="nav-toggle">
         <a class="nav-toggle-link nav-toggle-open" href="#">

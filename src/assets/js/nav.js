@@ -11,9 +11,17 @@ if (siteHeader) {
 		let siteHeaderPadding = siteHeaderPaddingLeft + siteHeaderPaddingRight;
 		let siteBrandingWidth = siteHeader.querySelector('.site-branding')
 			.offsetWidth;
-		let mainNavWidth = siteHeader.querySelector('.main-nav').offsetWidth;
-		let buttonNavWidth = siteHeader.querySelector('.button-nav')
+		let mainNav = siteHeader.querySelector('.main-nav');
+		let mainNavWidth;
+		if (mainNav) {
+			mainNavWidth = siteHeader.querySelector('.main-nav').offsetWidth;
+		}
+		let buttonNav = siteHeader.querySelector('.button-nav');
+		let buttonNavWidth;
+		if (buttonNav) {
+			buttonNavWidth = siteHeader.querySelector('.button-nav')
 			.offsetWidth;
+		}
 		siteHeaderWidth =
 			siteBrandingWidth +
 			mainNavWidth +
