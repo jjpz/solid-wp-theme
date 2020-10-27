@@ -11,7 +11,7 @@ foreach ($options as $key => $value) {
     }
 }
 ?>
-<section class="home-intro offset-height">
+<section id="intro" class="home-intro offset-height">
     <div class="banner image home-intro-banner">
         <?php if (!empty($mobile_banner_id) || !empty($desktop_banner_id)) { ?>
         <img class="img img-cover lazy" src="" srcset="" data-desktop="<?php echo $desktop_banner_srcset; ?>"

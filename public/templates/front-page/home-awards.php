@@ -1,7 +1,7 @@
 <?php $awards = get_items('award'); ?>
 
 <?php if (!empty($awards) || !empty(${'home_awards_title' . crb_lang_slug()}) || !empty(${'home_awards_paragraph' . crb_lang_slug()})) { ?>
-<section class="home-section home-awards">
+<section id="awards" class="home-section home-awards">
     <?php if (!empty(${'home_awards_title' . crb_lang_slug()}) || !empty(${'home_awards_paragraph' . crb_lang_slug()})) { ?>
     <header class="section-header">
         <div class="container">

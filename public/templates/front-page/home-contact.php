@@ -1,5 +1,5 @@
 <?php if (!empty(${'home_contact_form' . crb_lang_slug()}) || !empty(${'home_contact_bigtext' . crb_lang_slug()}) || !empty(${'home_contact_paragraph' . crb_lang_slug()})) { ?>
-<section class="home-section-pt home-contact">
+<section id="contact" class="home-section-pt home-contact">
     <div class="container">
         <div class="row align-items-baseline">
             <?php

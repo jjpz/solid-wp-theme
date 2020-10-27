@@ -52,7 +52,7 @@ if (siteHeader) {
 			? offsetHeightElem.offsetHeight
 			: '';
 		if (offsetHeight != '' && !siteHeader.classList.contains('mobile')) {
-			if (windowScroll > offsetHeight) {
+			if (windowScroll >= offsetHeight) {
 				siteHeader.classList.add('sticky');
 			} else {
 				siteHeader.classList.remove('sticky');
@@ -79,4 +79,21 @@ if (siteHeader) {
 	
 	siteHeader.addEventListener('mouseenter', mouseEnterHandler);
 	siteHeader.addEventListener('mouseleave', mouseLeaveHandler);
+
+	let uls = siteHeader.querySelectorAll('ul.menu');
+	uls.forEach(ul => {
+		let lis = ul.querySelectorAll('li.menu-item:not(.lang-item)');
+		lis.forEach(li => {
+			let a = li.querySelector('a');
+			let href = a.href;
+			if (href.indexOf('#') != -1) {
+				let hash = href.substring(href.indexOf('#'));
+				let elem = document.querySelector(hash);
+				a.addEventListener('click', e => {
+					e.preventDefault();
+					elem.scrollIntoView({behavior: 'smooth'});
+				})
+			}
+		});
+	});
 }

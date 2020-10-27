@@ -1,7 +1,7 @@
 <?php $team = get_items('member'); ?>
 
 <?php if (!empty($team) || !empty(${'home_team_title' . crb_lang_slug()}) || !empty(${'home_team_paragraph' . crb_lang_slug()})) { ?>
-<section class="home-section-w-bg home-team">
+<section id="team" class="home-section-w-bg home-team">
     <?php if (!empty(${'home_team_title' . crb_lang_slug()}) || !empty(${'home_team_paragraph' . crb_lang_slug()})) { ?>
     <header class="section-header">
         <div class="container">

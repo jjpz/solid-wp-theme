@@ -1,6 +1,6 @@
 <?php if (!empty(${'home_about_paragraph' . crb_lang_slug()}) || !empty(${'home_about_bigtext' . crb_lang_slug()})) { ?>
 <?php (!empty($home_about_paragraph) && !empty(${'home_about_bigtext' . crb_lang_slug()})) ? $col = 2 : $col = 1; ?>
-<section class="home-section-w-bg home-about">
+<section id="about" class="home-section-w-bg home-about">
     <div class="container">
         <div class="row">
             <?php if ($col === 2) { ?>

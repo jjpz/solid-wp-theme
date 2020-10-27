@@ -1,7 +1,7 @@
 <?php $services = get_items('service'); ?>
 
 <?php if (!empty($services) || !empty(${'home_services_title' . crb_lang_slug()}) || !empty(${'home_services_paragraph' . crb_lang_slug()})) { ?>
-<section class="home-section home-services">
+<section id="services" class="home-section home-services">
     <?php if (!empty(${'home_services_title' . crb_lang_slug()}) || !empty(${'home_services_paragraph' . crb_lang_slug()})) { ?>
     <header class="section-header">
         <div class="container">
