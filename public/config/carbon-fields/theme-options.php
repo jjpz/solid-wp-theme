@@ -15,6 +15,8 @@ function crb_attach_theme_options() {
         ->add_fields( array(
             //Field::make( 'color', 'crb_color', 'Background' )
                 //->set_palette( array( '#FFFFFF', '#497096', '#184673' ) ),
+            Field::make( 'separator', 'crb_nav_separator', 'Navigation' ),
+            Field::make( 'image', 'crb_theme_nav_logo', __( 'Navigation Bar Logo' ) ),
             Field::make( 'separator', 'crb_contact_separator', 'Contact Information' ),
             Field::make( 'text', 'crb_theme_address_1', 'Address Line 1' )->set_classes( 'col-sm-6' ),
             Field::make( 'text', 'crb_theme_address_2', 'Address Line 2' )->set_classes( 'col-sm-6' ),

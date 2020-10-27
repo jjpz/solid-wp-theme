@@ -51,6 +51,7 @@ h1.site-title {
 	line-height: 1;
 	font-size: 30px;
 	color: var(--white);
+	transition: all 0.25s;
 }
 
 @media (max-width: 767px) {
@@ -203,6 +204,7 @@ h1.site-title {
 
 .site-header.active h1.site-title {
 	color: var(--dark-color);
+	transition: all 0.25s;
 }
 
 .site-header.active .main-nav a {
@@ -251,6 +253,7 @@ h1.site-title {
 
 .site-header.sticky h1.site-title {
 	color: var(--dark-color);
+	transition: all 0.25s;
 }
 
 .site-header.sticky .main-nav a {
@@ -287,6 +290,7 @@ h1.site-title {
 
 .site-header.fixed h1.site-title {
 	color: var(--dark-color);
+	transition: all 0.25s;
 }
 
 .site-header.fixed .main-nav a {
@@ -374,6 +378,32 @@ h1.site-title {
 }
 
 /* ICON */
+
+.nav-logo {
+	width: 30px;
+	height: 25px;
+	color: var(--white);
+	filter: brightness(0) invert(1);
+	transition: all 0.25s;
+}
+
+.site-header.active .nav-logo {
+	color: var(--dark-color);
+	filter: none;
+	transition: all 0.25s;
+}
+
+.site-header.sticky .nav-logo {
+	color: var(--dark-color);
+	filter: none;
+	transition: all 0.25s;
+}
+
+.site-header.fixed .nav-logo {
+	color: var(--dark-color);
+	filter: none;
+	transition: all 0.25s;
+}
 
 .icon-solid-star {
 	display: flex;
