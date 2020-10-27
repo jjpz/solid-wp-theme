@@ -5,13 +5,13 @@
 <header id="masthead" class="site-header" role="banner">
     <div class="site-header-bg"></div>
     <a class="site-branding" href="<?php echo get_home_url(); ?>">
+        <?php $nav_logo_id = carbon_get_theme_option('crb_theme_nav_logo'); ?>
+        <?php if (!empty($nav_logo_id)) { ?>
         <?php
-        $nav_logo_id = carbon_get_theme_option('crb_theme_nav_logo');
         $nav_logo_src = wp_get_attachment_image_src($nav_logo_id, 'full')[0];
         $nav_logo_title = get_the_title($nav_logo_id);
         $nav_logo_alt = get_post_meta( $nav_logo_id, '_wp_attachment_image_alt', true);
         ?>
-        <?php if (!empty($nav_logo_id)) { ?>
         <div class="site-logo">
             <!--<span class="icon-solid-star">
                 <svg class="svg-solid-star" width="30" height="25" viewBox="0 0 576 512">
