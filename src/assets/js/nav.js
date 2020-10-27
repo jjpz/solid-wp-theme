@@ -91,7 +91,17 @@ if (siteHeader) {
 				let elem = document.querySelector(hash);
 				a.addEventListener('click', e => {
 					e.preventDefault();
-					elem.scrollIntoView({behavior: 'smooth'});
+					if (body.classList.contains('home')) {
+						if (navToggle.classList.contains('on')) {
+							navToggle.classList.remove('on');
+						}
+						if (siteNav.classList.contains('show')) {
+							siteNav.classList.remove('show');
+						}
+						elem.scrollIntoView({behavior: 'smooth'});
+					} else {
+						window.location = siteURL + hash;
+					}
 				})
 			}
 		});

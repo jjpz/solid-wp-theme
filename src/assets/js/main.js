@@ -17,6 +17,10 @@ const next = document.querySelectorAll('a.team-next');
 
 const mobileBreakpoint = 769;
 
+if (php_vars) {
+	let siteURL = php_vars.site_url;
+}
+
 let windowWidth;
 let siteHeaderWidth;
 
