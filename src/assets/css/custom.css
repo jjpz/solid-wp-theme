@@ -326,8 +326,7 @@ article.post {
 }
 
 .entry-link {
-	display: flex;
-	align-items: center;
+	position: relative;
 	color: var(--dark-color);
 }
 
@@ -415,8 +414,13 @@ article.post {
 .svg-arrow-right {
 	width: 5px;
 	height: 15px;
-	margin-top: 5px;
 	margin-left: 25px;
+}
+
+.entry-link .svg-arrow-right {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .svg-crown {
