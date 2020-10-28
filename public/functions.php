@@ -64,7 +64,7 @@ function private_redirect() {
 	}
 }
 
-add_action( 'transition_post_status', 'wpse118970_post_status_new', 10, 3 );
+//add_action( 'transition_post_status', 'wpse118970_post_status_new', 10, 3 );
 function wpse118970_post_status_new( $new_status, $old_status, $post ) { 
     if ( $post->post_type == 'post' && $new_status == 'publish' && $old_status != $new_status ) {
         $post->post_status = 'private';
@@ -89,7 +89,7 @@ function private_posts_subscribers() {
 	$subRole = get_role( 'subscriber' );
 	$subRole->add_cap( 'read_private_posts' );
 }
-add_action( 'init', 'private_posts_subscribers' );
+//add_action( 'init', 'private_posts_subscribers' );
 
 //add_action('admin_init', 'check_lang');
 function check_lang () {
