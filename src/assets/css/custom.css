@@ -414,13 +414,8 @@ article.post {
 .svg-arrow-right {
 	width: 5px;
 	height: 15px;
+	margin-bottom: 10px;
 	margin-left: 25px;
-}
-
-.entry-link .svg-arrow-right {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 .svg-crown {
