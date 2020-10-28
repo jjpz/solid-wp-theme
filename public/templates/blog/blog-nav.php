@@ -1,7 +1,7 @@
 <?php
 $_posts = get_posts(array(
     'post_type' => 'post',
-    'post_status' => array('publish', 'private'),
+    'post_status' => 'publish',
     'numberposts' => '3'
 ));
 $categories = get_categories('post');
