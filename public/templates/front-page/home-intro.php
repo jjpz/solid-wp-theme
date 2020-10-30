@@ -29,11 +29,7 @@ foreach ($options as $key => $value) {
                 </h1>
                 <?php } ?>
                 <?php if (isset(${'home_intro_subtitle' . crb_lang_slug()}) && !empty(${'home_intro_subtitle' . crb_lang_slug()})) { ?>
-                <h3 class="h3 home-intro-subtitle">
-                    <span>
-                        <?php echo ${'home_intro_subtitle' . crb_lang_slug()}; ?>
-                    </span>
-                </h3>
+                <h3 class="h3 home-intro-subtitle"><?php echo ${'home_intro_subtitle' . crb_lang_slug()}; ?></h3>
                 <?php } ?>
             </div>
         </div>

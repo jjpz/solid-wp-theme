@@ -60,6 +60,12 @@ h1.site-title {
 	}
 }
 
+@media (max-width: 575px) {
+	h1.site-title {
+		font-size: 24px;
+	}
+}
+
 /* SITE NAV */
 
 .site-nav {

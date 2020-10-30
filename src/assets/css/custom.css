@@ -703,14 +703,10 @@ article.post {
 .home-intro-subtitle {
 	display: inline-block;
 	margin: 0;
-	line-height: 60px;
-	color: var(--white);
-}
-
-.home-intro-subtitle {
-	display: inline;
 	padding: 12px 15px;
+	line-height: 1.5;
 	background-color: var(--dark-color);
+	color: var(--white);
 	box-decoration-break: clone;
 	-webkit-box-decoration-break: clone;
 }
@@ -718,7 +714,7 @@ article.post {
 /* HOME ABOUT */
 
 .home-about-bigtext {
-	margin-top: -103px;
+	margin-top: -100vh;
 	line-height: 1;
 }
 
@@ -727,8 +723,8 @@ article.post {
 }
 
 @media (max-width: 767px) {
-	.home-about h1 {
-		margin-top: 0;
+	.home-about-bigtext {
+		margin-top: 15px;
 	}
 
 	.home-about p {

@@ -13,7 +13,7 @@
             ?>
             <div class="<?php echo $class; ?>">
                 <?php if (!empty(${'home_contact_bigtext' . crb_lang_slug()})) { ?>
-                <h1 class="home-contact-bigtext <?php echo $text_align; ?>"><?php echo ${'home_contact_bigtext' . crb_lang_slug()}; ?></h1>
+                <h1 class="bigtext home-contact-bigtext <?php echo $text_align; ?>"><?php echo ${'home_contact_bigtext' . crb_lang_slug()}; ?></h1>
                 <?php } ?>
             </div>
             <div class="<?php echo $class; ?>">

@@ -12,12 +12,12 @@ if (siteHeader) {
 		let siteBrandingWidth = siteHeader.querySelector('.site-branding')
 			.offsetWidth;
 		let mainNav = siteHeader.querySelector('.main-nav');
-		let mainNavWidth;
+		let mainNavWidth = 0;
 		if (mainNav) {
 			mainNavWidth = siteHeader.querySelector('.main-nav').offsetWidth;
 		}
 		let buttonNav = siteHeader.querySelector('.button-nav');
-		let buttonNavWidth;
+		let buttonNavWidth = 0;
 		if (buttonNav) {
 			buttonNavWidth = siteHeader.querySelector('.button-nav')
 			.offsetWidth;
