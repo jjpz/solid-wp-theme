@@ -383,25 +383,25 @@ h1.site-title {
 	width: 30px;
 	height: 25px;
 	color: var(--white);
-	filter: brightness(0) invert(1);
+	filter: var(--filter-white);
 	transition: all 0.25s;
 }
 
 .site-header.active .nav-logo {
 	color: var(--dark-color);
-	filter: none;
+	filter: var(--filter-dark-color);
 	transition: all 0.25s;
 }
 
 .site-header.sticky .nav-logo {
 	color: var(--dark-color);
-	filter: none;
+	filter: var(--filter-dark-color);
 	transition: all 0.25s;
 }
 
 .site-header.fixed .nav-logo {
 	color: var(--dark-color);
-	filter: none;
+	filter: var(--filter-dark-color);
 	transition: all 0.25s;
 }
 

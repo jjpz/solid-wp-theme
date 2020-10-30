@@ -97,10 +97,22 @@
                 <?php } ?>
             </div>
         </div>
-        <div class="site-by-solid">
-            <a href="https://solidmiami.com/" target="_blank">Site by Solid</a>
-            <span>&copy;</span>
-            <span><?php echo date('Y'); ?></span>
+        <div class="footer-info">
+            <?php
+            if (has_nav_menu('footer-links')) {
+                wp_nav_menu(array(
+                    'theme_location' => 'footer-links',
+                    'container' => 'nav',
+                    'container_class' => 'footer-links'
+                ));
+            }
+            ?>
+            <div class="copyright">
+                <a href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a>
+                <span>&copy;</span>
+                <span><?php echo date('Y'); ?></span>
+                <a class="site-by-solid" href="https://solidmiami.com/" target="_blank">Site by Solid</a>
+            </div>
         </div>
     </div>
 </footer>

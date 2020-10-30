@@ -136,7 +136,10 @@
 
 :root {
 	--white: #ffffff;
+	--filter-white: brightness(0) invert(1);
 	--dark-color: #054427;
+	--filter-dark-color: invert(19%) sepia(24%) saturate(2074%)
+		hue-rotate(108deg) brightness(92%) contrast(96%);
 	--light-color: #dae3df;
 	--bg-color: #eaeaea;
 	--bg-color: rgba(234, 234, 234, 1);

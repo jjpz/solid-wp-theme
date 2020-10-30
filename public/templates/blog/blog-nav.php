@@ -32,7 +32,7 @@ $categories = get_categories('post');
 
     <?php if (isset($_posts) && !empty($_posts)) { ?>
     <div class="side-nav right-nav post-nav">
-        <h4 class="h4 side-nav-menu-title">Latest Review Articles</h4>
+        <h4 class="h4 side-nav-menu-title">Latest Articles</h4>
         <ul class="side-nav-menu">
             <?php
             foreach ($_posts as $_post) {
@@ -45,13 +45,13 @@ $categories = get_categories('post');
                     $cat_name = $cat->name;
                 }
             ?>
-            <li class="side-nav-item">
+            <li class="side-nav-item post-nav-item">
                 <div class="post-nav-cat"><?php echo $cat_name; ?></div>
                 <a class="post-nav-title" href="<?php echo $link; ?>"><?php echo $title; ?></a>
             </li>
             <?php } ?>
             <?php wp_reset_postdata(); ?>
-            <li class="side-nav-item post-nav-item">
+            <li class="side-nav-item post-nav-see-all">
                 <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="see-all-link">See
                     All</a>
             </li>

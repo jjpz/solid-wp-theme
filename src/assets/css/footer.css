@@ -51,6 +51,60 @@ body.desktop a.btn-social:hover {
 	transition: all 0.25s;
 }
 
+.footer-info {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 95px;
+}
+
+.footer-links {
+	margin: 5px 0;
+}
+
+.footer-links ul {
+	display: flex;
+	list-style: none;
+	margin: 0 -7.5px;
+	padding: 0;
+}
+
+.footer-links ul li {
+	margin: 0 7.5px;
+}
+
+.footer-links ul li a {
+	line-height: 1;
+	font-size: 16px;
+	opacity: 0.5;
+}
+
+body.desktop .footer-links ul li a:hover {
+	opacity: 1;
+	transition: all 0.25s;
+}
+
+.copyright {
+	margin: 5px 0;
+}
+
+.copyright a,
+.copyright span {
+	line-height: 1;
+	font-size: 16px;
+	opacity: 0.5;
+}
+
+.site-by-solid {
+	margin-left: 15px;
+}
+
+body.desktop .copyright a:hover {
+	opacity: 1;
+	transition: all 0.25s;
+}
+
 @media (max-width: 767px) {
 	.footer-address p {
 		flex-direction: column;
@@ -59,36 +113,15 @@ body.desktop a.btn-social:hover {
 	.footer-address span.footer-comma {
 		display: none;
 	}
-}
 
-/* SITE BY SOLID */
-
-.site-by-solid {
-	margin-top: 98px;
-	line-height: 1;
-	text-align: right;
-}
-
-.site-by-solid > a,
-.site-by-solid > span {
-	line-height: 1;
-	font-size: 16px;
-	opacity: 0.5;
-}
-
-body.desktop .site-by-solid > a:hover {
-	opacity: 1;
-	transition: all 0.25s;
-}
-
-@media (max-width: 767px) {
-	.site-by-solid {
+	.footer-info {
+		justify-content: center;
 		margin-top: 60px;
-		text-align: center;
 	}
 
-	.site-by-solid > a,
-	.site-by-solid > span {
+	.footer-links ul li a,
+	.copyright a,
+	.copyright span {
 		font-size: 14px;
 	}
 }

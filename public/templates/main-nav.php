@@ -26,17 +26,19 @@
         <h1 class="site-title"><?php echo get_bloginfo('name'); ?></h1>
     </a>
     <div class="site-nav">
-        <?php wp_nav_menu(array(
-        'theme_location' => 'main',
-        'container' => 'nav',
-        'container_class' => 'main-nav'
-        )); ?>
         <?php
+        if (has_nav_menu('main')) {
+            wp_nav_menu(array(
+                'theme_location' => 'main',
+                'container' => 'nav',
+                'container_class' => 'main-nav'
+            ));
+        }
         if (has_nav_menu('main-button')) {
             wp_nav_menu(array(
-            'theme_location' => 'main-button',
-            'container' => 'nav',
-            'container_class' => 'button-nav'
+                'theme_location' => 'main-button',
+                'container' => 'nav',
+                'container_class' => 'button-nav'
             ));
         }
         ?>

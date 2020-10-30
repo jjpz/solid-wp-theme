@@ -41,7 +41,7 @@ body.home main.mobile {
 }
 
 main.page-main {
-	margin-top: 120px;
+	margin-top: 210px;
 }
 
 h1,
@@ -221,6 +221,7 @@ img {
 .right-nav {
 	padding: 30px 0 30px 30px;
 	border-left: 1px solid rgba(47, 80, 136, 0.15);
+	border-bottom: 1px solid rgba(47, 80, 136, 0.15);
 }
 
 .side-nav-menu-title {
@@ -238,11 +239,18 @@ ul.side-nav-menu {
 li.side-nav-item {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 30px;
 }
 
 li.cat-nav-item {
 	margin-bottom: 15px;
+}
+
+li.post-nav-item {
+	margin-bottom: 60px;
+}
+
+li.post-nav-see-all {
+	margin-bottom: 30px;
 }
 
 .cat-nav-title {
@@ -291,7 +299,6 @@ li.cat-nav-item {
 	.right-nav {
 		padding: 0;
 		border-left: none;
-		border-bottom: 1px solid rgba(47, 80, 136, 0.15);
 	}
 
 	.post-nav,
@@ -711,7 +718,6 @@ article.post {
 /* HOME ABOUT */
 
 .home-about-bigtext {
-	max-width: 75%;
 	margin-top: -103px;
 	line-height: 1;
 }
