@@ -1,9 +1,14 @@
 <?php
-$_posts = get_posts(array(
+$args = array(
     'post_type' => 'post',
-    'post_status' => 'publish',
     'numberposts' => '3'
-));
+);
+if (is_user_logged_in() && (current_user_can('editor') || current_user_can('administrator'))) {
+    $args['post_status'] = array('publish', 'private');
+} else {
+    $args['post_status'] = 'publish';
+}
+$_posts = get_posts($args);
 $categories = get_categories('post');
 ?>
 <aside id="sidebar" class="col-lg-3 offset-lg-1 order-lg-2 blog-nav">
