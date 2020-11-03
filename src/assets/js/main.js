@@ -91,7 +91,11 @@ let slideDown = (target, duration) => {
 	target.classList.add('open');
 
 	window.setTimeout(() => {
-		target.style.height = height + 'px';
+		if (body.classList.contains('mobile')) {
+			target.style.height = height + 30 + 'px';
+		} else {
+			target.style.height = height + 'px';
+		}
 	}, 25);
 };
 

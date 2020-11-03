@@ -119,6 +119,7 @@ body.desktop .copyright a:hover {
 	}
 
 	.footer-info {
+		flex-direction: column;
 		justify-content: center;
 		margin-top: 60px;
 	}

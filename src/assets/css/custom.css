@@ -176,6 +176,7 @@ img {
 
 .page-title {
 	margin: 0;
+	line-height: 1;
 }
 
 .page-content {
@@ -194,6 +195,7 @@ img {
 
 .blog-title {
 	margin: 0;
+	line-height: 1;
 	font-weight: 100;
 	text-align: center;
 }
@@ -746,7 +748,7 @@ h1.bigtext.home-about-bigtext {
 }
 
 @media (max-width: 767px) {
-	.home-about-bigtext {
+	h1.bigtext.home-about-bigtext {
 		margin-top: 15px;
 	}
 
@@ -985,17 +987,17 @@ body.desktop .team-nav .team-next:hover .icon-caret {
 
 /* HOME CONTACT */
 
-.home-contact-bigtext {
+h1.bigtext.home-contact-bigtext {
 	line-height: 1;
 	text-align: right;
 }
 
-.home-contact-bigtext.text-center {
+h1.bigtext.home-contact-bigtext.text-center {
 	text-align: center;
 }
 
 @media (max-width: 767px) {
-	.home-contact-bigtext {
+	h1.bigtext.home-contact-bigtext {
 		margin-bottom: 30px;
 		text-align: left;
 	}
