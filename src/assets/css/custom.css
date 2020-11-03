@@ -50,7 +50,6 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0;
 }
 
 p {
@@ -120,6 +119,8 @@ img {
 .site-nav li.lang-item a:hover {
 	border-color: transparent;
 	background-color: transparent;
+	opacity: 0.9;
+	transition: all 0.25s;
 }
 
 .site-header.active .site-nav li.lang-item {
@@ -135,7 +136,7 @@ img {
 .site-header.active .site-nav li.lang-item a:hover {
 	background-color: transparent;
 	color: var(--dark-color);
-	opacity: 0.5;
+	opacity: 0.9;
 	transition: all 0.25s;
 }
 
@@ -173,6 +174,10 @@ img {
 
 /* PAGES */
 
+.page-title {
+	margin: 0;
+}
+
 .page-content {
 	margin-top: 15px;
 }
@@ -182,13 +187,19 @@ img {
 .blog-header {
 	min-height: 120px;
 	margin-bottom: 60px;
-	padding: 30px;
+	padding-top: 60px;
+	padding-bottom: 60px;
 	background-color: var(--bg-color);
 }
 
 .blog-title {
+	margin: 0;
 	font-weight: 100;
 	text-align: center;
+}
+
+.blog-title a {
+	color: var(--dark-color);
 }
 
 .blog-content {
@@ -202,6 +213,7 @@ img {
 }
 
 .archive-title {
+	margin: 0;
 	font-weight: bold;
 	text-align: center;
 }
@@ -216,6 +228,14 @@ img {
 
 .side-nav {
 	margin-bottom: 60px;
+}
+
+.side-nav h4 {
+	margin-top: 0;
+}
+
+.side-nav a h4 {
+	margin: 0;
 }
 
 .right-nav {
@@ -324,6 +344,7 @@ article.post {
 }
 
 .entry-category {
+	margin: 0;
 	font-weight: bold;
 }
 
@@ -670,6 +691,7 @@ article.post {
 
 .section-title {
 	display: inline-block;
+	margin-top: 0;
 	margin-bottom: 60px;
 	padding: 10px 15px;
 	background: var(--dark-color);
@@ -696,6 +718,7 @@ article.post {
 }
 
 .home-intro-title {
+	margin-top: 0;
 	margin-bottom: 15px;
 	line-height: 1;
 }
@@ -713,8 +736,8 @@ article.post {
 
 /* HOME ABOUT */
 
-.home-about-bigtext {
-	margin-top: -100vh;
+h1.bigtext.home-about-bigtext {
+	margin-top: -100px;
 	line-height: 1;
 }
 
@@ -733,6 +756,12 @@ article.post {
 }
 
 /* HOME AWARDS */
+
+.home-awards {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 120px;
+}
 
 .award {
 	display: flex;
@@ -759,6 +788,13 @@ article.post {
 }
 
 /* HOME SERVICES */
+
+.home-services {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
 
 .service-card {
 	display: flex;
@@ -789,6 +825,10 @@ article.post {
 	width: 100%;
 	margin-bottom: 30px;
 	text-align: left;
+}
+
+.service-title h2 {
+	margin: 0;
 }
 
 @media (max-width: 767px) {
@@ -832,6 +872,10 @@ article.post {
 	margin-bottom: 15px;
 }
 
+.member-name h3 {
+	margin: 0;
+}
+
 .member-title {
 	margin-bottom: 15px;
 }
@@ -870,6 +914,10 @@ body.desktop .member-card:hover .icon-caret {
 
 .team-popup-name {
 	margin-bottom: 10px;
+}
+
+.team-popup-name h3 {
+	margin: 0;
 }
 
 .team-popup-title {

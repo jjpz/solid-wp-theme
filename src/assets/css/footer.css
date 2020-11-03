@@ -10,6 +10,10 @@
 	color: var(--white);
 }
 
+.footer-title h2 {
+	margin: 0;
+}
+
 .footer-contact {
 	margin-top: 15px;
 }

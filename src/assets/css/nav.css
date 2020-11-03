@@ -41,6 +41,11 @@
 	z-index: 1;
 }
 
+body.desktop .site-branding:hover {
+	opacity: 0.9;
+	transition: all 0.25s;
+}
+
 .site-logo {
 	display: inline-flex;
 	margin-right: 15px;
@@ -48,6 +53,7 @@
 
 h1.site-title {
 	display: inline-flex;
+	margin: 0;
 	line-height: 1;
 	font-size: 30px;
 	color: var(--white);
@@ -218,7 +224,7 @@ h1.site-title {
 }
 
 .site-header.active .main-nav a:hover {
-	opacity: 0.25;
+	opacity: 0.9;
 	transition: all 0.25s;
 }
 
@@ -267,7 +273,7 @@ h1.site-title {
 }
 
 .site-header.sticky .main-nav a:hover {
-	opacity: 0.25;
+	opacity: 0.9;
 	transition: all 0.25s;
 }
 
@@ -304,7 +310,7 @@ h1.site-title {
 }
 
 .site-header.fixed .main-nav a:hover {
-	opacity: 0.25;
+	opacity: 0.9;
 	transition: all 0.25s;
 }
 
@@ -361,7 +367,7 @@ h1.site-title {
 }
 
 .site-nav.mobile .main-nav a:hover {
-	opacity: 0.25;
+	opacity: 0.9;
 	transition: all 0.25s;
 }
 

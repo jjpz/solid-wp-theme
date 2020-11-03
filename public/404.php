@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-<main id="primary" class="site-main">
+<?php get_template_part('includes/vars'); ?>
+<main id="main" class="site-main page-main">
     <section class="error-404 not-found">
         <div class="container">
             <header class="page-header">
