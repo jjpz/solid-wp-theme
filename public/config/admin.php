@@ -37,3 +37,13 @@ add_filter('login_headertext', function () {
 function solid_admin_favicon() {
 	echo '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/favicons/favicon.ico">';
 }
+
+add_action( 'init', 'cp_change_post_object' );
+// Change dashboard Posts to Blog Posts
+function cp_change_post_object() {
+    $get_post_type = get_post_type_object('post');
+    $labels = $get_post_type->labels;
+        $labels->name = 'Blog Posts';
+        $labels->menu_name = 'Blog Posts';
+        $labels->all_items = 'All Blog Posts';
+}
