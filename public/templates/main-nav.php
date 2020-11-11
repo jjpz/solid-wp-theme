@@ -1,7 +1,7 @@
 <?php if (has_nav_menu('main') || has_nav_menu('main-button')) { ?>
-<?php $main_menu = wp_get_nav_menu_items('main'); ?>
-<?php $main_btn = wp_get_nav_menu_items('main-button'); ?>
-<?php if (!empty($main_menu) || !empty($main_btn)) { ?>
+<?php //$main_menu = wp_get_nav_menu_items('main'); ?>
+<?php //$main_btn = wp_get_nav_menu_items('main-button'); ?>
+<?php //if (!empty($main_menu) || !empty($main_btn)) { ?>
 <header id="masthead" class="site-header" role="banner">
     <div class="site-header-bg"></div>
     <a class="site-branding" href="<?php echo get_home_url(); ?>">
@@ -54,5 +54,5 @@
         </a>
     </div>
 </header>
-<?php } ?>
+<?php //} ?>
 <?php } ?>

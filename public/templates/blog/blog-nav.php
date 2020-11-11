@@ -57,8 +57,7 @@ $categories = get_categories('post');
             <?php } ?>
             <?php wp_reset_postdata(); ?>
             <li class="side-nav-item post-nav-see-all">
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="see-all-link">See
-                    All</a>
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="see-all-link">All Articles</a>
             </li>
         </ul>
     </div>

@@ -113,6 +113,7 @@
                 <a href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a>
                 <span>&copy;</span>
                 <span><?php echo date('Y'); ?></span>
+                <a class="admin-login" href="<?php echo wp_login_url(); ?>">Admin Login</a>
                 <a class="site-by-solid" href="https://solidmiami.com/" target="_blank">Site by Solid</a>
             </div>
         </div>

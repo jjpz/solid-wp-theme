@@ -32,6 +32,10 @@ body.home .site-content {
 	margin: 0;
 }
 
+body.single-post .site-content {
+	margin-bottom: 60px;
+}
+
 body.home main {
 	margin: 0 auto;
 }
@@ -173,6 +177,10 @@ img {
 /* BASE */
 
 /* PAGES */
+
+.page-header {
+	margin-bottom: 60px;
+}
 
 .page-title {
 	margin: 0;
@@ -345,6 +353,10 @@ article.post {
 	margin-bottom: 60px;
 }
 
+body.single-post article.post {
+	margin-bottom: 120px;
+}
+
 .entry-category {
 	margin: 0;
 	font-weight: bold;
@@ -379,6 +391,10 @@ article.post {
 	margin: 0;
 	border: none;
 	background: rgba(47, 80, 136, 0.15);
+}
+
+.blog-home-link {
+	text-align: right;
 }
 
 /* ICONS */
