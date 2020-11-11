@@ -51,6 +51,8 @@ if ( isset($categories) && !empty($categories) ) {
     <hr class="entry-divider">
 </article>
 
+<?php if (is_singular('post')) { ?>
 <div class="blog-home-link">
     <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="see-all-link">All Articles</a>
 </div>
+<?php } ?>
