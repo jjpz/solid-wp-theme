@@ -9,6 +9,7 @@ if (
 	const navToggle = siteHeader.querySelector('.nav-toggle');
 }
 const siteMain = document.querySelector('.site-main');
+const homeIntroBanner = document.querySelector('.home-intro-banner');
 const siteFooter = document.querySelector('.site-footer');
 const images = document.querySelectorAll('.image');
 const popups = document.querySelectorAll('[data-toggle="popup"]');

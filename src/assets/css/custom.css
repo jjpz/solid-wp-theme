@@ -722,6 +722,10 @@ body.single-post article.post {
 	height: 100vh;
 }
 
+.home-intro-banner.mobile {
+	height: calc(100vh - 80px);
+}
+
 .home-intro-content {
 	display: flex;
 	position: absolute;
@@ -750,6 +754,23 @@ body.single-post article.post {
 	color: var(--white);
 	box-decoration-break: clone;
 	-webkit-box-decoration-break: clone;
+}
+
+.home-intro-image {
+	width: 100%;
+	max-width: 50%;
+}
+
+@media (max-width: 991px) {
+	.home-intro-image {
+		max-width: 75%;
+	}
+}
+
+@media (max-width: 767px) {
+	.home-intro-image {
+		max-width: 90%;
+	}
 }
 
 /* HOME ABOUT */

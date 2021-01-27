@@ -14,6 +14,8 @@ $desktop_banner_alt = get_post_meta( $desktop_banner_id, '_wp_attachment_image_a
 // Intro Content
 $home_intro_title = nl2br(carbon_get_theme_option('crb_home_intro_title'));
 $home_intro_subtitle = nl2br(carbon_get_theme_option('crb_home_intro_subtitle'));
+$home_intro_image_id = carbon_get_theme_option('crb_home_intro_image');
+$home_intro_image = wp_get_attachment_image_src($home_intro_image_id, 'full')[0];
 ${'home_intro_title' . crb_lang_slug()} = nl2br(get_option('_crb_home_intro_title' . crb_lang_slug()));
 ${'home_intro_subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_intro_subtitle' . crb_lang_slug()));
 // About

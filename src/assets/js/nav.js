@@ -37,11 +37,13 @@ if (siteHeader) {
 			siteMain.classList.add('mobile');
 			siteNav.classList.add('mobile');
 			navToggle.classList.add('show');
+			homeIntroBanner.classList.add('mobile');
 		} else {
 			siteHeader.classList.remove('mobile', 'fixed');
 			siteMain.classList.remove('mobile');
 			siteNav.classList.remove('mobile');
 			navToggle.classList.remove('show');
+			homeIntroBanner.classList.remove('mobile');
 		}
 	}
 

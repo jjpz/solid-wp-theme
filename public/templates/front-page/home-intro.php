@@ -22,6 +22,11 @@ foreach ($options as $key => $value) {
         <div class="lazy-overlay on"></div>
         <?php } ?>
         <div class="home-intro-content">
+            <?php if (!empty($home_intro_image_id)) { ?>
+            <div class="home-intro-image">
+                <img src="<?php echo $home_intro_image; ?>" />
+            </div>
+            <?php } else { ?>
             <div class="container">
                 <?php if (isset(${'home_intro_title' . crb_lang_slug()}) && !empty(${'home_intro_title' . crb_lang_slug()})) { ?>
                 <h1 class="home-intro-title">
@@ -32,6 +37,7 @@ foreach ($options as $key => $value) {
                 <h3 class="h3 home-intro-subtitle"><?php echo ${'home_intro_subtitle' . crb_lang_slug()}; ?></h3>
                 <?php } ?>
             </div>
+            <?php } ?>
         </div>
     </div>
 </section>
