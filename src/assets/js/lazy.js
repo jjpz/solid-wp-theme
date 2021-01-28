@@ -1,3 +1,5 @@
+import {checkImages} from './images';
+
 document.addEventListener('DOMContentLoaded', intersectionObserver);
 function intersectionObserver() {
 	checkImages();

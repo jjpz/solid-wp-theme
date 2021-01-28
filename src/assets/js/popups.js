@@ -1,5 +1,8 @@
-// Team member popups
+const popups = document.querySelectorAll('[data-toggle="popup"]');
+const prev = document.querySelectorAll('a.team-prev');
+const next = document.querySelectorAll('a.team-next');
 
+// Team member popups
 popups.forEach(popup => {
 	popup.addEventListener('click', function (e) {
 		e.preventDefault();
@@ -10,12 +13,10 @@ popups.forEach(popup => {
 		content.scroll(0, 0);
 		document.body.classList.toggle('no-scroll');
 		pop.classList.toggle(classes);
-		//console.log();
 	});
 });
 
-// Team member popups navigation
-
+// Team member popup navigation
 function getPopup(button) {
 	let target = button.dataset.target;
 	let popup = document.getElementById(target);
@@ -24,6 +25,7 @@ function getPopup(button) {
 	return { popup, content, close };
 }
 
+// Team member popup navigation previous button
 prev.forEach(button => {
 	button.addEventListener('click', function (e) {
 		e.preventDefault();
@@ -37,6 +39,7 @@ prev.forEach(button => {
 	});
 });
 
+// Team member popup navigation next button
 next.forEach(button => {
 	button.addEventListener('click', function (e) {
 		e.preventDefault();

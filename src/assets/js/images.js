@@ -1,6 +1,11 @@
-function checkImages() {
-	checkWindowWidth();
-	if (body.classList.contains('home')) {
+import {checkWindowWidth} from './general';
+
+const mobileBreakpoint = 769;
+const images = document.querySelectorAll('.image');
+
+export function checkImages() {
+	let windowWidth = checkWindowWidth();
+	if (document.body.classList.contains('home')) {
 		images.forEach(image => {
 			//console.log(image);
 			let img = image.getElementsByTagName('img')[0];
