@@ -1,0 +1,13 @@
+{
+	"name": "jjpz/solid",
+	"description": "",
+	"config": {
+		"vendor-dir": "public/vendor"
+	},
+	"require": {
+		"htmlburger/carbon-fields": "^3.1"
+	},
+	"require-dev": {
+		"sentry/sdk": "^3.1"
+	}
+}
