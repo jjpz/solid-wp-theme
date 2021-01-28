@@ -1,3 +1,4 @@
+const path = require('path');
 const { src, dest, watch } = require('gulp');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
@@ -6,6 +7,7 @@ const autoprefix = require('gulp-autoprefixer');
 const concatCSS = require('gulp-concat-css');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
+const webpack = require('webpack-stream');
 
 function adminCSS() {
 	return src([
@@ -39,17 +41,31 @@ function css() {
 }
 
 function js() {
-	return src([
-		'src/assets/js/main.js',
-		'src/assets/js/lazy.js',
-		'src/assets/js/images.js',
-		'src/assets/js/nav.js',
-		'src/assets/js/popups.js',
-		'src/assets/js/custom.js',
-	])
-		.pipe(babel({ presets: ['@babel/env'] }))
-		.pipe(concat('script.js'))
-		.pipe(uglify())
+	//return src(['src/assets/js/main.js', 'src/assets/js/lazy.js', 'src/assets/js/images.js', 'src/assets/js/nav.js', 'src/assets/js/popups.js', 'src/assets/js/custom.js'])
+	return src('src/assets/js/*.js')
+		//.pipe(babel({ presets: ['@babel/env'] }))
+		//.pipe(concat('script.js'))
+		//.pipe(uglify())
+		.pipe(webpack({
+			mode: 'production',
+			output: {
+				filename: 'script.js'
+			},
+			module: {
+				rules: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						use: {
+							loader: 'babel-loader',
+							options: {
+								presets: ['@babel/preset-env']
+							}
+						}
+					}
+				]
+			},
+		}))
 		.pipe(dest('public/assets/js/'))
 		.pipe(browserSync.stream());
 }
@@ -58,7 +74,7 @@ exports.default = () => {
 	browserSync.init({
 		proxy: 'http://localhost/solid',
 		port: 3000,
-		open: true,
+		open: false,
 	});
 	watch([
 		'public/*.php',
