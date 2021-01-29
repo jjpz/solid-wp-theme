@@ -1,11 +1,11 @@
 html,
 body {
 	line-height: 1.25;
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-style: normal;
 	font-weight: normal;
-	color: var(--dark-color);
+	color: var(--color-dark-hex);
 	letter-spacing: normal;
 	word-spacing: normal;
 	font-kerning: normal;
@@ -25,7 +25,7 @@ h6 {
 }
 
 h1 {
-	font-family: var(--heading-font);
+	font-family: var(--font-heading-1);
 	font-size: 115px;
 }
 
@@ -36,39 +36,40 @@ h1.bigtext {
 
 h2 {
 	line-height: 1;
-	font-family: var(--heading-font);
+	font-family: var(--font-heading-2);
 	font-size: 60px;
 }
 
 h3 {
-	font-family: var(--heading-font);
+	font-family: var(--font-heading-3);
 	font-size: 30px;
 }
 
 h3.h3 {
-	font-family: var(--main-font);
+	font-family: var(--font-heading-3-alt);
 	font-size: 30px;
 }
 
 h4 {
-	font-family: var(--main-font);
+	font-family: var(--font-heading-4);
 	font-size: 16px;
 }
 
 h4.h4 {
-	font-family: var(--main-font);
+	font-family: var(--font-heading-4-alt);
 	font-size: 16px;
 }
 
 p {
 	line-height: 1.5;
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-style: normal;
 	font-weight: normal;
 }
 
 p.p2 {
+	font-family: var(--font-main-small);
 	font-size: 16px;
 }
 

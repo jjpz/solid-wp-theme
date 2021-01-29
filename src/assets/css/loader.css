@@ -1,26 +1,27 @@
 /* LOADER */
 
 .overlay {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background: #fff;
+	background-color: white;
 	opacity: 1;
 	visibility: visible;
 	z-index: 999;
 }
 
 .loader {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -55%);
-	width: 100%;
-	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	transform: translateY(-5%);
 	padding: 0 15px;
 	text-align: center;
 	opacity: 1;
@@ -41,14 +42,16 @@
 }
 
 .loader-logo {
-	width: 110px;
-	height: 62px;
-	margin: 0 auto 10px;
+	width: 100px;
+	height: auto;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	font-size: 0;
 }
 
 .svg-loader {
-	width: 110px;
-	height: 62px;
+	width: 100px;
+	height: 100px;
 }
 
 .spinner {
@@ -56,42 +59,31 @@
 	width: 100px;
 	height: 5px;
 	margin: 0 auto;
-	background: rgba(51, 51, 51, 0.25);
+	background-color: var(--color-light);
 	overflow: hidden;
 }
 
 .spinner::before {
 	content: '';
 	position: absolute;
-	left: -105%;
+	left: -101%;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	animation: progress 3s linear infinite;
+	background-color: var(--color-dark-hex);
+	animation: progress 2.5s linear infinite;
 }
 
 @keyframes progress {
 	0% {
-		left: -105%;
+		left: -101%;
 	}
 	50% {
-		left: 105%;
-	}
-}
-
-@keyframes progress2 {
-	0% {
-		left: -105%;
-		background: rgba(0, 0, 0, 0.5);
-	}
-	50% {
-		left: 105%;
-		background: rgba(0, 0, 0, 0.5);
+		left: 101%;
 	}
 	51% {
-		background: rgba(255, 255, 255, 0.5);
+		left: 101%;
 	}
 	100% {
-		background: rgba(255, 255, 255, 0.5);
+		left: -101%;
 	}
 }

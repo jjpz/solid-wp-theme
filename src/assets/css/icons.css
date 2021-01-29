@@ -1,0 +1,98 @@
+/* ICONS */
+
+.icon-award {
+	display: inline-flex;
+	width: 26px;
+	height: 67px;
+	color: var(--color-light);
+}
+
+.icon-caret {
+	display: inline-flex;
+	width: 5px;
+	height: 13px;
+	margin-left: 10px;
+	color: var(--color-dark-hex);
+	opacity: 0.5;
+	transition: all 0.25s;
+}
+
+.icon-caret-left {
+	margin-right: 10px;
+	transform: rotate(180deg);
+}
+
+.icon-contact {
+	width: 175px;
+	height: auto;
+	margin-top: 60px;
+	margin-bottom: -30px;
+	font-size: 0;
+	color: var(--color-dark-hex);
+}
+
+.arrow-down-small {
+	transform: rotate(90deg);
+	transition: all 0.25s;
+}
+
+.toggle-trigger.toggled > .arrow-down-small {
+	transform: rotate(-90deg);
+	transition: all 0.25s;
+}
+
+@media (max-width: 767px) {
+	.icon-contact {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/* SVGs */
+
+.svg-award {
+	width: 26px;
+	height: 67px;
+}
+
+.svg-caret {
+	width: 5px;
+	height: 13px;
+}
+
+.svg-arrow-right {
+	width: 5px;
+	height: 15px;
+	margin-bottom: 10px;
+	margin-left: 25px;
+}
+
+.svg-contact {
+	width: 200px;
+	height: 200px;
+}
+
+.svg-facebook {
+	width: 13px;
+	height: 21px;
+}
+
+.svg-instagram {
+	width: 18px;
+	height: 21px;
+}
+
+.svg-linkedin {
+	width: 18px;
+	height: 21px;
+}
+
+.svg-twitter {
+	width: 21px;
+	height: 21px;
+}
+
+.svg-youtube {
+	width: 24px;
+	height: 21px;
+}

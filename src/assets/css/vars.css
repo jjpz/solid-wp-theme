@@ -1,61 +1,7 @@
 /* FONTS */
 
 @font-face {
-	font-family: 'Palatino Linotype';
-	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Bold.eot');
-	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Bold.eot?#iefix')
-			format('embedded-opentype'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Bold.woff2')
-			format('woff2'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Bold.woff')
-			format('woff'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Bold.ttf')
-			format('truetype'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Bold.svg#PalatinoLinotype-Bold')
-			format('svg');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Palatino Linotype';
-	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-BoldItalic.eot');
-	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-BoldItalic.eot?#iefix')
-			format('embedded-opentype'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-BoldItalic.woff2')
-			format('woff2'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-BoldItalic.woff')
-			format('woff'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-BoldItalic.ttf')
-			format('truetype'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-BoldItalic.svg#PalatinoLinotype-BoldItalic')
-			format('svg');
-	font-weight: bold;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Palatino Linotype';
-	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Italic.eot');
-	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Italic.eot?#iefix')
-			format('embedded-opentype'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Italic.woff2')
-			format('woff2'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Italic.woff')
-			format('woff'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Italic.ttf')
-			format('truetype'),
-		url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Italic.svg#PalatinoLinotype-Italic')
-			format('svg');
-	font-weight: normal;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Palatino Linotype';
+	font-family: 'Palatino Linotype Roman';
 	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Roman.eot');
 	src: url('assets/fonts/PalatinoLinotype/PalatinoLinotype-Roman.eot?#iefix')
 			format('embedded-opentype'),
@@ -73,7 +19,7 @@
 }
 
 @font-face {
-	font-family: 'Myriad Pro';
+	font-family: 'Myriad Pro Regular';
 	src: url('assets/fonts/MyriadPro/MyriadPro-Regular.eot');
 	src: url('assets/fonts/MyriadPro/MyriadPro-Regular.eot?#iefix')
 			format('embedded-opentype'),
@@ -87,62 +33,30 @@
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Myriad Pro';
-	src: url('assets/fonts/MyriadPro/MyriadPro-Bold.eot');
-	src: url('assets/fonts/MyriadPro/MyriadPro-Bold.eot?#iefix')
-			format('embedded-opentype'),
-		url('assets/fonts/MyriadPro/MyriadPro-Bold.woff2') format('woff2'),
-		url('assets/fonts/MyriadPro/MyriadPro-Bold.woff') format('woff'),
-		url('assets/fonts/MyriadPro/MyriadPro-Bold.ttf') format('truetype'),
-		url('assets/fonts/MyriadPro/MyriadPro-Bold.svg#MyriadPro-Bold')
-			format('svg');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Myriad Pro';
-	src: url('assets/fonts/MyriadPro/MyriadPro-It.eot');
-	src: url('assets/fonts/MyriadPro/MyriadPro-It.eot?#iefix')
-			format('embedded-opentype'),
-		url('assets/fonts/MyriadPro/MyriadPro-It.woff2') format('woff2'),
-		url('assets/fonts/MyriadPro/MyriadPro-It.woff') format('woff'),
-		url('assets/fonts/MyriadPro/MyriadPro-It.ttf') format('truetype'),
-		url('assets/fonts/MyriadPro/MyriadPro-It.svg#MyriadPro-It')
-			format('svg');
-	font-weight: normal;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Myriad Pro';
-	src: url('assets/fonts/MyriadPro/MyriadPro-BoldIt.eot');
-	src: url('assets/fonts/MyriadPro/MyriadPro-BoldIt.eot?#iefix')
-			format('embedded-opentype'),
-		url('assets/fonts/MyriadPro/MyriadPro-BoldIt.woff2') format('woff2'),
-		url('assets/fonts/MyriadPro/MyriadPro-BoldIt.woff') format('woff'),
-		url('assets/fonts/MyriadPro/MyriadPro-BoldIt.ttf') format('truetype'),
-		url('assets/fonts/MyriadPro/MyriadPro-BoldIt.svg#MyriadPro-BoldIt')
-			format('svg');
-	font-weight: bold;
-	font-style: italic;
-	font-display: swap;
-}
-
 /* VARIABLES */
 
 :root {
-	--white: #ffffff;
-	--filter-white: brightness(0) invert(1);
-	--dark-color: #054427;
-	--filter-dark-color: invert(19%) sepia(24%) saturate(2074%)
-		hue-rotate(108deg) brightness(92%) contrast(96%);
-	--light-color: #dae3df;
-	--bg-color: #eaeaea;
-	--bg-color: rgba(234, 234, 234, 1);
-	--main-font: 'Myriad Pro';
-	--heading-font: 'Palatino Linotype';
+	/* COLORS */
+	--color-white-filter: brightness(0) invert(1);
+	--color-dark-hex: #333333;
+	--color-dark-filter: invert(18%) sepia(3%) saturate(16%) hue-rotate(344deg)
+		brightness(101%) contrast(94%);
+	--color-light: #666666;
+	--color-lighter: #999999;
+	--color-site-header-bg: linear-gradient(
+		to bottom,
+		rgba(51, 51, 51, 0.25) 0%,
+		transparent 100%
+	);
+	--color-lazy-image-overlay: #dddddd;
+	--color-divider: rgba(51, 51, 51, 0.15);
+	/* FONTS */
+	--font-main-reg: 'Myriad Pro Regular';
+	--font-main-small: 'Myriad Pro Regular';
+	--font-heading-1: 'Palatino Linotype Roman';
+	--font-heading-2: 'Palatino Linotype Roman';
+	--font-heading-3: 'Palatino Linotype Roman';
+	--font-heading-3-alt: 'Myriad Pro Regular';
+	--font-heading-4: 'Myriad Pro Regular';
+	--font-heading-4-alt: 'Myriad Pro Regular';
 }

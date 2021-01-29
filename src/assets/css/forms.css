@@ -7,7 +7,7 @@ form p {
 }
 
 input:focus {
-	outline: var(--dark-color) auto 1px;
+	outline: var(--color-dark-hex) auto 1px;
 	transition: all 0.25s;
 }
 
@@ -31,37 +31,37 @@ textarea {
 	padding: 10px 15px;
 	border: 0;
 	border-radius: 0;
-	background: var(--bg-color);
+	background-color: var(--color-lighter);
 	line-height: 1.5;
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-weight: normal;
-	color: var(--dark-color);
+	color: var(--color-dark-hex);
 }
 
 ::placeholder {
 	/* Chrome, Firefox, Opera, Safari 10.1+ */
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-weight: normal;
-	color: var(--dark-color);
+	color: var(--color-dark-hex);
 	opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
 	/* Internet Explorer 10-11 */
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-weight: normal;
-	color: var(--dark-color);
+	color: var(--color-dark-hex);
 }
 
 ::-ms-input-placeholder {
 	/* Microsoft Edge */
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-weight: normal;
-	color: var(--dark-color);
+	color: var(--color-dark-hex);
 }
 
 button,
@@ -73,11 +73,11 @@ input[type='submit'] {
 	border: 0;
 	border-radius: 3px;
 	line-height: 1.5;
-	font-family: var(--main-font);
+	font-family: var(--font-main-reg);
 	font-size: 20px;
 	font-weight: normal;
-	background: var(--dark-color);
-	color: var(--white);
+	background-color: var(--color-dark-hex);
+	color: white;
 	text-transform: uppercase;
 	cursor: pointer;
 	-webkit-appearance: none;
