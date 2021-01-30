@@ -1,5 +1,5 @@
-/public/assets/favicons/
-/public/assets/fonts/
-/public/assets/images/
-/public/vendor/
+/dist/assets/favicons/
+/dist/assets/fonts/
+/dist/assets/images/
+/dist/vendor/
 /node_modules/

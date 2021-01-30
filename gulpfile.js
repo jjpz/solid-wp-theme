@@ -17,7 +17,7 @@ function adminCSS() {
 		.pipe(autoprefix())
 		.pipe(concatCSS('admin.css'))
 		.pipe(cleanCSS({ format: { breaks: { afterComment: true } } }))
-		.pipe(dest('public/assets/css'))
+		.pipe(dest('dist/assets/css'))
 		.pipe(browserSync.stream());
 }
 
@@ -30,7 +30,7 @@ function css() {
 		.pipe(autoprefix())
 		.pipe(concatCSS('style.css'))
 		.pipe(cleanCSS({ format: { breaks: { afterComment: true } } }))
-		.pipe(dest('public'))
+		.pipe(dest('dist'))
 		.pipe(browserSync.stream());
 }
 
@@ -59,7 +59,7 @@ function js() {
 				]
 			},
 		}))
-		.pipe(dest('public/assets/js'))
+		.pipe(dest('dist/assets/js'))
 		.pipe(browserSync.stream());
 }
 
@@ -70,9 +70,9 @@ exports.default = () => {
 		open: false,
 	});
 	watch([
-		'public/*.php',
-		'public/includes/*.php',
-		'public/templates/**/*.php',
+		'dist/*.php',
+		'dist/includes/*.php',
+		'dist/templates/**/*.php',
 	]).on('change', browserSync.reload);
 	watch('src/assets/css/admin.css', adminCSS);
 	watch(['src/assets/css/*.css', '!src/assets/css/admin.css'], css);

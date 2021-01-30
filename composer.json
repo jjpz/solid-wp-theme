@@ -2,7 +2,7 @@
 	"name": "jjpz/solid",
 	"description": "",
 	"config": {
-		"vendor-dir": "public/vendor"
+		"vendor-dir": "dist/vendor"
 	},
 	"require": {
 		"htmlburger/carbon-fields": "^3.1"
