@@ -33,28 +33,29 @@ function crb_attach_theme_options() {
             Field::make( 'text', 'crb_theme_youtube_link', __( 'YouTube' ) )->set_classes( 'col-6' )
         ) );
 
-    // Home Intro Section
-    Container::make( 'theme_options', __( 'Intro' . crb_lang_name() ) )
+    // Home Cover Section
+    Container::make( 'theme_options', __( 'Cover' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
-        ->set_page_file( 'theme-options-intro' )
+        ->set_page_file( 'theme-options-cover-section' )
 		->add_fields( array(
-			Field::make( 'separator', 'crb_intro_separator', 'Banner' ),
-			Field::make( 'image', 'crb_home_banner_desktop', 'Desktop Background  Image' )->set_classes( 'col-6' ),
-			Field::make( 'image', 'crb_home_banner_mobile', 'Mobile Background  Image' )->set_classes( 'col-6' ),
-            Field::make( 'textarea', 'crb_home_intro_title' . crb_lang_slug(), 'Title' . crb_lang_name() )
+			//Field::make( 'separator', 'crb_home_cover_section_separator', 'Banner' ),
+			Field::make( 'image', 'crb_home_cover_background_image_desktop', 'Desktop Background  Image' )->set_classes( 'col-6' ),
+			Field::make( 'image', 'crb_home_cover_background_image_mobile', 'Mobile Background  Image' )->set_classes( 'col-6' ),
+            Field::make( 'textarea', 'crb_home_cover_title' . crb_lang_slug(), 'Title' . crb_lang_name() )
                 ->set_rows( 3 ),
-            Field::make( 'textarea', 'crb_home_intro_subtitle' . crb_lang_slug(), 'Subtitle' . crb_lang_name() )
+            Field::make( 'textarea', 'crb_home_cover_subtitle' . crb_lang_slug(), 'Subtitle' . crb_lang_name() )
                 ->set_rows( 3 ),
-            Field::make( 'image', 'crb_home_intro_image', __( 'Title Image' ) ),
+            Field::make( 'image', 'crb_home_cover_title_image_desktop', __( 'Desktop Title Image' ) )->set_classes( 'col-6' ),
+            Field::make( 'image', 'crb_home_cover_title_image_mobile', __( 'Mobile Title Image' ) )->set_classes( 'col-6' ),
 		) );
 
     // Home About Section
-    Container::make( 'theme_options', __( 'About' . crb_lang_name() ) )
+    Container::make( 'theme_options', __( 'Intro' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
-        ->set_page_file( 'theme-options-about' )
+        ->set_page_file( 'theme-options-intro-section' )
 		->add_fields( array(
-			Field::make( 'rich_text', 'crb_home_about_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )->set_help_text( 'Left column paragraph text.' ),
-            Field::make( 'textarea', 'crb_home_about_bigtext' . crb_lang_slug(), 'Section Big Text' . crb_lang_name() )
+			Field::make( 'rich_text', 'crb_home_intro_paragraph' . crb_lang_slug(), 'Paragraph' . crb_lang_name() )->set_help_text( 'Left column paragraph text.' ),
+            Field::make( 'textarea', 'crb_home_intro_bigtext' . crb_lang_slug(), 'Big Text' . crb_lang_name() )
                 ->set_rows( 3 )
                 ->set_help_text( 'Right column big text.' )
         ) );

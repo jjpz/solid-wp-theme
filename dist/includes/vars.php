@@ -1,28 +1,8 @@
 <?php
 $site_title = get_bloginfo('title');
 $site_tagline = get_bloginfo('description');
-// Mobile Banner
-$mobile_banner_id = carbon_get_theme_option('crb_home_banner_mobile');
-$mobile_banner_srcset = wp_get_attachment_image_srcset($mobile_banner_id, 'full');
-$mobile_banner_title = get_the_title($mobile_banner_id);
-$mobile_banner_alt = get_post_meta( $mobile_banner_id, '_wp_attachment_image_alt', true);
-// Desktop Banner
-$desktop_banner_id = carbon_get_theme_option('crb_home_banner_desktop');
-$desktop_banner_srcset = wp_get_attachment_image_srcset($desktop_banner_id, 'full');
-$desktop_banner_title = get_the_title($desktop_banner_id);
-$desktop_banner_alt = get_post_meta( $desktop_banner_id, '_wp_attachment_image_alt', true);
-// Intro Content
-$home_intro_title = nl2br(carbon_get_theme_option('crb_home_intro_title'));
-$home_intro_subtitle = nl2br(carbon_get_theme_option('crb_home_intro_subtitle'));
-$home_intro_image_id = carbon_get_theme_option('crb_home_intro_image');
-$home_intro_image = wp_get_attachment_image_src($home_intro_image_id, 'full')[0];
-${'home_intro_title' . crb_lang_slug()} = nl2br(get_option('_crb_home_intro_title' . crb_lang_slug()));
-${'home_intro_subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_intro_subtitle' . crb_lang_slug()));
-// About
-$home_about_paragraph = apply_filters('the_content', carbon_get_theme_option('crb_home_about_paragraph'));
-$home_about_bigtext = nl2br(carbon_get_theme_option('crb_home_about_bigtext'));
-${'home_about_paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option('_crb_home_about_paragraph' . crb_lang_slug()));
-${'home_about_bigtext' . crb_lang_slug()} = nl2br(get_option('_crb_home_about_bigtext' . crb_lang_slug()));
+
+
 // Awards
 $home_awards_title = carbon_get_theme_option('crb_home_awards_title');
 $home_awards_paragraph = apply_filters('the_content', carbon_get_theme_option('crb_home_awards_paragraph'));
