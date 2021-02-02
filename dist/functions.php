@@ -10,6 +10,26 @@ if (file_exists(__DIR__ . '/config')) {
 	echo 'Error: The required directory does not exist, please check functions.php file.';
 }
 
+// Fetch and print from database
+global $wpdb;
+
+$cfs = $wpdb->get_results( "SELECT * FROM $wpdb->options WHERE option_name LIKE '_crb_%_pt'" );
+//print_r($cfs);
+
+$alloptions = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE autoload = 'no'" );
+$options = array();
+foreach ($alloptions as $o) {
+    $options[$o->option_name] = $o->option_value;
+}
+//print_r($options);
+foreach ($options as $key => $value) {
+    if (substr($key, -3) === '_pt') {
+        //echo '<pre>';
+        //print_r($value);
+        //echo '</pre>';
+    }
+}
+
 function change_category_title_prefix($title) {
     if (is_category()) {
         $title = single_cat_title( '', false );

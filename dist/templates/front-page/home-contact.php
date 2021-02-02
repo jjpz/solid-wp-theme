@@ -1,9 +1,15 @@
-<?php if (!empty(${'home_contact_form' . crb_lang_slug()}) || !empty(${'home_contact_bigtext' . crb_lang_slug()}) || !empty(${'home_contact_paragraph' . crb_lang_slug()})) { ?>
+<?php
+${'form' . crb_lang_slug()} = get_option('_crb_contactform_shortcode' . crb_lang_slug());
+${'bigtext' . crb_lang_slug()} = nl2br(get_option('_crb_home_contact_bigtext' . crb_lang_slug()));
+${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option('_crb_home_contact_paragraph' . crb_lang_slug()));
+?>
+
+<?php if (!empty(${'form' . crb_lang_slug()}) || !empty(${'bigtext' . crb_lang_slug()}) || !empty(${'paragraph' . crb_lang_slug()})) { ?>
 <section id="contact" class="home-section-pt home-contact">
     <div class="container">
         <div class="row align-items-baseline">
             <?php
-            if (!empty(${'home_contact_bigtext' . crb_lang_slug()}) && (!empty(${'home_contact_paragraph' . crb_lang_slug()}) || !empty(${'home_contact_form' . crb_lang_slug()}))) {
+            if (!empty(${'bigtext' . crb_lang_slug()}) && (!empty(${'paragraph' . crb_lang_slug()}) || !empty(${'form' . crb_lang_slug()}))) {
                 $class = 'col-md-6';
                 $text_align = 'text-right';
             } else {
@@ -12,17 +18,17 @@
             }
             ?>
             <div class="<?php echo $class; ?>">
-                <?php if (!empty(${'home_contact_bigtext' . crb_lang_slug()})) { ?>
-                <h1 class="bigtext home-contact-bigtext <?php echo $text_align; ?>"><?php echo ${'home_contact_bigtext' . crb_lang_slug()}; ?></h1>
+                <?php if (!empty(${'bigtext' . crb_lang_slug()})) { ?>
+                <h1 class="bigtext home-contact-bigtext <?php echo $text_align; ?>"><?php echo ${'bigtext' . crb_lang_slug()}; ?></h1>
                 <?php } ?>
             </div>
             <div class="<?php echo $class; ?>">
                 <div class="contact-form <?php echo $text_align; ?>">
-                    <?php if (!empty(${'home_contact_paragraph' . crb_lang_slug()})) { ?>
-                    <?php echo ${'home_contact_paragraph' . crb_lang_slug()}; ?>
+                    <?php if (!empty(${'paragraph' . crb_lang_slug()})) { ?>
+                    <?php echo ${'paragraph' . crb_lang_slug()}; ?>
                     <?php } ?>
-                    <?php if (!empty(${'home_contact_form' . crb_lang_slug()})) { ?>
-                    <?php echo do_shortcode(${'home_contact_form' . crb_lang_slug()}); ?>
+                    <?php if (!empty(${'form' . crb_lang_slug()})) { ?>
+                    <?php echo do_shortcode(${'form' . crb_lang_slug()}); ?>
                     <?php } ?>
                 </div>
             </div>

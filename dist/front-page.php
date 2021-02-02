@@ -1,9 +1,11 @@
 <?php
 get_header();
-if (is_front_page()) {
-    require_once 'includes/vars.php';
-    require_once 'includes/posts.php';
-    require_once 'templates/content-front-page.php';
-}
+require_once 'includes/vars.php';
+require_once 'templates/front-page/home-hero.php';
+require_once 'templates/front-page/home-intro.php';
+require_once 'templates/front-page/home-awards.php';
+require_once 'templates/front-page/home-services.php';
+require_once 'templates/front-page/home-team.php';
+require_once 'templates/front-page/home-contact.php';
 get_footer();
 ?>
