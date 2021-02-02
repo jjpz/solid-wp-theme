@@ -49,7 +49,7 @@ body.desktop .site-branding:hover {
 
 h1.site-title {
 	display: inline-flex;
-	margin: 0;
+	margin: 0 15px 0 0;
 	line-height: 1;
 	font-size: 30px;
 	color: white;
@@ -82,10 +82,6 @@ h1.site-title {
 	z-index: 1;
 }
 
-.site-nav nav {
-	padding-left: 15px;
-}
-
 .site-nav ul {
 	display: flex;
 	align-items: center;
@@ -104,14 +100,17 @@ h1.site-title {
 
 /* MAIN NAV */
 
+.main-nav {
+	padding-right: 15px;
+}
+
 .main-nav a {
 	color: white;
 }
 
-/*.main-nav a:hover {
-	color: var(--color-dark-hex);
-	transition: all 0.25s;
-}*/
+.site-header.no-branding .main-nav li:nth-child(1) {
+	margin-left: 0;
+}
 
 /* BUTTON NAV */
 
