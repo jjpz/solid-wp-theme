@@ -14,13 +14,19 @@ if (!empty($bg_image_desktop_id)) {
     $bg_image_desktop_alt = get_post_meta( $bg_image_desktop_id, '_wp_attachment_image_alt', true);
 }
 // Content
-$title_image_desktop_id = get_option('_crb_home_cover_title_image_desktop');
-if (!empty($title_image_desktop_id)) {
-    $title_image_desktop = wp_get_attachment_image_src($title_image_desktop_id, 'full')[0];
-}
 $title_image_mobile_id = get_option('_crb_home_cover_title_image_mobile');
 if (!empty($title_image_mobile_id)) {
     $title_image_mobile = wp_get_attachment_image_src($title_image_mobile_id, 'full')[0];
+    $title_image_mobile_alt = get_post_meta( $title_image_mobile_id, '_wp_attachment_image_alt', true);
+}
+$title_image_desktop_id = get_option('_crb_home_cover_title_image_desktop');
+if (!empty($title_image_desktop_id)) {
+    $title_image_desktop = wp_get_attachment_image_src($title_image_desktop_id, 'full')[0];
+    $title_image_desktop_alt = get_post_meta( $title_image_desktop_id, '_wp_attachment_image_alt', true);
+}
+$title_image_class = '';
+if (!empty($title_image_mobile_id) && !empty($title_image_desktop_id)) {
+    $title_image_class = 'responsive';
 }
 ${'title' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_title' . crb_lang_slug()));
 ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . crb_lang_slug()));
@@ -37,9 +43,14 @@ ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . 
         <div class="lazy-overlay on"></div>
         <?php } ?>
         <div class="home-intro-content">
-            <?php if (!empty($title_image_desktop_id)) { ?>
-            <div class="home-intro-image">
-                <img src="<?php echo $title_image_desktop; ?>" />
+            <?php if (!empty($title_image_mobile_id) || !empty($title_image_desktop_id)) { ?>
+            <div class="home-intro-image <?php echo $title_image_class; ?>">
+                <?php if (!empty($title_image_mobile_id)) { ?>
+                <img class="mobile" src="<?php echo $title_image_mobile; ?>" alt="<?php echo $title_image_mobile_alt; ?>">
+                <?php } ?>
+                <?php if (!empty($title_image_desktop_id)) { ?>
+                <img class="desktop" src="<?php echo $title_image_desktop; ?>" alt="<?php echo $title_image_desktop_alt; ?>">
+                <?php } ?>
             </div>
             <?php } else { ?>
             <div class="container">
