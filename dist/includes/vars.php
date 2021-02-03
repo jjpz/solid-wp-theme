@@ -2,7 +2,7 @@
 $query = new WP_Query(array(
     'post_type' => array('award', 'service', 'member'),
     'post_status' => 'publish',
-    'numberposts' => -1,
+    'posts_per_page' => -1,
     'orderby' => 'menu_order',
     'order' => 'ASC'
 ));
