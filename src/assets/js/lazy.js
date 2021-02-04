@@ -12,16 +12,9 @@ function intersectionObserver() {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						let lazyImage = entry.target;
-						//let srcset = lazyImage.dataset.srcset;
-						let srcset = lazyImage.srcset;
-						if (srcset) {
-							lazyImage.src = srcset;
-							//lazyImage.srcset = srcset;
-						}
+						lazyImage.src = lazyImage.srcset;
 						lazyImage.classList.remove('lazy');
-						if (lazyImage.src != '') {
-							lazyImage.nextElementSibling.classList.remove('on');
-						}
+						lazyImage.nextElementSibling.classList.remove('on');
 						imgObserver.unobserve(lazyImage);
 					}
 				});
@@ -45,15 +38,11 @@ function intersectionObserver() {
 						lazyImage.getBoundingClientRect().bottom >= 0 &&
 						getComputedStyle(lazyImage).display !== 'none'
 					) {
-						let srcset = lazyImage.dataset.srcset;
+						let srcset = lazyImage.srcset;
 						lazyImage.src = srcset;
-						lazyImage.srcset = srcset;
 						lazyImage.currentSrc = srcset;
 						lazyImage.classList.remove('lazy');
-
-						if (lazyImage.srcset != '') {
-							lazyImage.nextElementSibling.classList.remove('on');
-						}
+						lazyImage.nextElementSibling.classList.remove('on');
 
 						lazyImages = lazyImages.filter(function (image) {
 							return image !== lazyImage;

@@ -1,16 +1,20 @@
-<!-- Single Service Card -->
+<!-- Single Service -->
 <article <?php post_class('col-lg-6', $ID) ?>>
     <div class="service-card">
         <?php if (!empty($image_id)) { ?>
         <div class="service-left">
             <div class="image image-aspect-square service-image">
-                <?php if (isset(pathinfo($src)['extension']) && pathinfo($src)['extension'] === 'svg') { ?>
-                <img class="img img-contain lazy" src="<?php echo $src; ?>" title="<?php echo $image_title; ?>"
-                    alt="<?php echo $image_alt; ?>">
-                <?php } else { ?>
-                <img class="img img-contain lazy" src="" srcset="" data-srcset="<?php echo $srcset; ?>"
-                    title="<?php echo $image_title; ?>" alt="<?php echo $image_alt; ?>">
-                <?php } ?>
+
+                <img 
+                    class="img img-contain lazy" 
+                    src="" 
+                    srcset="" 
+                    data-src="<?php echo $src; ?>"
+                    data-srcset="<?php echo $srcset; ?>" 
+                    data-type="<?php echo $type; ?>" 
+                    alt="<?php echo $image_alt; ?>" 
+                />
+
                 <div class="lazy-overlay on"></div>
             </div>
         </div>

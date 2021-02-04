@@ -1,17 +1,20 @@
 <?php
 // Mobile Background Image
-$bg_image_mobile_id = get_option('_crb_home_cover_background_image_mobile');
-if (!empty($bg_image_mobile_id)) {
-    $bg_image_mobile_srcset = wp_get_attachment_image_srcset($bg_image_mobile_id, 'full');
-    $bg_image_mobile_title = get_the_title($bg_image_mobile_id);
-    $bg_image_mobile_alt = get_post_meta( $bg_image_mobile_id, '_wp_attachment_image_alt', true);
+$bg_image_id_mobile = get_option('_crb_home_cover_background_image_mobile');
+if (!empty($bg_image_id_mobile)) {
+    $bg_image_src_mobile = wp_get_attachment_image_src($bg_image_id_mobile, 'full')[0];
+    $bg_image_srcset_mobile = wp_get_attachment_image_srcset($bg_image_id_mobile, 'full');
+    $bg_image_type_mobile = pathinfo($bg_image_src_mobile)['extension'];
+    $bg_image_alt_mobile = get_post_meta($bg_image_id_mobile, '_wp_attachment_image_alt', true);
 }
 // Desktop Background Image
-$bg_image_desktop_id = get_option('_crb_home_cover_background_image_desktop');
-if (!empty($bg_image_desktop_id)) {
-    $bg_image_desktop_srcset = wp_get_attachment_image_srcset($bg_image_desktop_id, 'full');
-    $bg_image_desktop_title = get_the_title($bg_image_desktop_id);
-    $bg_image_desktop_alt = get_post_meta( $bg_image_desktop_id, '_wp_attachment_image_alt', true);
+$bg_image_id_desktop = get_option('_crb_home_cover_background_image_desktop');
+if (!empty($bg_image_id_desktop)) {
+    $bg_image_src_desktop = wp_get_attachment_image_src($bg_image_id_desktop, 'full')[0];
+    $bg_image_srcset_desktop = wp_get_attachment_image_srcset($bg_image_id_desktop, 'full');
+    $bg_image_type_desktop = pathinfo($bg_image_src_desktop)['extension'];
+    //$bg_image_title_desktop = get_the_title($bg_image_id_desktop);
+    $bg_image_alt_desktop = get_post_meta( $bg_image_id_desktop, '_wp_attachment_image_alt', true);
 }
 // Content
 $title_image_mobile_id = get_option('_crb_home_cover_title_image_mobile');
@@ -34,12 +37,21 @@ ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . 
 
 <section id="intro" class="home-intro offset-height">
     <div class="banner image home-intro-banner">
-        <?php if (!empty($bg_image_mobile_id) || !empty($bg_image_desktop_id)) { ?>
-        <img class="img img-cover lazy" src="" srcset="" data-desktop="<?php echo $bg_image_desktop_srcset; ?>"
-            data-mobile="<?php echo $bg_image_mobile_srcset; ?>" title=""
-            data-desktop-title="<?php echo $bg_image_desktop_title; ?>"
-            data-mobile-title="<?php echo $bg_image_mobile_title; ?>" alt=""
-            data-desktop-alt="<?php echo $bg_image_desktop_alt; ?>" data-mobile-alt="<?php echo $bg_image_mobile_alt; ?>">
+        <?php if (!empty($bg_image_id_mobile) || !empty($bg_image_id_desktop)) { ?>
+        <img 
+            class="img img-cover lazy" 
+            src="" 
+            srcset="" 
+            alt="" 
+            data-src="<?php echo $bg_image_src_desktop; ?>" 
+            data-srcset="<?php echo $bg_image_srcset_desktop; ?>" 
+            data-alt="<?php echo $bg_image_alt_desktop; ?>" 
+            data-type="<?php echo $bg_image_type_desktop; ?>" 
+            data-mobile-src="<?php echo $bg_image_src_mobile; ?>" 
+            data-mobile-srcset="<?php echo $bg_image_srcset_mobile; ?>" 
+            data-mobile-alt="<?php echo $bg_image_alt_mobile; ?>" 
+            data-mobile-type="<?php echo $bg_image_type_mobile; ?>" 
+        />
         <div class="lazy-overlay on"></div>
         <?php } ?>
         <div class="home-intro-content">

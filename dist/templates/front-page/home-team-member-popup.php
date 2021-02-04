@@ -12,8 +12,15 @@
                     <div class="col-sm-4 popup-col">
                         <div class="team-popup-pic">
                             <div class="image image-aspect-square image-circle team-popup-image">
-                                <img class="img img-cover lazy" src="" srcset="" data-srcset="<?php echo $srcset; ?>"
-                                    title="<?php echo $image_title; ?>" alt="<?php echo $image_alt; ?>">
+                                <img 
+                                    class="img img-cover lazy" 
+                                    src="" 
+                                    srcset="" 
+                                    data-src="<?php echo $src; ?>"
+                                    data-srcset="<?php echo $srcset; ?>" 
+                                    data-type="<?php echo $type; ?>" 
+                                    alt="<?php echo $image_alt; ?>" 
+                                />
                                 <div class="lazy-overlay member-overlay on"></div>
                             </div>
                         </div>

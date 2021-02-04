@@ -4,8 +4,15 @@
     <div class="member-pic">
         <div class="image image-aspect-square image-circle member-image">
             <?php if (!empty($image_id)) { ?>
-            <img class="img img-cover lazy" src="" srcset="" data-srcset="<?php echo $srcset; ?>"
-                title="<?php echo $image_title; ?>" alt="<?php echo $image_alt; ?>">
+            <img 
+                class="img img-cover lazy" 
+                src="" 
+                srcset="" 
+                data-src="<?php echo $src; ?>"
+                data-srcset="<?php echo $srcset; ?>" 
+                data-type="<?php echo $type; ?>" 
+                alt="<?php echo $image_alt; ?>" 
+            />
             <?php } ?>
             <div class="lazy-overlay member-overlay on"></div>
         </div>
