@@ -395,6 +395,11 @@ body.single-post article.post {
 	display: block;
 	position: relative;
 	width: 100%;
+	height: 100%;
+}
+
+.image img {
+	display: block;
 }
 
 .image-aspect-square {
@@ -527,10 +532,6 @@ body.single-post article.post {
 	max-width: 50%;
 }
 
-.home-intro-image.responsive .mobile {
-	display: none;
-}
-
 @media (max-width: 991px) {
 	.home-intro-image {
 		max-width: 75%;
@@ -540,14 +541,6 @@ body.single-post article.post {
 @media (max-width: 767px) {
 	.home-intro-image {
 		max-width: 90%;
-	}
-
-	.home-intro-image.responsive .mobile {
-		display: block;
-	}
-
-	.home-intro-image.responsive .desktop {
-		display: none;
 	}
 }
 

@@ -11,22 +11,13 @@
                     <?php if ( !empty($image_id) ) { ?>
                     <div class="col-sm-4 popup-col">
                         <div class="team-popup-pic">
-                            <div class="image image-aspect-square image-circle team-popup-image">
-                                <img 
-                                    class="img img-cover lazy" 
-                                    src="" 
-                                    srcset="" 
-                                    data-src="<?php echo $src; ?>"
-                                    data-srcset="<?php echo $srcset; ?>" 
-                                    data-type="<?php echo $type; ?>" 
-                                    alt="<?php echo $image_alt; ?>" 
-                                />
-                                <div class="lazy-overlay member-overlay on"></div>
+                            <div class="team-popup-image">
+                                <?php getImage($image_id, '', array('image-aspect-square', 'image-circle'), array('img', 'img-cover'), true, array('member-overlay')); ?>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
-                    <?php (!empty($src)) ? $class = 'col-sm-8 popup-col' : $class = 'col-sm-12 popup-col'; ?>
+                    <?php (!empty($image_id)) ? $class = 'col-sm-8 popup-col' : $class = 'col-sm-12 popup-col'; ?>
                     <div class="<?php echo $class; ?>">
                         <div class="team-popup-content">
                             <div class="team-popup-name">

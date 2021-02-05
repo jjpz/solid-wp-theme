@@ -2,21 +2,8 @@
 <article <?php post_class('col-lg-6', $ID) ?>>
     <div class="service-card">
         <?php if (!empty($image_id)) { ?>
-        <div class="service-left">
-            <div class="image image-aspect-square service-image">
-
-                <img 
-                    class="img img-contain lazy" 
-                    src="" 
-                    srcset="" 
-                    data-src="<?php echo $src; ?>"
-                    data-srcset="<?php echo $srcset; ?>" 
-                    data-type="<?php echo $type; ?>" 
-                    alt="<?php echo $image_alt; ?>" 
-                />
-
-                <div class="lazy-overlay on"></div>
-            </div>
+        <div class="service-left service-image">
+            <?php getImage($image_id, '', array('image-aspect-square'), array('img', 'img-contain'), true); ?>
         </div>
         <?php } ?>
         <div class="service-right <?php echo $class; ?>">

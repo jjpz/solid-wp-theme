@@ -30,6 +30,169 @@ foreach ($options as $key => $value) {
     }
 }
 
+if ( ! function_exists( 'getHomeSection' ) ) {
+	function getHomeSection( $title = '', $paragraph = '', $section = '', array $sectionClasses = null, $post_type = '', $query = '') {
+
+		${'title' . crb_lang_slug()} = get_option($title . crb_lang_slug());
+		${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option($paragraph . crb_lang_slug()));
+		$posts = getItems($query, $post_type);
+
+		if (!empty($posts) || !empty(${'title' . crb_lang_slug()}) || !empty(${'paragraph' . crb_lang_slug()})) {
+
+			$sectionStart = getSectionStart($section, $sectionClasses);
+			$sectionHeader = getSectionHeader(${'title' . crb_lang_slug()}, ${'paragraph' . crb_lang_slug()});
+			$sectionBody = getSectionBody($posts, $post_type);
+			$sectionEnd = getSectionEnd();
+
+			$html = $sectionStart . $sectionHeader . $sectionBody . $sectionEnd;
+
+			echo $html;
+
+		}
+
+	}
+}
+
+function getSectionStart( $section = '', array $sectionClasses = null ) {
+	if ($sectionClasses) {
+		$sectionClass = implode(' ', $sectionClasses);
+		$sectionClass = ' ' . $sectionClass . ' ';
+	} else {
+		$sectionClass = ' ';
+	}
+	echo '<section id="' . $section . '" class="home-section' . $sectionClass . 'home-' . $section . '">';
+}
+
+function getSectionEnd() {
+	echo '</section>';
+}
+
+if ( ! function_exists( 'getSectionHeader' ) ) {
+	function getSectionHeader( $title = '', $paragraph = '' ) {
+
+		if (!empty($title)) {
+			$h = '<h3 class="h3 section-title">' . $title . '</h3>';
+		} else {
+			$h = '';
+		}
+
+		if (!empty($paragraph)) {
+			$p = '<div class="section-paragraph">' . $paragraph . '</div>';
+		} else {
+			$p = '';
+		}
+
+		if (!empty($title) || !empty($paragraph)) {
+			$headerStart = 
+			'<header class="section-header">
+			<div class="container">
+			<div class="row">
+			<div class="col-lg-8 offset-lg-2">';
+			$title = $h; 
+			$paragraph = $p;
+			$headerEnd = 
+			'</div>
+			</div>
+			</div>
+			</header>';
+		}
+
+		$html = $headerStart . $title . $paragraph . $headerEnd;
+
+		echo $html;
+
+	}
+}
+
+if ( ! function_exists( 'getSectionBody' ) ) {
+	function getSectionBody( $posts = '', $post_type ) {
+		$path = 'templates/front-page/home-' . $post_type;
+		if (!empty($posts)) {
+			// include(locate_template('templates/front-page/home-service.php'));
+			get_template_part($path, null, $posts);
+		}
+	}
+}
+
+// Display optimally sized images with mobile/desktop options
+if ( ! function_exists( 'getImage' ) ) {
+	function getImage( $mainImgId = '', $mobileImgId = '', array $divClasses = NULL, array $imgClasses = NULL, bool $lazyLoad = false, array $lazyClasses = NULL ) {
+
+		$mobileSrc = '';
+		$mobileSrcset = '';
+		$mobileType = '';
+		$mobileAlt = '';
+
+		if (!empty($mainImgId)) {
+			$mainSrc = wp_get_attachment_image_src($mainImgId, 'full')[0];
+			$mainSrcset = wp_get_attachment_image_srcset($mainImgId, 'full');
+			$mainType = pathinfo($mainSrc)['extension'];
+			$mainAlt = get_post_meta( $mainImgId, '_wp_attachment_image_alt', true);
+		}
+
+		if (!empty($mobileImgId)) {
+			$mobileSrc = wp_get_attachment_image_src($mobileImgId, 'full')[0];
+			$mobileSrcset = wp_get_attachment_image_srcset($mobileImgId, 'full');
+			$mobileType = pathinfo($mobileSrc)['extension'];
+			$mobileAlt = get_post_meta( $mobileImgId, '_wp_attachment_image_alt', true);
+		}
+
+		if ($divClasses) {
+			$divClass = implode(' ', $divClasses);
+			$divClass = ' ' . $divClass;
+		} else {
+			$divClass = '';
+		}
+
+		if ($imgClasses) {
+			$imgClass = implode(' ', $imgClasses);
+			if ($lazyLoad) {
+				$imgClass = $imgClass . ' lazy';
+			}
+		} else {
+			if ($lazyLoad) {
+				$imgClass = 'lazy';
+			} else {
+				$imgClass = '';
+			}
+		}
+
+		if ($lazyClasses) {
+			$lazyClass = implode(' ', $lazyClasses);
+			$lazyClass = ' ' . $lazyClass . ' ';
+		} else {
+			$lazyClass = ' ';
+		}
+		
+		$divStart = '<div class="image' . $divClass . '">';
+			$img = '<img 
+				class="' . $imgClass . '" 
+				src="" 
+				srcset="" 
+				alt="" 
+				data-src="' . $mainSrc . '" 
+				data-srcset="' . $mainSrcset . '" 
+				data-alt="' . $mainAlt . '" 
+				data-type="' . $mainType . '" 
+				data-mobile-src="' . $mobileSrc . '" 
+				data-mobile-srcset="' . $mobileSrcset . '" 
+				data-mobile-alt="' . $mobileAlt . '" 
+				data-mobile-type="' . $mobileType . '" 
+			/>';
+			$lazyOverlay = '<div class="lazy-overlay' . $lazyClass . 'on"></div>';
+		$divEnd = '</div>';
+
+		if (!$lazyLoad) { 
+			$html = $divStart . $img . $divEnd;
+		} else {
+			$html = $divStart . $img . $lazyOverlay . $divEnd;
+		}
+
+		echo $html;
+
+	}
+}
+
 function change_category_title_prefix($title) {
     if (is_category()) {
         $title = single_cat_title( '', false );

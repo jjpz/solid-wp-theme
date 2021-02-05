@@ -1,21 +1,8 @@
 <!-- Team Member Card -->
 <a href="#" class="member-card" data-toggle="popup" data-target="team-popup-<?php echo $slug; ?>" data-classes="open">
-    <?php if ( !empty($src) ) { ?>
+    <?php if ( !empty($image_id) ) { ?>
     <div class="member-pic">
-        <div class="image image-aspect-square image-circle member-image">
-            <?php if (!empty($image_id)) { ?>
-            <img 
-                class="img img-cover lazy" 
-                src="" 
-                srcset="" 
-                data-src="<?php echo $src; ?>"
-                data-srcset="<?php echo $srcset; ?>" 
-                data-type="<?php echo $type; ?>" 
-                alt="<?php echo $image_alt; ?>" 
-            />
-            <?php } ?>
-            <div class="lazy-overlay member-overlay on"></div>
-        </div>
+        <?php getImage($image_id, '', array('image-aspect-square', 'image-circle'), array('img', 'img-cover'), true, array('member-overlay')) ?>
     </div>
     <?php } ?>
     <div class="member-info">
