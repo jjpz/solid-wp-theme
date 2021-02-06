@@ -61,8 +61,8 @@ function crb_attach_theme_options() {
         ->set_page_parent( $theme_options )
         ->set_page_file( 'theme-options-awards-section' )
 		->add_fields( array(
-            Field::make( 'text', 'crb_home_awards_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
-            Field::make( 'rich_text', 'crb_home_awards_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
+            Field::make( 'text', 'crb_home_award_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
+            Field::make( 'rich_text', 'crb_home_award_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
 		) );
 
     // Home Services Section
@@ -70,17 +70,17 @@ function crb_attach_theme_options() {
         ->set_page_parent( $theme_options )
         ->set_page_file( 'theme-options-services-section' )
 		->add_fields( array(
-            Field::make( 'text', 'crb_home_services_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
-            Field::make( 'rich_text', 'crb_home_services_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
+            Field::make( 'text', 'crb_home_service_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
+            Field::make( 'rich_text', 'crb_home_service_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
 		) );
 
-    // Home Team Section
+    // Home Team/Members Section
     Container::make( 'theme_options', __( 'Team' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
         ->set_page_file( 'theme-options-team-section' )
 		->add_fields( array(
-			Field::make( 'text', 'crb_home_team_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
-			Field::make( 'rich_text', 'crb_home_team_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
+			Field::make( 'text', 'crb_home_member_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
+			Field::make( 'rich_text', 'crb_home_member_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
 		) );
 
     // Home Contact Section

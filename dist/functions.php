@@ -30,21 +30,58 @@ foreach ($options as $key => $value) {
     }
 }
 
+$post_types = get_post_types(array('_builtin' => false), 'objects', 'and');
+// echo '<pre>'; print_r($post_types); echo '</pre>';
+
+global $q;
+$q = new WP_Query(array(
+    'post_type'      => array('award', 'service', 'member'),
+    'post_status'    => 'publish',
+    'posts_per_page' => -1,
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC'
+));
+
+if ( ! function_exists( 'getItems' ) ) {
+    function getItems( $post_type ) {
+		global $q;
+        $posts = [];
+        if ($q->have_posts()) {
+            while ($q->have_posts()) {
+                $q->the_post();
+                if ($q->post->post_type === $post_type) {
+                    array_push($posts, $q->post);
+                }
+            }
+            wp_reset_postdata();
+        }
+        return $posts;
+    }
+}
+
 if ( ! function_exists( 'getHomeSection' ) ) {
-	function getHomeSection( $title = '', $paragraph = '', $section = '', array $sectionClasses = null, $post_type = '', $query = '') {
+	function getHomeSection( $post_type, $section, array $sectionClasses = null ) {
 
-		${'title' . crb_lang_slug()} = get_option($title . crb_lang_slug());
-		${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option($paragraph . crb_lang_slug()));
-		$posts = getItems($query, $post_type);
+		$t = '_crb_home_' . $post_type . '_title';
+		$p = '_crb_home_' . $post_type . '_paragraph';
 
-		if (!empty($posts) || !empty(${'title' . crb_lang_slug()}) || !empty(${'paragraph' . crb_lang_slug()})) {
+		${'title' . crb_lang_slug()}     = get_option($t . crb_lang_slug());
+		${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option($p . crb_lang_slug()));
 
-			$sectionStart = getSectionStart($section, $sectionClasses);
-			$sectionHeader = getSectionHeader(${'title' . crb_lang_slug()}, ${'paragraph' . crb_lang_slug()});
-			$sectionBody = getSectionBody($posts, $post_type);
-			$sectionEnd = getSectionEnd();
+		$posts = getItems($post_type);
 
-			$html = $sectionStart . $sectionHeader . $sectionBody . $sectionEnd;
+		if ( 
+			!empty($posts) || 
+			!empty(${'title' . crb_lang_slug()}) || 
+			!empty(${'paragraph' . crb_lang_slug()}) 
+		) {
+
+			$start  = getSectionStart($section, $sectionClasses);
+			$header = getSectionHeader(${'title' . crb_lang_slug()}, ${'paragraph' . crb_lang_slug()});
+			$body   = getSectionBody($post_type, $posts);
+			$end    = getSectionEnd();
+
+			$html = $start . $header . $body . $end;
 
 			echo $html;
 
@@ -53,18 +90,22 @@ if ( ! function_exists( 'getHomeSection' ) ) {
 	}
 }
 
-function getSectionStart( $section = '', array $sectionClasses = null ) {
-	if ($sectionClasses) {
-		$sectionClass = implode(' ', $sectionClasses);
-		$sectionClass = ' ' . $sectionClass . ' ';
-	} else {
-		$sectionClass = ' ';
+if ( ! function_exists( 'getSectionStart' ) ) {
+	function getSectionStart( $section, array $sectionClasses = null ) {
+		if ($sectionClasses) {
+			$sectionClass = implode(' ', $sectionClasses);
+			$sectionClass = ' ' . $sectionClass . ' ';
+		} else {
+			$sectionClass = ' ';
+		}
+		echo '<section id="' . $section . '" class="home-section' . $sectionClass . 'home-' . $section . '">';
 	}
-	echo '<section id="' . $section . '" class="home-section' . $sectionClass . 'home-' . $section . '">';
 }
 
-function getSectionEnd() {
-	echo '</section>';
+if ( ! function_exists( 'getSectionEnd' ) ) {
+	function getSectionEnd() {
+		echo '</section>';
+	}
 }
 
 if ( ! function_exists( 'getSectionHeader' ) ) {
@@ -105,7 +146,7 @@ if ( ! function_exists( 'getSectionHeader' ) ) {
 }
 
 if ( ! function_exists( 'getSectionBody' ) ) {
-	function getSectionBody( $posts = '', $post_type ) {
+	function getSectionBody( $post_type, $posts = '' ) {
 		$path = 'templates/front-page/home-' . $post_type;
 		if (!empty($posts)) {
 			// include(locate_template('templates/front-page/home-service.php'));

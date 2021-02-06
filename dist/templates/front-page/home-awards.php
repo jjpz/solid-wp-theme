@@ -1,1 +1,0 @@
-<?php getHomeSection('_crb_home_awards_title', '_crb_home_awards_paragraph', 'awards', 'award', $query); ?>

@@ -465,6 +465,7 @@ body.single-post article.post {
 }
 
 .home-section-w-bg {
+	margin: 0 auto;
 	padding: 120px 0;
 	background-color: var(--color-lighter);
 }

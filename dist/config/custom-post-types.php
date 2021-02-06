@@ -2,33 +2,8 @@
 // Awards
 function cpt_awards () {
 	$labels = array(
-		'name'                  => _x('Awards', 'Post Type General Name', 'solid'),
-		'singular_name'         => _x('Award', 'Post Type Singular Name', 'solid'),
-		'menu_name'             => __('Awards', 'solid'),
-		'name_admin_bar'        => __('Award', 'solid'),
-		'archives'              => __('Item Archives', 'solid'),
-		'attributes'            => __('Item Attributes', 'solid'),
-		'parent_item_colon'     => __('Parent Item:', 'solid'),
+		'singular_name'         => __('Award', 'solid'),
 		'all_items'             => __('All Awards', 'solid'),
-		'add_new_item'          => __('Add New Item', 'solid'),
-		'add_new'               => __('Add New', 'solid'),
-		'new_item'              => __('New Item', 'solid'),
-		'edit_item'             => __('Edit Item', 'solid'),
-		'update_item'           => __('Update Item', 'solid'),
-		'view_item'             => __('View Item', 'solid'),
-		'view_items'            => __('View Items', 'solid'),
-		'search_items'          => __('Search Item', 'solid'),
-		'not_found'             => __('Not found', 'solid'),
-		'not_found_in_trash'    => __('Not found in Trash', 'solid'),
-		'featured_image'        => __('Featured Image', 'solid'),
-		'set_featured_image'    => __('Set featured image', 'solid'),
-		'remove_featured_image' => __('Remove featured image', 'solid'),
-		'use_featured_image'    => __('Use as featured image', 'solid'),
-		'insert_into_item'      => __('Insert into item', 'solid'),
-		'uploaded_to_this_item' => __('Uploaded to this item', 'solid'),
-		'items_list'            => __('Items list', 'solid'),
-		'items_list_navigation' => __('Items list navigation', 'solid'),
-		'filter_items_list'     => __('Filter items list', 'solid')
 	);
 	$rewrite = array(
 		'slug'                  => 'awards',
@@ -37,7 +12,7 @@ function cpt_awards () {
 		'pages'                 => true
 	);
 	$args = array(
-		'label'                 => __('Award', 'solid'),
+		'label'                 => __('Awards', 'solid'),
 		'labels'                => $labels,
 		'description'           => __('Awards', 'solid'),
 		'public'                => true,
@@ -65,33 +40,8 @@ add_action('init', 'cpt_awards', 0);
 // Services
 function cpt_services () {
 	$labels = array(
-		'name'                  => _x('Services', 'Post Type General Name', 'solid'),
-		'singular_name'         => _x('Service', 'Post Type Singular Name', 'solid'),
-		'menu_name'             => __('Services', 'solid'),
-		'name_admin_bar'        => __('Service', 'solid'),
-		'archives'              => __('Item Archives', 'solid'),
-		'attributes'            => __('Item Attributes', 'solid'),
-		'parent_item_colon'     => __('Parent Item:', 'solid'),
+		'singular_name'         => __('Service', 'solid'),
 		'all_items'             => __('All Services', 'solid'),
-		'add_new_item'          => __('Add New Item', 'solid'),
-		'add_new'               => __('Add New', 'solid'),
-		'new_item'              => __('New Item', 'solid'),
-		'edit_item'             => __('Edit Item', 'solid'),
-		'update_item'           => __('Update Item', 'solid'),
-		'view_item'             => __('View Item', 'solid'),
-		'view_items'            => __('View Items', 'solid'),
-		'search_items'          => __('Search Item', 'solid'),
-		'not_found'             => __('Not found', 'solid'),
-		'not_found_in_trash'    => __('Not found in Trash', 'solid'),
-		'featured_image'        => __('Featured Image', 'solid'),
-		'set_featured_image'    => __('Set featured image', 'solid'),
-		'remove_featured_image' => __('Remove featured image', 'solid'),
-		'use_featured_image'    => __('Use as featured image', 'solid'),
-		'insert_into_item'      => __('Insert into item', 'solid'),
-		'uploaded_to_this_item' => __('Uploaded to this item', 'solid'),
-		'items_list'            => __('Items list', 'solid'),
-		'items_list_navigation' => __('Items list navigation', 'solid'),
-		'filter_items_list'     => __('Filter items list', 'solid')
 	);
 	$rewrite = array(
 		'slug'                  => 'services',
@@ -100,7 +50,7 @@ function cpt_services () {
 		'pages'                 => true
 	);
 	$args = array(
-		'label'                 => __('Service', 'solid'),
+		'label'                 => __('Services', 'solid'),
 		'labels'                => $labels,
 		'description'           => __('Services', 'solid'),
 		'public'                => true,
@@ -125,36 +75,11 @@ function cpt_services () {
 }
 add_action('init', 'cpt_services', 0);
 
-// Team Members
-function cpt_team () {
+// Members
+function cpt_members () {
 	$labels = array(
-		'name'                  => _x('Team Members', 'Post Type General Name', 'solid'),
-		'singular_name'         => _x('Team Member', 'Post Type Singular Name', 'solid'),
-		'menu_name'             => __('Team', 'solid'),
-		'name_admin_bar'        => __('Team Member', 'solid'),
-		'archives'              => __('Item Archives', 'solid'),
-		'attributes'            => __('Item Attributes', 'solid'),
-		'parent_item_colon'     => __('Parent Item:', 'solid'),
-		'all_items'             => __('All Team Members', 'solid'),
-		'add_new_item'          => __('Add New Item', 'solid'),
-		'add_new'               => __('Add New', 'solid'),
-		'new_item'              => __('New Item', 'solid'),
-		'edit_item'             => __('Edit Item', 'solid'),
-		'update_item'           => __('Update Item', 'solid'),
-		'view_item'             => __('View Item', 'solid'),
-		'view_items'            => __('View Items', 'solid'),
-		'search_items'          => __('Search Item', 'solid'),
-		'not_found'             => __('Not found', 'solid'),
-		'not_found_in_trash'    => __('Not found in Trash', 'solid'),
-		'featured_image'        => __('Featured Image', 'solid'),
-		'set_featured_image'    => __('Set featured image', 'solid'),
-		'remove_featured_image' => __('Remove featured image', 'solid'),
-		'use_featured_image'    => __('Use as featured image', 'solid'),
-		'insert_into_item'      => __('Insert into item', 'solid'),
-		'uploaded_to_this_item' => __('Uploaded to this item', 'solid'),
-		'items_list'            => __('Items list', 'solid'),
-		'items_list_navigation' => __('Items list navigation', 'solid'),
-		'filter_items_list'     => __('Filter items list', 'solid')
+		'singular_name'         => __('Member', 'solid'),
+		'all_items'             => __('All Members', 'solid'),
 	);
 	$rewrite = array(
 		'slug'                  => 'team',
@@ -163,7 +88,7 @@ function cpt_team () {
 		'pages'                 => true
 	);
 	$args = array(
-		'label'                 => __('Team Member', 'solid'),
+		'label'                 => __('Team', 'solid'),
 		'labels'                => $labels,
 		'description'           => __('Team Members', 'solid'),
 		'public'                => true,
@@ -186,4 +111,4 @@ function cpt_team () {
 	);
 	register_post_type('member', $args);
 }
-add_action('init', 'cpt_team', 0);
+add_action('init', 'cpt_members', 0);
