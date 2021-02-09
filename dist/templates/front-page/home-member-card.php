@@ -2,7 +2,7 @@
 <a href="#" class="member-card" data-toggle="popup" data-target="team-popup-<?php echo $slug; ?>" data-classes="open">
     <?php if ( !empty($image_id) ) { ?>
     <div class="member-pic">
-        <?php getImage($image_id, '', array('image-aspect-square', 'image-circle'), array('img', 'img-cover'), true, array('member-overlay')) ?>
+        <?php getImage($image_id, '', true, array('image-aspect-square', 'image-circle'), array('img', 'img-cover'), array('member-overlay')) ?>
     </div>
     <?php } ?>
     <div class="member-info">

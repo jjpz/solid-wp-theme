@@ -1,10 +1,9 @@
-<?php $team = $args; ?>
-<?php if (!empty($team)) { ?>
+<?php if (!empty($args)) { ?>
     <section class="section-body">
         <div class="services">
             <div class="container">
                 <div class="row justify-content-center">
-                    <?php foreach ($team as $key => $member) { ?>
+                    <?php foreach ($args as $key => $member) { ?>
                         <?php
                         $ID = $member->ID;
                         $name = $member->post_title;

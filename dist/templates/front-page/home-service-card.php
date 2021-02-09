@@ -3,7 +3,7 @@
     <div class="service-card">
         <?php if (!empty($image_id)) { ?>
         <div class="service-left service-image">
-            <?php getImage($image_id, '', array('image-aspect-square'), array('img', 'img-contain'), true); ?>
+            <?php getImage($image_id, '', true, array('image-aspect-square'), array('img', 'img-contain')); ?>
         </div>
         <?php } ?>
         <div class="service-right <?php echo $class; ?>">

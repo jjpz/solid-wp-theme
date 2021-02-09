@@ -12,7 +12,7 @@
                     <div class="col-sm-4 popup-col">
                         <div class="team-popup-pic">
                             <div class="team-popup-image">
-                                <?php getImage($image_id, '', array('image-aspect-square', 'image-circle'), array('img', 'img-cover'), true, array('member-overlay')); ?>
+                                <?php getImage($image_id, '', true, array('image-aspect-square', 'image-circle'), array('img', 'img-cover'), array('member-overlay')); ?>
                             </div>
                         </div>
                     </div>
@@ -37,8 +37,8 @@
                 <div class="popup-row">
                     <div class="col-12 popup-col">
                         <div class="team-nav">
-                            <?php if (array_key_exists($prev_key, $team)) { ?>
-                            <?php $prev = $team[$prev_key]; ?>
+                            <?php if (array_key_exists($prev_key, $args)) { ?>
+                            <?php $prev = $args[$prev_key]; ?>
                             <a class="team-prev" href="#" data-target="team-popup-<?php echo $slug; ?>">
                                 <span class="icon-caret icon-caret-left">
                                     <svg class="svg-caret" width="5" height="13" viewBox="0 0 192 512">
@@ -53,8 +53,8 @@
                             <?php } else { ?>
                             <a class="team-prev-empty"></a>
                             <?php } ?>
-                            <?php if (array_key_exists($next_key, $team)) { ?>
-                            <?php $next = $team[$next_key]; ?>
+                            <?php if (array_key_exists($next_key, $args)) { ?>
+                            <?php $next = $args[$next_key]; ?>
                             <a class="team-next" href="#" data-target="team-popup-<?php echo $slug; ?>">
                                 <p class="p2 team-nav-title">
                                     <?php echo $next->post_title; ?></p>

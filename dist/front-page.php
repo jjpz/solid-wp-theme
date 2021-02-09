@@ -1,16 +1,38 @@
 <?php
 get_header();
 
-require_once 'templates/front-page/home-hero.php';
-require_once 'templates/front-page/home-intro.php';
+get_template_part('templates/front-page/home-hero');
+get_template_part('templates/front-page/home-intro');
 
-getHomeSection( 'award', 'awards' );
+$cpt = get_post_types(
+    array(
+        'public'   => true,
+        '_builtin' => false
+    ),
+    'names',
+    'and'
+);
 
-getHomeSection( 'service', 'services' );
+if (!empty($cpt)) {
+    $a = array(
+        'update_post_meta_cache' => false,
+        'update_post_term_cache' => false,
+        'post_type'              => $cpt,
+        'post_status'            => 'publish',
+        'posts_per_page'         => 50,
+        'no_found_rows'          => true,
+        'orderby'                => 'menu_order',
+        'order'                  => 'ASC'
+    );
 
-getHomeSection( 'member', 'team', array('home-section-w-bg') );
+    $q = new WP_Query($a);
 
-require_once 'templates/front-page/home-contact.php';
+    foreach ($cpt as $pt) {
+        getHomeSection($q, $pt);
+    }
+}
+
+get_template_part('templates/front-page/home-contact');
 
 get_footer();
 ?>

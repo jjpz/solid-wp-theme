@@ -11,46 +11,31 @@ if (file_exists(__DIR__ . '/config')) {
 }
 
 // Fetch and print from database
-global $wpdb;
+// global $wpdb;
 
-$cfs = $wpdb->get_results( "SELECT * FROM $wpdb->options WHERE option_name LIKE '_crb_%_pt'" );
-//print_r($cfs);
+// $cfs = $wpdb->get_results( "SELECT * FROM $wpdb->options WHERE option_name LIKE '_crb_%_pt'" );
+// print_r($cfs);
 
-$alloptions = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE autoload = 'no'" );
-$options = array();
-foreach ($alloptions as $o) {
-    $options[$o->option_name] = $o->option_value;
-}
-//print_r($options);
-foreach ($options as $key => $value) {
-    if (substr($key, -3) === '_pt') {
-        //echo '<pre>';
-        //print_r($value);
-        //echo '</pre>';
-    }
-}
+// $alloptions = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE autoload = 'no'" );
+// $options = array();
+// foreach ($alloptions as $o) {
+//     $options[$o->option_name] = $o->option_value;
+// }
+// print_r($options);
+// foreach ($options as $key => $value) {
+//     if (substr($key, -3) === '_pt') {
+//         echo '<pre>'; print_r($value); echo '</pre>';
+//     }
+// }
 
-$post_types = get_post_types(array('_builtin' => false), 'objects', 'and');
-// echo '<pre>'; print_r($post_types); echo '</pre>';
-
-global $q;
-$q = new WP_Query(array(
-    'post_type'      => array('award', 'service', 'member'),
-    'post_status'    => 'publish',
-    'posts_per_page' => -1,
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC'
-));
-
-if ( ! function_exists( 'getItems' ) ) {
-    function getItems( $post_type ) {
-		global $q;
+if ( ! function_exists( 'getPosts' ) ) {
+    function getPosts( $query, $post_type ) {
         $posts = [];
-        if ($q->have_posts()) {
-            while ($q->have_posts()) {
-                $q->the_post();
-                if ($q->post->post_type === $post_type) {
-                    array_push($posts, $q->post);
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                if ($query->post->post_type === $post_type) {
+                    array_push($posts, $query->post);
                 }
             }
             wp_reset_postdata();
@@ -60,15 +45,23 @@ if ( ! function_exists( 'getItems' ) ) {
 }
 
 if ( ! function_exists( 'getHomeSection' ) ) {
-	function getHomeSection( $post_type, $section, array $sectionClasses = null ) {
+	function getHomeSection( $query, $post_type ) {
+
+		$section = strtolower(get_post_type_object($post_type)->label);
+
+		$sectionClasses = [];
+
+		if ($post_type === 'member') {
+			array_push($sectionClasses, 'home-section-w-bg');
+		}
 
 		$t = '_crb_home_' . $post_type . '_title';
 		$p = '_crb_home_' . $post_type . '_paragraph';
 
-		${'title' . crb_lang_slug()}     = get_option($t . crb_lang_slug());
+		${'title' . crb_lang_slug()} = get_option($t . crb_lang_slug());
 		${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option($p . crb_lang_slug()));
 
-		$posts = getItems($post_type);
+		$posts = getPosts($query, $post_type);
 
 		if ( 
 			!empty($posts) || 
@@ -92,12 +85,7 @@ if ( ! function_exists( 'getHomeSection' ) ) {
 
 if ( ! function_exists( 'getSectionStart' ) ) {
 	function getSectionStart( $section, array $sectionClasses = null ) {
-		if ($sectionClasses) {
-			$sectionClass = implode(' ', $sectionClasses);
-			$sectionClass = ' ' . $sectionClass . ' ';
-		} else {
-			$sectionClass = ' ';
-		}
+		$sectionClass = $sectionClasses ? ' ' . implode(' ', $sectionClasses) . ' ' : ' ';
 		echo '<section id="' . $section . '" class="home-section' . $sectionClass . 'home-' . $section . '">';
 	}
 }
@@ -110,18 +98,8 @@ if ( ! function_exists( 'getSectionEnd' ) ) {
 
 if ( ! function_exists( 'getSectionHeader' ) ) {
 	function getSectionHeader( $title = '', $paragraph = '' ) {
-
-		if (!empty($title)) {
-			$h = '<h3 class="h3 section-title">' . $title . '</h3>';
-		} else {
-			$h = '';
-		}
-
-		if (!empty($paragraph)) {
-			$p = '<div class="section-paragraph">' . $paragraph . '</div>';
-		} else {
-			$p = '';
-		}
+		$h = !empty($title) ? '<h3 class="h3 section-title">' . $title . '</h3>' : '';
+		$p = !empty($paragraph) ? '<div class="section-paragraph">' . $paragraph . '</div>' : '';
 
 		if (!empty($title) || !empty($paragraph)) {
 			$headerStart = 
@@ -141,7 +119,6 @@ if ( ! function_exists( 'getSectionHeader' ) ) {
 		$html = $headerStart . $title . $paragraph . $headerEnd;
 
 		echo $html;
-
 	}
 }
 
@@ -149,7 +126,6 @@ if ( ! function_exists( 'getSectionBody' ) ) {
 	function getSectionBody( $post_type, $posts = '' ) {
 		$path = 'templates/front-page/home-' . $post_type;
 		if (!empty($posts)) {
-			// include(locate_template('templates/front-page/home-service.php'));
 			get_template_part($path, null, $posts);
 		}
 	}
@@ -157,12 +133,7 @@ if ( ! function_exists( 'getSectionBody' ) ) {
 
 // Display optimally sized images with mobile/desktop options
 if ( ! function_exists( 'getImage' ) ) {
-	function getImage( $mainImgId = '', $mobileImgId = '', array $divClasses = NULL, array $imgClasses = NULL, bool $lazyLoad = false, array $lazyClasses = NULL ) {
-
-		$mobileSrc = '';
-		$mobileSrcset = '';
-		$mobileType = '';
-		$mobileAlt = '';
+	function getImage( $mainImgId, $mobileImgId = '', bool $lazyLoad = false, array $divClasses = null, array $imgClasses = null, array $lazyClasses = null ) {
 
 		if (!empty($mainImgId)) {
 			$mainSrc = wp_get_attachment_image_src($mainImgId, 'full')[0];
@@ -171,40 +142,32 @@ if ( ! function_exists( 'getImage' ) ) {
 			$mainAlt = get_post_meta( $mainImgId, '_wp_attachment_image_alt', true);
 		}
 
+		$mobileAttr = '';
+
 		if (!empty($mobileImgId)) {
 			$mobileSrc = wp_get_attachment_image_src($mobileImgId, 'full')[0];
 			$mobileSrcset = wp_get_attachment_image_srcset($mobileImgId, 'full');
 			$mobileType = pathinfo($mobileSrc)['extension'];
 			$mobileAlt = get_post_meta( $mobileImgId, '_wp_attachment_image_alt', true);
+
+			$mobileAttr = 
+			'data-mobile-src="' . $mobileSrc . '" 
+			data-mobile-srcset="' . $mobileSrcset . '" 
+			data-mobile-alt="' . $mobileAlt . '" 
+			data-mobile-type="' . $mobileType . '"';
 		}
 
-		if ($divClasses) {
-			$divClass = implode(' ', $divClasses);
-			$divClass = ' ' . $divClass;
-		} else {
-			$divClass = '';
+		$lazyHtml = '';
+
+		if ($lazyLoad) {
+			array_push($imgClasses, 'lazy');
+			$lazyClass = $lazyClasses ? ' ' . implode(' ', $lazyClasses) . ' ' : ' ';
+			$lazyHtml = '<div class="lazy-overlay' . $lazyClass . 'on"></div>';
 		}
 
-		if ($imgClasses) {
-			$imgClass = implode(' ', $imgClasses);
-			if ($lazyLoad) {
-				$imgClass = $imgClass . ' lazy';
-			}
-		} else {
-			if ($lazyLoad) {
-				$imgClass = 'lazy';
-			} else {
-				$imgClass = '';
-			}
-		}
+		$divClass = $divClasses ? ' ' . implode(' ', $divClasses) : '';
+		$imgClass = !empty($imgClasses) ? implode(' ', $imgClasses) : '';
 
-		if ($lazyClasses) {
-			$lazyClass = implode(' ', $lazyClasses);
-			$lazyClass = ' ' . $lazyClass . ' ';
-		} else {
-			$lazyClass = ' ';
-		}
-		
 		$divStart = '<div class="image' . $divClass . '">';
 			$img = '<img 
 				class="' . $imgClass . '" 
@@ -214,38 +177,31 @@ if ( ! function_exists( 'getImage' ) ) {
 				data-src="' . $mainSrc . '" 
 				data-srcset="' . $mainSrcset . '" 
 				data-alt="' . $mainAlt . '" 
-				data-type="' . $mainType . '" 
-				data-mobile-src="' . $mobileSrc . '" 
-				data-mobile-srcset="' . $mobileSrcset . '" 
-				data-mobile-alt="' . $mobileAlt . '" 
-				data-mobile-type="' . $mobileType . '" 
-			/>';
-			$lazyOverlay = '<div class="lazy-overlay' . $lazyClass . 'on"></div>';
+				data-type="' . $mainType . '" '
+				. $mobileAttr .
+			'/>';
+			$lazy = $lazyHtml;
 		$divEnd = '</div>';
 
-		if (!$lazyLoad) { 
-			$html = $divStart . $img . $divEnd;
-		} else {
-			$html = $divStart . $img . $lazyOverlay . $divEnd;
-		}
+		$html = $divStart . $img . $lazy . $divEnd;
 
 		echo $html;
 
 	}
 }
 
+add_filter('get_the_archive_title', 'change_category_title_prefix');
 function change_category_title_prefix($title) {
     if (is_category()) {
         $title = single_cat_title( '', false );
     }
     return $title;
 }
-add_filter('get_the_archive_title', 'change_category_title_prefix');
 
+add_filter('private_title_format', 'change_private_title_prefix');
 function change_private_title_prefix() {
     return '%s';
 }
-add_filter('private_title_format', 'change_private_title_prefix');
 
 if (!function_exists('solid_posted_on')) {
 	function solid_posted_on() {
@@ -288,7 +244,7 @@ function private_redirect() {
 	}
 }
 
-//add_action( 'transition_post_status', 'wpse118970_post_status_new', 10, 3 );
+// add_action('transition_post_status', 'wpse118970_post_status_new', 10, 3);
 function wpse118970_post_status_new( $new_status, $old_status, $post ) { 
     if ( $post->post_type == 'post' && $new_status == 'publish' && $old_status != $new_status ) {
         $post->post_status = 'private';
@@ -309,13 +265,13 @@ function wpse118970_post_status_new( $new_status, $old_status, $post ) {
     }
 }
 
+// add_action('init', 'private_posts_subscribers');
 function private_posts_subscribers() {
 	$subRole = get_role( 'subscriber' );
 	$subRole->add_cap( 'read_private_posts' );
 }
-//add_action( 'init', 'private_posts_subscribers' );
 
-//add_action('admin_init', 'check_lang');
+// add_action('admin_init', 'check_lang');
 function check_lang () {
 	$code = ICL_LANGUAGE_CODE;
 	$default = pll_default_language('slug');
