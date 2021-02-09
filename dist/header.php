@@ -12,7 +12,7 @@
     <div id="page" class="site">
 
         <?php get_template_part('templates/site-loader'); ?>
-        <?php get_template_part('templates/main-nav'); ?>
+        <?php get_template_part('templates/site-header'); ?>
 
         <div id="content" class="site-content">
             <main id="main" class="site-main" role="main">

@@ -1,4 +1,4 @@
-<!-- Team Member Card -->
+<!-- Member Card -->
 <a href="#" class="member-card" data-toggle="popup" data-target="team-popup-<?php echo $slug; ?>" data-classes="open">
     <?php if ( !empty($image_id) ) { ?>
     <div class="member-pic">

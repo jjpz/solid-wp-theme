@@ -5,7 +5,7 @@ ${'bigtext' . crb_lang_slug()} = nl2br(get_option('_crb_home_intro_bigtext' . cr
 
 <?php if (!empty(${'paragraph' . crb_lang_slug()}) || !empty(${'bigtext' . crb_lang_slug()})) { ?>
 <?php (!empty(${'paragraph' . crb_lang_slug()}) && !empty(${'bigtext' . crb_lang_slug()})) ? $col = 2 : $col = 1; ?>
-<section id="about" class="home-section-w-bg home-about">
+<section id="intro" class="home-section-w-bg home-about">
     <div class="container">
         <div class="row align-items-baseline">
             <?php if ($col === 2) { ?>

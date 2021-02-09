@@ -574,6 +574,10 @@ h1.bigtext.home-about-bigtext {
 	padding-top: 120px;
 }
 
+.home-awards .section-body .row {
+	justify-content: center;
+}
+
 .award {
 	display: flex;
 	align-items: center;
@@ -661,6 +665,10 @@ h1.bigtext.home-about-bigtext {
 }
 
 /* HOME TEAM */
+
+.home-team .section-body .row {
+	justify-content: center;
+}
 
 .member-card {
 	display: block;

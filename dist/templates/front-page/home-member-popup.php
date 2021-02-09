@@ -1,4 +1,4 @@
-<!-- Team Member Popup -->
+<!-- Member Popup -->
 <div id="team-popup-<?php echo $slug; ?>" class="popup team-popup">
     <div class="popup-background" data-toggle="popup" data-target="team-popup-<?php echo $slug; ?>" data-classes="open">
     </div>

@@ -7,7 +7,7 @@ ${'title' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_title' . crb_la
 ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . crb_lang_slug()));
 ?>
 
-<section id="intro" class="home-intro offset-height">
+<section id="cover" class="home-intro offset-height">
     <div class="hero home-intro-banner">
         <?php getImage($bg_image_id_desktop, $bg_image_id_mobile, true, array(), array('img', 'img-cover')); ?>
         <div class="home-intro-content">
