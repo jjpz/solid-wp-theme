@@ -1,19 +1,28 @@
 <?php
-if (file_exists(__DIR__ . '/config')) {
-	require_once __DIR__ . '/config/admin.php';
-	require_once __DIR__ . '/config/disable.php';
-	require_once __DIR__ . '/config/setup.php';
-	require_once __DIR__ . '/config/scripts.php';
-	require_once __DIR__ . '/config/carbon-fields.php';
-	require_once __DIR__ . '/config/custom-post-types.php';
-} else {
-	echo 'Error: The required directory does not exist, please check functions.php file.';
-}
+// if (file_exists(__DIR__ . '/config')) {
+// 	require_once __DIR__ . '/config/admin.php';
+// 	require_once __DIR__ . '/config/disable.php';
+// 	require_once __DIR__ . '/config/setup.php';
+// 	require_once __DIR__ . '/config/scripts.php';
+// 	require_once __DIR__ . '/config/carbon-fields.php';
+// 	require_once __DIR__ . '/config/custom-post-types.php';
+// } else {
+// 	echo 'Error: The required directory does not exist, please check functions.php file.';
+// }
 
-require get_template_directory() . '/inc/language-functions.php';
-require get_template_directory() . '/inc/template-tags.php';
-require get_template_directory() . '/inc/template-functions.php';
-require get_template_directory() . '/inc/front-page-functions.php';
+$inc = get_template_directory() . '/inc/';
+
+require $inc . 'setup.php';
+require $inc . 'disable.php';
+require $inc . 'admin.php';
+require $inc . 'scripts.php';
+require $inc . 'carbon-fields.php';
+require $inc . 'custom-post-types.php';
+
+require $inc . 'language-functions.php';
+require $inc . 'template-tags.php';
+require $inc . 'template-functions.php';
+require $inc . 'front-page-functions.php';
 
 // Fetch and print from database
 // global $wpdb;
