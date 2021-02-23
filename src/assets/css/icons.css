@@ -17,6 +17,11 @@
 	transition: all 0.25s;
 }
 
+.icon-caret-down {
+	transform: rotate(90deg);
+	transition: all 0.25s;
+}
+
 .icon-caret-left {
 	margin-right: 10px;
 	transform: rotate(180deg);

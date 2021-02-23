@@ -8,7 +8,7 @@
     $nav_logo_alt = get_post_meta( $nav_logo_id, '_wp_attachment_image_alt', true);
     ?>
     <div class="site-logo">
-        <img class="nav-logo" src="<?php echo $nav_logo_src; ?>" title="<?php echo $nav_logo_title; ?>" alt="<?php echo $nav_logo_alt; ?>">
+        <img class="site-logo-img" src="<?php echo $nav_logo_src; ?>" title="<?php echo $nav_logo_title; ?>" alt="<?php echo $nav_logo_alt; ?>" />
     </div>
     <?php } ?>
     <?php if (empty($remove_title) && $remove_title !== 'yes') { ?>

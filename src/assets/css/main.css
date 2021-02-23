@@ -28,6 +28,10 @@ body.desktop.no-scroll {
 	margin-bottom: 120px;
 }
 
+.site-content.mobile {
+	margin-top: 66px;
+}
+
 body.home .site-content {
 	margin: 0;
 }
@@ -38,10 +42,6 @@ body.single-post .site-content {
 
 body.home main {
 	margin: 0 auto;
-}
-
-body.home main.mobile {
-	margin-top: 80px;
 }
 
 main.page-main {
@@ -81,89 +81,6 @@ img {
 	width: 100%;
 	max-width: 100%;
 	height: auto;
-}
-
-/* LANGUAGES */
-
-.site-nav li.lang-item {
-	position: relative;
-	margin-left: 10px;
-	padding-left: 10px;
-	border-left: 1px solid white;
-}
-
-.site-nav li.lang-item-first {
-	margin-left: 30px;
-	padding-left: 0;
-	border-left: none;
-}
-
-.site-nav li.lang-item a {
-	display: flex;
-	align-items: center;
-	padding: 0;
-	border: none;
-	line-height: 1;
-	font-size: 16px;
-	text-transform: unset;
-}
-
-.site-nav li.current-lang a {
-	text-decoration: underline;
-}
-
-.site-nav li.lang-item a:hover {
-	border-color: transparent;
-	background-color: transparent;
-	opacity: 0.9;
-	transition: all 0.25s;
-}
-
-.site-header.active .site-nav li.lang-item {
-	border-color: var(--color-dark-hex);
-}
-
-.site-header.active .site-nav li.lang-item a {
-	border-color: transparent;
-	background-color: transparent;
-	color: var(--color-dark-hex);
-}
-
-.site-header.active .site-nav li.lang-item a:hover {
-	background-color: transparent;
-	color: var(--color-dark-hex);
-	opacity: 0.9;
-	transition: all 0.25s;
-}
-
-.site-header.active .site-nav li.current-lang a:hover {
-	opacity: 1;
-}
-
-.site-header.sticky .site-nav li.lang-item {
-	border-color: var(--color-dark-hex);
-}
-
-.site-header.fixed .site-nav li.lang-item {
-	border-color: var(--color-dark-hex);
-}
-
-.site-nav.mobile li.lang-item {
-	width: auto;
-	margin-top: 15px;
-	margin-bottom: 30px;
-	padding-right: 0;
-}
-
-.site-nav.mobile li.lang-item-first {
-	margin-left: 0;
-	padding-left: 30px;
-}
-
-@media (max-width: 767px) {
-	.site-nav li.lang-item a {
-		font-size: 14px;
-	}
 }
 
 /* BASE */
@@ -492,10 +409,6 @@ body.single-post article.post {
 
 .home-intro-banner {
 	height: 100vh;
-}
-
-.home-intro-banner.mobile {
-	height: calc(100vh - 80px);
 }
 
 .home-intro-content {
