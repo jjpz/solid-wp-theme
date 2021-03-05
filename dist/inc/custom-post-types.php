@@ -45,7 +45,7 @@ function cpt_services () {
 	);
 	$rewrite = array(
 		'slug'                  => 'services',
-		'with_front'            => true,
+		'with_front'            => false,
 		'feeds'                 => false,
 		'pages'                 => true
 	);
@@ -67,7 +67,7 @@ function cpt_services () {
 		'capability_type'       => 'post',
 		'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
 		'taxonomies'            => array(),
-		'has_archive'           => false,
+		'has_archive'           => true,
 		'can_export'            => true,
 		'rewrite'               => $rewrite
 	);
@@ -83,7 +83,7 @@ function cpt_members () {
 	);
 	$rewrite = array(
 		'slug'                  => 'team',
-		'with_front'            => true,
+		'with_front'            => false,
 		'feeds'                 => false,
 		'pages'                 => true
 	);
@@ -105,7 +105,7 @@ function cpt_members () {
 		'capability_type'       => 'post',
 		'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
 		'taxonomies'            => array(),
-		'has_archive'           => false,
+		'has_archive'           => true,
 		'can_export'            => true,
 		'rewrite'               => $rewrite
 	);

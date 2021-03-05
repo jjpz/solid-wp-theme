@@ -38,7 +38,7 @@ export function checkSiteHeaderWidth() {
 	// let buttonNavWidth = buttonNav ? buttonNav.offsetWidth : 0;
 
 	let mainItemsWidth = [];
-	let mainItems = document.querySelectorAll('nav.main-nav li');
+	let mainItems = document.querySelectorAll('nav.main-nav > ul > li');
 	mainItems.forEach((mainItem, index, array) => {
 		let mainItemWIdth = mainItem.querySelector('span').offsetWidth;
 		let mainItemMargin = (index === array.length - 1) ? 45 : 30;
@@ -130,10 +130,10 @@ export function checkSiteHeader() {
 export function checkSiteHeaderRes() {
 
 	let windowWidth = checkWindowWidth();
-	console.log('window = ' + windowWidth);
+	// console.log('window = ' + windowWidth);
 	
 	let siteHeaderWidth = checkSiteHeaderWidth();
-	console.log('header = ' + siteHeaderWidth);
+	// console.log('header = ' + siteHeaderWidth);
 
 	if (windowWidth <= siteHeaderWidth) {
 

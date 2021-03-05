@@ -36,6 +36,23 @@ function arrows_in_menus( $item_output, $item, $depth, $args ) {
 }
 add_filter( 'walker_nav_menu_start_el', 'arrows_in_menus', 10, 4 );
 
+function archivePage($query) {
+	if ( is_post_type_archive() && $query->is_main_query() ) {
+		$args = array(
+			'post_status'            => 'publish',
+			'posts_per_page'         => 50,
+			'orderby'                => 'menu_order',
+			'order'                  => 'ASC'
+		);
+		$query->set('post_status', 'publish');
+		$query->set('posts_per_page', 50);
+		$query->set('orderby', 'menu_order');
+		$query->set('order', 'ASC');
+	}
+	return $query;
+}
+add_action( 'pre_get_posts', 'archivePage' );
+
 // Fetch and print from database
 // global $wpdb;
 

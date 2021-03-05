@@ -73,6 +73,14 @@ p.p2 {
 	font-size: 16px;
 }
 
+.p2 {
+	line-height: 1.5;
+	font-family: var(--font-main-small);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+}
+
 @media (min-width: 1280px) {
 	h1.bigtext {
 		font-size: 115px;

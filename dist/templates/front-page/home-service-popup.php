@@ -1,4 +1,4 @@
-<!-- Member Popup -->
+<!-- Service Popup -->
 <div id="popup-<?php echo $slug; ?>" class="popup">
     <div class="popup-background" data-toggle="popup" data-target="popup-<?php echo $slug; ?>" data-classes="open">
     </div>
@@ -9,38 +9,41 @@
             <!-- <div class="popup-inner"> -->
                 <div class="popup-row">
                     <?php if ( !empty($image_id) ) { ?>
-                    <!-- <div class="col-sm-4 popup-col"> -->
                     <div class="popup-col-left">
+                    <div class="popup-image">
                         <!-- <div class="team-popup-pic"> -->
-                            <div class="popup-image">
+                            <!-- <div class="team-popup-image"> -->
                                 <?php getImage(
                                     $image_id, 
                                     '', 
                                     true, 
-                                    array('image-aspect-square', 'image-circle'), 
+                                    array('image-aspect-square'), 
                                     array('img', 'img-cover'), 
                                     array('member-overlay')
                                 ); ?>
-                            </div>
+                            <!-- </div> -->
                         <!-- </div> -->
                     </div>
+                    </div>
                     <?php } ?>
-                    <?php (!empty($image_id)) ? $class = 'col-sm-8 popup-col' : $class = 'col-sm-12 popup-col'; ?>
-                    <!-- <div class="<?php echo $class; ?>"> -->
-                        <div class="popup-col-right">
-                        <div class="popup-content">
+                    <?php // (!empty($image_id)) ? $class = 'col-sm-8 popup-col popup-content' : $class = 'col-sm-12 popup-col popup-content'; ?>
+                    <?php (!empty($image_id)) ? $class = 'popup-col-right' : $class = 'popup-col-right full-width'; ?>
+                    <div class="<?php echo $class; ?>">
+                    <div class="popup-content">
+                        <!-- <div class="team-popup-content"> -->
                             <!-- <div class="team-popup-name"> -->
                                 <h3 class="popup-title"><?php echo $title; ?></h3>
                             <!-- </div> -->
-                            <?php if ( !empty($position) ) { ?>
-                            <!-- <div class="team-popup-title"> -->
-                                <p class="popup-position"><?php echo $position; ?></p>
-                            <!-- </div> -->
-                            <?php } ?>
+                            <!-- <?php if ( !empty($title) ) { ?>
+                            <div class="team-popup-title">
+                                <p><?php echo $title; ?></p>
+                            </div>
+                            <?php } ?> -->
                             <!-- <div class="team-popup-bio"> -->
                                 <?php echo $content; ?>
                             <!-- </div> -->
-                        </div>
+                        <!-- </div> -->
+                    </div>
                     </div>
                 </div>
                 <!-- <div class="popup-row"> -->

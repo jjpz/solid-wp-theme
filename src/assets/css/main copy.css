@@ -36,27 +36,16 @@ body.home .site-content {
 	margin: 0;
 }
 
-body.single .site-content,
-body.page:not(.home) .site-content {
-	margin-top: 170px;
-}
-
-body.single .site-content.mobile,
-body.page:not(.home) .site-content.mobile {
-	margin-top: 156px;
-}
-
 body.single-post .site-content {
-	margin-top: 80px;
 	margin-bottom: 60px;
-}
-
-body.single-post .site-content.mobile {
-	margin-top: 66px;
 }
 
 body.home main {
 	margin: 0 auto;
+}
+
+main.page-main {
+	margin-top: 210px;
 }
 
 p {
@@ -99,7 +88,6 @@ img {
 /* PAGES */
 
 .page-header {
-	margin-top: 90px;
 	margin-bottom: 60px;
 }
 
@@ -543,15 +531,244 @@ h1.bigtext.home-about-bigtext {
 	padding-bottom: 120px;
 }
 
+.grid-item.service {
+	display: flex;
+	/* flex-flow: row wrap; */
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin-bottom: 90px;
+}
+
+.service-image {
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	max-width: 125px;
+	/* transform: translateY(-25.5%); */
+}
+
+.service-content {
+	width: 100%;
+}
+
+.service.has-post-thumbnail .service-content {
+	width: 75%;
+	padding-left: 15px;
+}
+
+.service-title {
+	display: block;
+	width: 100%;
+	margin-top: 32.5px;
+	margin-bottom: 30px;
+	text-align: left;
+}
+
+.read-more-link {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	color: var(--color-dark-hex);
+}
+
+/* .service-card {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	margin-bottom: 90px;
+} */
+
+/* .service-left {
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	max-width: 125px;
+	transform: translateY(-25.5%);
+} */
+
+/* .service-right {
+	width: 75%;
+	padding-left: 15px;
+} */
+
+/* .service-right.full-width {
+	width: 100%;
+} */
+
+/* .service-title {
+	display: block;
+	width: 100%;
+	margin-bottom: 30px;
+	text-align: left;
+} */
+
+/* .service-title h2 {
+	margin: 0;
+} */
+
+@media (max-width: 767px) {
+	.service-image {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 30px;
+		/* transform: translateY(0); */
+	}
+
+	.service.has-post-thumbnail .service-content {
+		width: 100%;
+		padding: 0;
+	}
+
+	.service-title {
+		margin-top: 0;
+		text-align: center;
+	}
+
+	.read-more-link {
+		justify-content: center;
+	}
+}
+
 /* HOME TEAM */
 
 .home-team .section-body .row {
 	justify-content: center;
 }
 
-body.desktop .member .card:hover .icon-caret {
+.member-card {
+	margin-bottom: 75px;
+	color: var(--color-dark-hex);
+}
+
+.v-max .member-card {
+	display: flex;
+	/* margin-bottom: 75px; */
+	/* color: var(--color-dark-hex); */
+	/* text-align: center; */
+}
+
+.single-display .member-card,
+.popup-display .member-card {
+	display: block;
+	text-align: center;
+}
+
+.member-pic {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	max-width: 250px;
+	max-height: 250px;
+}
+
+.single-display .member-pic,
+.popup-display .member-pic {
+	margin: auto;
+}
+
+.member-info {
+	flex: 1;
+	width: 100%;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.single-display .member-info,
+.popup-display .member-info {
+	margin-left: 0;
+}
+
+.member-name {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+/* .member-card {
+	display: block;
+	margin-bottom: 75px;
+	color: var(--color-dark-hex);
+	text-align: center;
+} */
+
+/* .member-pic {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	max-width: 250px;
+	max-height: 250px;
+	margin: 0 auto 30px;
+} */
+
+/* .member-name {
+	margin-bottom: 15px;
+} */
+
+/* .member-name h3 {
+	margin: 0;
+} */
+
+.member-title {
+	margin-bottom: 15px;
+}
+
+.single-display.member .read-more-link,
+.popup-display.member .read-more-link {
+	justify-content: center;
+}
+
+/* .member-read-bio {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-dark-hex);
+} */
+
+/* .member-read-bio > p {
+	margin: 0;
+} */
+
+body.desktop .member-card:hover .icon-caret {
 	opacity: 1;
 	transition: all 0.25s;
+}
+
+@media (max-width: 767px) {
+	.v-max .member-card {
+		flex-direction: column;
+	}
+
+	.popup-display .member-card,
+	.single-display .member-card {
+		display: flex;
+		text-align: left;
+	}
+
+	.v-max .member-pic {
+		margin: auto;
+	}
+
+	.popup-display .member-pic,
+	.single-display .member-pic {
+		width: 25%;
+		margin: 0;
+	}
+
+	.v-max .member-info {
+		margin-left: 0;
+	}
+
+	.popup-display .member-info,
+	.single-display .member-info {
+		margin-top: 0;
+		margin-left: 15px;
+	}
+
+	.popup-display.member .read-more-link,
+	.single-display.member .read-more-link {
+		justify-content: flex-start;
+	}
 }
 
 /* TEAM POPUPS */

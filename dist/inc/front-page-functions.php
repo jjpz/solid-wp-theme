@@ -28,9 +28,11 @@ if ( ! function_exists( 'getHomeSection' ) ) {
 
 		$t = '_crb_home_' . $post_type . '_title';
 		$p = '_crb_home_' . $post_type . '_paragraph';
+		$d = '_crb_home_' . $post_type . '_layout';
 
 		${'title' . crb_lang_slug()} = get_option($t . crb_lang_slug());
 		${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option($p . crb_lang_slug()));
+		$display = get_option($d);
 
 		$posts = getSectionPosts($query, $post_type);
 
@@ -42,7 +44,7 @@ if ( ! function_exists( 'getHomeSection' ) ) {
 
 			$start  = getSectionStart($section, $sectionClasses);
 			$header = getSectionHeader(${'title' . crb_lang_slug()}, ${'paragraph' . crb_lang_slug()});
-			$body   = getSectionBody($post_type, $posts);
+			$body   = getSectionBody($post_type, $posts, $display);
 			$end    = getSectionEnd();
 
 			$html = $start . $header . $body . $end;
@@ -94,11 +96,17 @@ if ( ! function_exists( 'getSectionHeader' ) ) {
 }
 
 if ( ! function_exists( 'getSectionBody' ) ) {
-	function getSectionBody( $post_type, $posts = '' ) {
-		$path = 'templates/front-page/home-' . $post_type;
+	function getSectionBody( $post_type, $posts = '', $display) {
+		if (is_front_page()) {
+			$path = 'templates/front-page/home-' . $post_type;
+		}
 		if (!empty($posts)) {
+			$args = array(
+				'posts' => $posts,
+				'display' => $display
+			);
 			$bodyStart = getSectionBodyStart();
-			$bodyContent = get_template_part($path, null, $posts);
+			$bodyContent = get_template_part($path, null, $args);
 			$bodyEnd = getSectionBodyEnd();
 
 			$html = $bodyStart . $bodyContent . $bodyEnd;

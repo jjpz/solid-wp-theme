@@ -1,6 +1,6 @@
 const popups = document.querySelectorAll('[data-toggle="popup"]');
-const prev = document.querySelectorAll('a.team-prev');
-const next = document.querySelectorAll('a.team-next');
+const prev = document.querySelectorAll('a.popup-prev');
+const next = document.querySelectorAll('a.popup-next');
 
 // Team member popups
 popups.forEach(popup => {
@@ -9,8 +9,8 @@ popups.forEach(popup => {
 		let target = this.dataset.target;
 		let classes = this.dataset.classes;
 		let pop = document.getElementById(target);
-		let content = pop.querySelector('.popup-content');
-		content.scroll(0, 0);
+		let container = pop.querySelector('.popup-container');
+		container.scroll(0, 0);
 		document.body.classList.toggle('no-scroll');
 		pop.classList.toggle(classes);
 	});
@@ -20,9 +20,9 @@ popups.forEach(popup => {
 function getPopup(button) {
 	let target = button.dataset.target;
 	let popup = document.getElementById(target);
-	let content = popup.querySelector('.popup-content');
+	let container = popup.querySelector('.popup-container');
 	let close = popup.querySelector('.popup-close');
-	return { popup, content, close };
+	return { popup, container, close };
 }
 
 // Team member popup navigation previous button
@@ -30,10 +30,8 @@ prev.forEach(button => {
 	button.addEventListener('click', function (e) {
 		e.preventDefault();
 		let pop = getPopup(button);
-		let prev = pop.popup.parentElement.previousElementSibling.querySelector(
-			'a.member-card'
-		);
-		pop.content.scroll(0, 0);
+		let prev = pop.popup.parentElement.previousElementSibling.querySelector('a');
+		pop.container.scroll(0, 0);
 		pop.close.click();
 		prev.click();
 	});
@@ -44,10 +42,8 @@ next.forEach(button => {
 	button.addEventListener('click', function (e) {
 		e.preventDefault();
 		let pop = getPopup(button);
-		let next = pop.popup.parentElement.nextElementSibling.querySelector(
-			'a.member-card'
-		);
-		pop.content.scroll(0, 0);
+		let next = pop.popup.parentElement.nextElementSibling.querySelector('a');
+		pop.container.scroll(0, 0);
 		pop.close.click();
 		next.click();
 	});

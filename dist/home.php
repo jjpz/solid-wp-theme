@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php get_template_part('includes/vars'); ?>
 <?php get_template_part('templates/blog/blog-header'); ?>
 <div class="container blog-container">
     <div class="row">

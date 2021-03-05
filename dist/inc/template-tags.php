@@ -1,7 +1,7 @@
 <?php
 // Display optimally sized images with mobile/desktop options
 if ( ! function_exists( 'getImage' ) ) {
-	function getImage( $mainImgId, $mobileImgId = '', bool $lazyLoad = false, array $divClasses = null, array $imgClasses = null, array $lazyClasses = null ) {
+	function getImage( $mainImgId, $mobileImgId = '', $lazyLoad = 'false', array $divClasses = null, array $imgClasses = null, array $lazyClasses = null ) {
 
 		if (!empty($mainImgId)) {
 			$mainSrc = wp_get_attachment_image_src($mainImgId, 'full')[0];
@@ -27,7 +27,7 @@ if ( ! function_exists( 'getImage' ) ) {
 
 		$lazyHtml = '';
 
-		if ($lazyLoad) {
+		if ($lazyLoad === 'true') {
 			array_push($imgClasses, 'lazy');
 			$lazyClass = $lazyClasses ? ' ' . implode(' ', $lazyClasses) . ' ' : ' ';
 			$lazyHtml = '<div class="lazy-overlay' . $lazyClass . 'on"></div>';
