@@ -107,6 +107,7 @@ body.desktop .site-header.absolute:hover .site-header-container {
 	position: relative;
 	width: max-content;
 	height: 100%;
+	text-decoration: none;
 }
 
 .site-logo {
@@ -238,10 +239,11 @@ body.desktop .site-header.absolute:hover h1.site-title {
 	display: flex;
 	align-items: center;
 	height: 100%;
+	text-decoration: none;
 	transition: all 0.25s;
 }
 
-.main-nav a:hover {
+.site-nav.desktop .main-nav li:hover > a {
 	opacity: 0.75;
 	transition: all 0.25s;
 }
@@ -264,6 +266,10 @@ body.desktop .site-header.absolute:hover h1.site-title {
 body.desktop .site-header.absolute:hover .main-nav a {
 	color: var(--color-dark-hex);
 	transition: all 0.125s linear;
+}
+
+.main-nav li.menu-item-has-children a span:not(.icon-caret) {
+	margin-right: 10px;
 }
 
 /* Submenu */
@@ -326,6 +332,7 @@ body.desktop .site-header.absolute:hover .main-nav a {
 	border-radius: 3px;
 	background-color: transparent;
 	text-align: center;
+	text-decoration: none;
 	text-transform: uppercase;
 	transition: all 0.25s;
 }
@@ -684,6 +691,10 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 
 .nav-toggle.show {
 	display: flex;
+}
+
+.nav-toggle-link {
+	text-decoration: none;
 }
 
 .nav-toggle-btn {

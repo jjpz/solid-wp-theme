@@ -236,6 +236,7 @@ if (siteHeader) {
 						// }
 						if (siteNav.classList.contains('show')) {
 							siteNav.classList.remove('show');
+							siteFooter.classList.toggle('site-nav-open');
 						}
 						elem.scrollIntoView({behavior: 'smooth'});
 					} else {

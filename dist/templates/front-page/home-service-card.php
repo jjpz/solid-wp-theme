@@ -24,7 +24,7 @@
                 <?php if ($display !== 'full') { ?>
                     href="<?php echo $href; ?>" 
                 <?php } ?>
-                class="read-more-link p2" 
+                class="read-more-link has-icon-right p2" 
                 <?php if ($display === 'popup') { ?>
                     data-toggle="popup" 
                     data-target="popup-<?php echo $slug; ?>" 

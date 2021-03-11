@@ -28,8 +28,8 @@ function arrows_in_menus( $item_output, $item, $depth, $args ) {
 
 	if ( in_array( 'menu-item-has-children', $item->classes ) ) {
 		// $arrow = 0 == $depth ? '<i class="icon-angle-down"></i>' : '<i class="icon-angle-right"></i>';
-        $arrow = '<svg class="svg-caret" width="5" height="13" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>';
-		$item_output = str_replace( '</a>', '</a><a class="submenu-toggle"><span class="icon-caret icon-caret-down">' . $arrow . '</span></a>', $item_output );
+        $arrow = '<a class="submenu-toggle"><span class="icon-caret icon-caret-down"><svg class="svg-caret" width="5" height="13" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg></span></a>';
+		$item_output = str_replace( '</a>', $arrow, $item_output );
 	}
 
 	return $item_output;

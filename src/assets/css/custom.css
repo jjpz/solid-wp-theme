@@ -4,6 +4,7 @@
 
 .card {
 	color: var(--color-dark-hex);
+	text-decoration: none;
 }
 
 .v-max .card {
@@ -51,7 +52,21 @@
 .read-more-link {
 	display: flex;
 	align-items: center;
+	line-height: 1;
 	color: var(--color-dark-hex);
+	text-decoration: none;
+}
+
+.has-icon-left > span {
+	margin-left: 10px;
+}
+
+.has-icon-right > span {
+	margin-right: 10px;
+}
+
+.archive-link {
+	margin-top: 60px;
 }
 
 .v-min .read-more-link {

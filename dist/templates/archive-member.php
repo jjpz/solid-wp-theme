@@ -28,7 +28,7 @@ $image_id = get_post_thumbnail_id();
             <?php if ( !empty($position) ) { ?>
             <p class="position"><?php echo $position; ?></p>
             <?php } ?>
-            <p class="read-more-link p2">
+            <p class="read-more-link has-icon-right p2">
                 <span>read bio</span>
                 <svg class="svg-caret icon-caret icon-caret-right" width="5" height="13" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
             </p>

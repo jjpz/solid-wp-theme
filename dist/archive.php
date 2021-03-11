@@ -7,7 +7,7 @@
 
             <header class="col-12 archive-header">
                 <h2 class="page-title">
-                    <?php echo str_replace('Archives: ','',get_the_archive_title()); ?>
+                    <?php echo str_replace('Archives: ', '', get_the_archive_title()); ?>
                 </h2>
             </header>
 

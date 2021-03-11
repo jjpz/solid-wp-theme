@@ -146,6 +146,7 @@
 	padding: 30px;
 	background-color: var(--color-dark-hex);
 	color: white;
+	text-decoration: none;
 	transition: all 0.25s;
 }
 

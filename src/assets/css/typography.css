@@ -81,6 +81,18 @@ p.p2 {
 	font-weight: normal;
 }
 
+a {
+	color: var(--color-dark-hex);
+	text-decoration: underline;
+}
+
+a:hover,
+a:active,
+a:focus,
+a:visited {
+	text-decoration: none;
+}
+
 @media (min-width: 1280px) {
 	h1.bigtext {
 		font-size: 115px;

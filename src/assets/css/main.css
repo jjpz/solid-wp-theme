@@ -37,12 +37,14 @@ body.home .site-content {
 }
 
 body.single .site-content,
-body.page:not(.home) .site-content {
+body.page:not(.home) .site-content,
+body.error404 .site-content {
 	margin-top: 170px;
 }
 
 body.single .site-content.mobile,
-body.page:not(.home) .site-content.mobile {
+body.page:not(.home) .site-content.mobile,
+body.error404 .site-content.mobile {
 	margin-top: 156px;
 }
 
@@ -69,14 +71,7 @@ p:last-child {
 }
 
 a {
-	text-decoration: none;
 	transition: all 0.25s;
-}
-
-.entry-content a,
-.page-content a {
-	color: var(--color-dark-hex);
-	text-decoration: underline;
 }
 
 a:hover,
@@ -84,7 +79,6 @@ a:active,
 a:focus,
 a:visited {
 	outline: 0;
-	text-decoration: none;
 	transition: all 0.25s;
 }
 
@@ -95,6 +89,37 @@ img {
 }
 
 /* BASE */
+
+.wp-block-image {
+	margin: 30px auto;
+}
+
+.wp-block-image figcaption {
+	margin-top: 15px;
+	margin-bottom: 30px;
+	line-height: 1.5;
+	font-family: var(--font-main-small);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.wp-block-table {
+	margin: 30px auto;
+	text-align: center;
+}
+
+.wp-block-table table {
+	margin-bottom: 15px;
+}
+
+.wp-block-table figcaption {
+	line-height: 1.5;
+	font-family: var(--font-main-small);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+}
 
 /* PAGES */
 
@@ -138,6 +163,7 @@ img {
 
 .blog-title a {
 	color: var(--color-dark-hex);
+	text-decoration: none;
 }
 
 .blog-content {
@@ -215,6 +241,7 @@ li.post-nav-see-all {
 	font-size: 16px;
 	font-weight: bold;
 	color: var(--color-dark-hex);
+	text-decoration: none;
 }
 
 .post-nav-cat {
@@ -228,6 +255,7 @@ li.post-nav-see-all {
 	font-size: 30px;
 	font-weight: 100;
 	color: var(--color-dark-hex);
+	text-decoration: none;
 }
 
 .see-all-link {
@@ -247,6 +275,7 @@ li.post-nav-see-all {
 	font-weight: 100;
 	color: var(--color-dark-hex);
 	opacity: 0.5;
+	text-decoration: none;
 }
 
 @media (max-width: 991px) {
@@ -298,6 +327,7 @@ body.single-post article.post {
 .entry-link {
 	position: relative;
 	color: var(--color-dark-hex);
+	text-decoration: none;
 }
 
 .entry-meta {
