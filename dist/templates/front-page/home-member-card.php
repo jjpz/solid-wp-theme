@@ -26,14 +26,14 @@
     <?php } ?>
 
     <div class="info">
-        <h3 class="name"><?php echo $title; ?></h3>
+        <h3 class="h3-alt name"><?php echo $title; ?></h3>
         <?php if ( !empty($position) ) { ?>
             <p class="position"><?php echo $position; ?></p>
         <?php } ?>
         <?php if ($display === 'full') { ?>
             <?php echo $content; ?>
         <?php } else { ?>
-            <p class="read-more-link has-icon-right p2">
+            <p class="link link-more link-icon-right font-smaller">
                 <span>read bio</span>
                 <svg class="svg-caret icon-caret icon-caret-right" width="5" height="13" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
             </p>

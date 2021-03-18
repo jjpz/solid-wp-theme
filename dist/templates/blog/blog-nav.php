@@ -15,7 +15,7 @@ $categories = get_categories('post');
     <?php if (isset($categories) && !empty($categories)) { ?>
     <div class="side-nav right-nav category-nav">
         <a href="#" class="side-nav-toggle toggle-trigger" data-toggle="toggle">
-            <h4 class="h4">Categories</h4>
+            <h4>Categories</h4>
             <svg class="arrow-down-small" width="5" height="10" viewBox="0 0 5 15">
                 <g>
                     <polygon style="fill:currentColor;"
@@ -23,7 +23,7 @@ $categories = get_categories('post');
                 </g>
             </svg>
         </a>
-        <h4 class="h4 side-nav-menu-title">Categories</h4>
+        <h4 class="side-nav-menu-title">Categories</h4>
         <ul id="toggle" class="side-nav-menu toggle-target">
             <?php foreach ($categories as $category) { ?>
             <li class="side-nav-item cat-nav-item">
@@ -37,7 +37,7 @@ $categories = get_categories('post');
 
     <?php if (isset($_posts) && !empty($_posts)) { ?>
     <div class="side-nav right-nav post-nav">
-        <h4 class="h4 side-nav-menu-title">Latest Articles</h4>
+        <h4 class="side-nav-menu-title">Latest Articles</h4>
         <ul class="side-nav-menu">
             <?php
             foreach ($_posts as $_post) {
@@ -51,13 +51,13 @@ $categories = get_categories('post');
                 }
             ?>
             <li class="side-nav-item post-nav-item">
-                <div class="post-nav-cat"><?php echo $cat_name; ?></div>
+                <div class="post-nav-cat font-smaller"><?php echo $cat_name; ?></div>
                 <a class="post-nav-title" href="<?php echo $link; ?>"><?php echo $title; ?></a>
             </li>
             <?php } ?>
             <?php wp_reset_postdata(); ?>
             <li class="side-nav-item post-nav-see-all">
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="see-all-link">All Articles</a>
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="link-all font-smaller">All Articles</a>
             </li>
         </ul>
     </div>

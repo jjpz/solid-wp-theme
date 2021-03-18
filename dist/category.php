@@ -1,12 +1,13 @@
 <?php get_header(); ?>
 <?php get_template_part('includes/vars'); ?>
-<?php get_template_part('templates/blog/blog-header'); ?>
+<?php //get_template_part('templates/blog/blog-header'); ?>
+<?php get_template_part('templates/blog/blog-breadcrumbs'); ?>
 <div class="container blog-container">
     <div class="row">
         <?php get_template_part('templates/blog/blog-nav'); ?>
         <main id="main" class="col-lg-8 order-lg-1 site-main blog-main">
-            <header class="archive-header">
-                <?php the_archive_title( '<h3 class="h3 page-title archive-title">', '</h3>' ); ?>
+            <header class="category-header">
+                <?php the_archive_title( '<h1 class="archive-title">', '</h1>' ); ?>
             </header>
             <?php
         if (have_posts()) {

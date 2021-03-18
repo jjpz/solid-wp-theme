@@ -71,8 +71,8 @@ if ( ! function_exists( 'getSectionEnd' ) ) {
 
 if ( ! function_exists( 'getSectionHeader' ) ) {
 	function getSectionHeader( $title = '', $paragraph = '' ) {
-		$h = !empty($title) ? '<h3 class="h3 section-title">' . $title . '</h3>' : '';
-		$p = !empty($paragraph) ? '<div class="section-paragraph">' . $paragraph . '</div>' : '';
+		$h = !empty($title) ? '<h3 class="box-title section-title">' . $title . '</h3>' : '';
+		$p = !empty($paragraph) ? $paragraph : '';
 
 		if (!empty($title) || !empty($paragraph)) {
 			$headerStart = 

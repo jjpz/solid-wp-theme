@@ -9,11 +9,11 @@ if ( isset($categories) && !empty($categories) ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
         <?php if (!empty($category)) { ?>
-        <h4 class="entry-category"><?php echo $cat_name; ?></h4>
+        <p class="entry-category font-smaller"><?php echo $cat_name; ?></p>
         <?php } ?>
         <?php
         if (is_singular()) {
-            the_title('<h2 class="entry-title">', '</h2>');
+            the_title('<h1 class="entry-title">', '</h1>');
         } else {
         ?>
         <h2 class="entry-title">
@@ -29,14 +29,12 @@ if ( isset($categories) && !empty($categories) ) {
         </h2>
         <?php } ?>
         <?php if (get_post_type() === 'post') { ?>
-        <div class="entry-meta">
-            <p class="p2">
+        <p class="entry-meta font-smaller">
             <?php
             solid_posted_on();
             solid_posted_by();
             ?>
-            </p>
-        </div>
+        </p>
         <?php } ?>
     </header>
     <section class="entry-content">
@@ -53,6 +51,6 @@ if ( isset($categories) && !empty($categories) ) {
 
 <?php if (is_singular('post')) { ?>
 <div class="blog-home-link">
-    <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="see-all-link">All Articles</a>
+    <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="link-all font-smaller">All Articles</a>
 </div>
 <?php } ?>

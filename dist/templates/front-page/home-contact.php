@@ -5,24 +5,35 @@ ${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option('_crb
 ?>
 
 <?php if (!empty(${'form' . crb_lang_slug()}) || !empty(${'bigtext' . crb_lang_slug()}) || !empty(${'paragraph' . crb_lang_slug()})) { ?>
+<?php
+if (
+    !empty(${'bigtext' . crb_lang_slug()}) && 
+    (!empty(${'paragraph' . crb_lang_slug()}) || !empty(${'form' . crb_lang_slug()}))
+) {
+    $col_class = 'col-md-6';
+    $text_align = '';
+} else {
+    $text_align = 'text-center';
+    if (!empty(${'bigtext' . crb_lang_slug()})) {
+        $col_class = 'col-12';
+    } else {
+        $col_class = 'col-lg-6 offset-lg-3';
+    }
+}
+?>
 <section id="contact" class="home-section-pt home-contact">
     <div class="container">
         <div class="row align-items-baseline">
-            <?php
-            if (!empty(${'bigtext' . crb_lang_slug()}) && (!empty(${'paragraph' . crb_lang_slug()}) || !empty(${'form' . crb_lang_slug()}))) {
-                $class = 'col-md-6';
-                $text_align = 'text-right';
-            } else {
-                $class = 'col-lg-6 offset-lg-3';
-                $text_align = 'text-center';
-            }
-            ?>
-            <div class="<?php echo $class; ?>">
-                <?php if (!empty(${'bigtext' . crb_lang_slug()})) { ?>
+            <?php if (!empty(${'bigtext' . crb_lang_slug()})) { ?>
+            <div class="<?php echo $col_class; ?>">
                 <h1 class="bigtext home-contact-bigtext <?php echo $text_align; ?>"><?php echo ${'bigtext' . crb_lang_slug()}; ?></h1>
-                <?php } ?>
             </div>
-            <div class="<?php echo $class; ?>">
+            <?php } ?>
+            <?php if (
+                !empty(${'paragraph' . crb_lang_slug()}) || 
+                !empty(${'form' . crb_lang_slug()})
+            ) { ?>
+            <div class="<?php echo $col_class; ?>">
                 <div class="contact-form <?php echo $text_align; ?>">
                     <?php if (!empty(${'paragraph' . crb_lang_slug()})) { ?>
                     <?php echo ${'paragraph' . crb_lang_slug()}; ?>
@@ -32,6 +43,7 @@ ${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option('_crb
                     <?php } ?>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
     <div class="container">

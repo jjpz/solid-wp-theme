@@ -7,9 +7,7 @@
     $nav_logo_title = get_the_title($nav_logo_id);
     $nav_logo_alt = get_post_meta( $nav_logo_id, '_wp_attachment_image_alt', true);
     ?>
-    <div class="site-logo">
-        <img class="site-logo-img" src="<?php echo $nav_logo_src; ?>" title="<?php echo $nav_logo_title; ?>" alt="<?php echo $nav_logo_alt; ?>" />
-    </div>
+    <img class="site-logo" src="<?php echo $nav_logo_src; ?>" title="<?php echo $nav_logo_title; ?>" alt="<?php echo $nav_logo_alt; ?>" />
     <?php } ?>
     <?php if (empty($remove_title) && $remove_title !== 'yes') { ?>
     <h1 class="site-title"><?php echo get_bloginfo('name'); ?></h1>

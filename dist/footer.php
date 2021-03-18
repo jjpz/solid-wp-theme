@@ -21,9 +21,7 @@ $footer = [
 <footer id="colophon" class="site-footer" role="contentinfo">
     <diV class="container">
         <div class="site-info">
-            <div class="footer-title">
-                <h2><?php bloginfo('name'); ?></h2>
-            </div>
+            <h2 class="footer-title"><?php bloginfo('name'); ?></h2>
             <?php if (!empty($footer['address_1'])) { ?>
             <div class="footer-contact footer-address">
                 <p>

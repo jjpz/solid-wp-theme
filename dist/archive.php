@@ -6,9 +6,9 @@
             <?php if (have_posts()) { ?>
 
             <header class="col-12 archive-header">
-                <h2 class="page-title">
+                <h1 class="archive-title box-title">
                     <?php echo str_replace('Archives: ', '', get_the_archive_title()); ?>
-                </h2>
+                </h1>
             </header>
 
             <?php while (have_posts()) { ?>

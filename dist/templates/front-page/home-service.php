@@ -14,7 +14,7 @@ $image_id = get_post_thumbnail_id($ID);
 $post_type = $service->post_type;
 $prev_key = $key-1;
 $next_key = $key+1;
-$classes = ['col-lg-6', 'v-'.$post_type];
+$classes = ['home-service', 'col-lg-6', 'v-'.$post_type];
 ?>
 
 <article id="post-<?php echo $ID; ?>" <?php post_class($classes, $ID) ?>>

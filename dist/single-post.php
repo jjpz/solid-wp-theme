@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-<?php get_template_part('templates/blog/blog-header'); ?>
+<?php //get_template_part('templates/blog/blog-header'); ?>
+<?php get_template_part('templates/blog/blog-breadcrumbs'); ?>
 <div class="container blog-container">
     <div class="row">
         <?php get_template_part('templates/blog/blog-nav'); ?>

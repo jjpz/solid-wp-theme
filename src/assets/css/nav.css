@@ -110,39 +110,28 @@ body.desktop .site-header.absolute:hover .site-header-container {
 	text-decoration: none;
 }
 
-.site-logo {
-	display: inline-flex;
+img.site-logo {
+	width: 30px;
+	height: 25px;
 	margin-right: 15px;
 }
 
-.site-logo-img {
-	width: 30px;
-	height: 25px;
-}
-
-h1.site-title {
-	display: inline-flex;
-	margin: 0;
-	line-height: 1;
-	font-size: 30px;
-}
-
-.site-header.absolute .site-logo-img {
+.site-header.absolute .site-logo {
 	filter: brightness(0) invert(1);
 	transition: filter 0.125s linear 0.125s;
 }
 
-.site-header.fixed .site-logo-img,
-.site-header.sticky .site-logo-img {
+.site-header.fixed .site-logo,
+.site-header.sticky .site-logo {
 	filter: none;
 }
 
-.site-header.active .site-logo-img {
+.site-header.active .site-logo {
 	filter: none;
 	transition: all 0.125s linear;
 }
 
-body.desktop .site-header.absolute:hover .site-logo-img {
+body.desktop .site-header.absolute:hover .site-logo {
 	filter: none;
 	transition: all 0.125s linear;
 }
@@ -165,12 +154,6 @@ body.desktop .site-header.absolute:hover .site-logo-img {
 body.desktop .site-header.absolute:hover h1.site-title {
 	color: var(--color-dark-hex);
 	transition: all 0.125s linear;
-}
-
-@media (max-width: 575px) {
-	h1.site-title {
-		font-size: 24px;
-	}
 }
 
 /**
@@ -311,6 +294,11 @@ body.desktop .site-header.absolute:hover .main-nav a {
 
 .main-nav ul.sub-menu a {
 	height: auto;
+	opacity: 0.66;
+}
+
+body.desktop .main-nav ul.sub-menu a:hover {
+	opacity: 0.75;
 }
 
 /**
@@ -406,27 +394,25 @@ body.desktop .site-header.absolute:hover .button-nav a:hover {
 	padding: 0;
 	border: none;
 	background-color: transparent;
-	line-height: 1;
-	font-size: 16px;
-	text-transform: unset;
 	opacity: 1;
 	transition: all 0.25s;
 }
 
 .site-nav li.current-lang a {
-	text-decoration: underline;
+	text-decoration: none;
+	opacity: 0.66;
 }
 
 .site-nav li.lang-item a:hover {
 	border-color: transparent;
 	background-color: transparent;
 	color: var(--color-dark-hex);
-	opacity: 0.75;
+	opacity: 0.66;
 	transition: all 0.25s;
 }
 
 .site-nav li.current-lang a:hover {
-	opacity: 1;
+	opacity: 0.66;
 }
 
 .site-header.absolute .site-nav li.lang-item {
@@ -487,8 +473,17 @@ body.desktop .site-header.absolute:hover .site-nav li.lang-item a:hover {
 	border-color: transparent;
 	background-color: transparent;
 	color: var(--color-dark-hex);
-	opacity: 0.75;
+	opacity: 0.66;
 	transition: all 0.25s;
+}
+
+.site-header.absolute .site-nav li.current-lang a,
+.site-header.fixed .site-nav li.current-lang a,
+.site-header.sticky .site-nav li.current-lang a,
+.site-header.active .site-nav li.current-lang a,
+body.desktop .site-header.absolute:hover .site-nav li.current-lang a,
+body.mobile .site-header.absolute:hover .site-nav li.current-lang a {
+	opacity: 0.66;
 }
 
 .site-header.absolute .site-nav li.current-lang a:hover,
@@ -496,13 +491,7 @@ body.desktop .site-header.absolute:hover .site-nav li.lang-item a:hover {
 .site-header.sticky .site-nav li.current-lang a:hover,
 .site-header.active .site-nav li.current-lang a:hover,
 body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
-	opacity: 1;
-}
-
-@media (max-width: 767px) {
-	.site-nav li.lang-item a {
-		font-size: 14px;
-	}
+	opacity: 0.66;
 }
 
 /**
@@ -600,8 +589,16 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 .site-nav.mobile .main-nav a:hover {
-	opacity: 0.5;
+	opacity: 0.75;
 	transition: all 0.25s;
+}
+
+.site-nav.mobile .submenu-toggle {
+	display: flex;
+	align-items: center;
+	width: 30px;
+	height: 100%;
+	min-height: 20px;
 }
 
 .site-nav.mobile .main-nav ul.sub-menu {
@@ -632,9 +629,7 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 .site-nav.mobile .main-nav ul.sub-menu a {
-	font-family: var(--font-main-small);
-	font-size: 14px;
-	opacity: 0.5;
+	opacity: 0.66;
 }
 
 .site-nav.mobile .button-nav li {
@@ -673,12 +668,12 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 	border-color: transparent;
 	background-color: transparent;
 	color: var(--color-dark-hex);
-	opacity: 0.5;
+	opacity: 0.66;
 	transition: all 0.25s;
 }
 
 .site-nav.mobile li.current-lang a:hover {
-	opacity: 1;
+	opacity: 0.66;
 }
 
 /**

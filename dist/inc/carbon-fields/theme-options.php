@@ -72,9 +72,9 @@ function crb_attach_theme_options() {
 		->add_fields( array(
             Field::make( 'radio', 'crb_home_service_layout', __( 'Display Content' ) )
                 ->add_options( array(
-                    'full' => __( 'All together' ),
-                    'single' => __( 'In separate pages' ),
-                    'popup' => __( 'In popups' )
+                    'full' => __( 'all together' ),
+                    'single' => __( 'in separate pages' ),
+                    'popup' => __( 'in popups' )
                 ) ),
             Field::make( 'text', 'crb_home_service_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
             Field::make( 'rich_text', 'crb_home_service_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )
@@ -87,9 +87,9 @@ function crb_attach_theme_options() {
 		->add_fields( array(
             Field::make( 'radio', 'crb_home_member_layout', __( 'Display Content' ) )
                 ->add_options( array(
-                    'full' => __( 'All together' ),
-                    'single' => __( 'In separate pages' ),
-                    'popup' => __( 'In popups' )
+                    'full' => __( 'all together' ),
+                    'single' => __( 'in separate pages' ),
+                    'popup' => __( 'in popups' )
                 ) ),
 			Field::make( 'text', 'crb_home_member_title' . crb_lang_slug(), 'Section Title' . crb_lang_name() ),
 			Field::make( 'rich_text', 'crb_home_member_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )

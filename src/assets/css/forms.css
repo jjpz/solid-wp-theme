@@ -33,7 +33,7 @@ textarea {
 	border-radius: 0;
 	background-color: var(--color-lighter);
 	line-height: 1.5;
-	font-family: var(--font-main-reg);
+	font-family: var(--font-fam-reg);
 	font-size: 20px;
 	font-weight: normal;
 	color: var(--color-dark-hex);
@@ -41,7 +41,7 @@ textarea {
 
 ::placeholder {
 	/* Chrome, Firefox, Opera, Safari 10.1+ */
-	font-family: var(--font-main-reg);
+	font-family: var(--font-fam-reg);
 	font-size: 20px;
 	font-weight: normal;
 	color: var(--color-dark-hex);
@@ -50,7 +50,7 @@ textarea {
 
 :-ms-input-placeholder {
 	/* Internet Explorer 10-11 */
-	font-family: var(--font-main-reg);
+	font-family: var(--font-fam-reg);
 	font-size: 20px;
 	font-weight: normal;
 	color: var(--color-dark-hex);
@@ -58,7 +58,7 @@ textarea {
 
 ::-ms-input-placeholder {
 	/* Microsoft Edge */
-	font-family: var(--font-main-reg);
+	font-family: var(--font-fam-reg);
 	font-size: 20px;
 	font-weight: normal;
 	color: var(--color-dark-hex);
@@ -73,7 +73,7 @@ input[type='submit'] {
 	border: 0;
 	border-radius: 3px;
 	line-height: 1.5;
-	font-family: var(--font-main-reg);
+	font-family: var(--font-fam-reg);
 	font-size: 20px;
 	font-weight: normal;
 	background-color: var(--color-dark-hex);
@@ -84,7 +84,7 @@ input[type='submit'] {
 }
 
 span.wpcf7-not-valid-tip {
-	font-family: 'FranklinGothic-Book';
+	font-family: var(--font-fam-reg);
 	font-size: 16px;
 	font-weight: bold;
 	color: #ff0000;
@@ -95,7 +95,7 @@ div.wpcf7-response-output {
 	padding: 0;
 	border: 0 !important;
 	line-height: 1;
-	font-family: 'FranklinGothic-Book';
+	font-family: var(--font-fam-reg);
 	font-size: 16px;
 	font-weight: bold;
 	color: #ff0000;

@@ -11,10 +11,6 @@
 	text-decoration: none;
 }
 
-.footer-title h2 {
-	margin: 0;
-}
-
 .footer-contact {
 	margin-top: 15px;
 }
@@ -80,9 +76,6 @@ body.desktop a.btn-social:hover {
 }
 
 .footer-links ul li a {
-	line-height: 1;
-	font-size: 16px;
-	opacity: 0.5;
 }
 
 body.desktop .footer-links ul li a:hover {
@@ -96,9 +89,6 @@ body.desktop .footer-links ul li a:hover {
 
 .copyright a,
 .copyright span {
-	line-height: 1;
-	font-size: 16px;
-	opacity: 0.5;
 }
 
 .admin-login,
@@ -129,6 +119,5 @@ body.desktop .copyright a:hover {
 	.footer-links ul li a,
 	.copyright a,
 	.copyright span {
-		font-size: 14px;
 	}
 }

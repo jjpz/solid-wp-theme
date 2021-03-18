@@ -1,6 +1,7 @@
+<?php $post_class = 'single-' . get_post_type(); ?>
 <?php if (get_post_type() === 'post') { ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
         <div class="container">
             <header class="entry-header">
                 <?php
@@ -33,9 +34,17 @@
     $image_id = get_post_thumbnail_id();
     $archive_link = get_post_type_archive_link(get_post_type());
     $label = get_post_type_object(get_post_type())->label;
+
+    if (get_post_type() === 'service') {
+        $divClasses = array('image-aspect-square');
+    }
+
+    if (get_post_type() === 'member') {
+        $divClasses = array('image-aspect-square', 'image-circle');
+    }
     ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class('container v-max') ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class($post_class . ' container v-max') ?>>
 
         <div class="card" >
             <?php if (has_post_thumbnail()) { ?>
@@ -44,7 +53,7 @@
                         $image_id, 
                         '', 
                         true, 
-                        array('image-aspect-square', 'image-circle'), 
+                        $divClasses, 
                         array('img', 'img-cover'), 
                         array('member-overlay')
                     ); ?>
@@ -52,7 +61,7 @@
             <?php } ?>
 
             <div class="info">
-                <h2 class="name"><?php echo $name; ?></h2>
+                <h1 class="name single-cpt-name"><?php echo $name; ?></h1>
                 <?php if ( !empty($title) ) { ?>
                     <p class="position"><?php echo $title; ?></p>
                 <?php } ?>
@@ -61,7 +70,7 @@
         </div>
 
         <div class="archive-link">
-            <a href="<?php echo $archive_link; ?>" class="read-more-link has-icon-left p2">
+            <a href="<?php echo $archive_link; ?>" class="link link-more link-icon-left font-smaller">
                 <svg class="svg-caret icon-caret icon-caret-left" width="5" height="13" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
                 <span><?php echo $label; ?></span>
             </a>
