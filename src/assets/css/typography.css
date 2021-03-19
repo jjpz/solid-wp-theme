@@ -221,10 +221,10 @@ a:visited {
 	text-transform: unset;
 }
 
-.site-nav.mobile .main-nav ul.sub-menu a {
+/* .site-nav.mobile .main-nav ul.sub-menu a {
 	font-family: var(--font-fam-small);
 	font-size: 14px;
-}
+} */
 
 .wp-block-image figcaption {
 	line-height: 1.5;
@@ -343,6 +343,7 @@ h3.home-hero-subtitle {
 
 .cat-nav-title {
 	color: var(--color-dark-hex);
+	font-family: var(--font-fam-smaller);
 	font-size: var(--font-size-smaller-dt);
 	text-decoration: none;
 }
