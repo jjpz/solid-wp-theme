@@ -14,15 +14,15 @@ function crb_attach_theme_options() {
             Field::make( 'separator', 'crb_theme_nav_separator', 'Navigation' ),
             Field::make( 'image', 'crb_theme_nav_logo', __( 'Navigation Bar Logo' ) )->set_classes( 'col-sm-6' ),
             Field::make( 'checkbox', 'crb_theme_remove_nav_site_title', __( 'Remove website title from navigation bar' ) )->set_classes( 'col-sm-6' ),
-            Field::make( 'separator', 'crb_theme_contact_separator', 'Contact Information' ),
+            Field::make( 'separator', 'crb_theme_contact_separator', 'Address' . crb_lang_name() ),
             Field::make( 'text', 'crb_theme_address_1', 'Address Line 1' )->set_classes( 'col-sm-6' ),
             Field::make( 'text', 'crb_theme_address_2', 'Address Line 2' )->set_classes( 'col-sm-6' ),
             Field::make( 'text', 'crb_theme_city', 'City' )->set_classes( 'col-4' ),
             Field::make( 'text', 'crb_theme_state', 'State' )->set_classes( 'col-4' ),
             Field::make( 'text', 'crb_theme_zipcode', 'Zip Code' )->set_classes( 'col-4' ),
+            Field::make( 'separator', 'crb_theme_social_separator', 'Footer' . crb_lang_name() ),
             Field::make( 'text', 'crb_theme_phone', 'Phone' )->set_classes( 'col-6' ),
             Field::make( 'text', 'crb_theme_email', 'Email' )->set_classes( 'col-6' ),
-            Field::make( 'separator', 'crb_theme_social_separator', 'Social Media Links' ),
             Field::make( 'text', 'crb_theme_facebook_link', __( 'Facebook' ) )->set_classes( 'col-6' ),
             Field::make( 'text', 'crb_theme_instagram_link', __( 'Instagram' ) )->set_classes( 'col-6' ),
             Field::make( 'text', 'crb_theme_linkedin_link', __( 'LinkedIn' ) )->set_classes( 'col-6' ),
@@ -96,13 +96,62 @@ function crb_attach_theme_options() {
 		) );
 
     // Home Contact Section
-    Container::make( 'theme_options', __( 'Contact Form' . crb_lang_name() ) )
+    Container::make( 'theme_options', __( 'Contact' . crb_lang_name() ) )
         ->set_page_parent( $theme_options )
         ->set_page_file( 'theme-options-contact-section' )
 		->add_fields( array(
             Field::make( 'textarea', 'crb_home_contact_bigtext' . crb_lang_slug(), 'Section Big Text' . crb_lang_name() )
                 ->set_rows( 3 )->set_help_text( 'Left column big text.' ),
 			Field::make( 'rich_text', 'crb_home_contact_paragraph' . crb_lang_slug(), 'Section Paragraph' . crb_lang_name() )->set_help_text( 'Right column paragraph text.' ),
-			Field::make( 'text', 'crb_contactform_shortcode' . crb_lang_slug(), 'Contact Form Shortcode' . crb_lang_name() ),
+
+            Field::make( 'radio', 'crb_home_contact_type' . crb_lang_slug(), 'Contact Type' . crb_lang_name() )
+                ->add_options( array(
+                    'none' => 'none',
+                    'contact_form' => 'contact form',
+                    'direct_links' => 'direct links'
+                ) ),
+
+			Field::make( 'text', 'crb_contactform_shortcode' . crb_lang_slug(), 'Contact Form Shortcode' . crb_lang_name() )
+                ->set_conditional_logic( array(
+                    'relation' => 'AND',
+                    array(
+                        'field' => 'crb_home_contact_type' . crb_lang_slug(),
+                        'value' => 'contact_form',
+                        'compare' => '='
+                    )
+                ) ),
+
+                Field::make( 'text', 'crb_home_contact_text_link' . crb_lang_slug(), 'text' . crb_lang_name() )
+                ->set_attribute( 'placeholder', '(***) ***-****' )
+                ->set_conditional_logic( array(
+                    'relation' => 'AND',
+                    array(
+                        'field' => 'crb_home_contact_type' . crb_lang_slug(),
+                        'value' => 'direct_links',
+                        'compare' => '='
+                    )
+                ) ),
+
+                Field::make( 'text', 'crb_home_contact_voice_link' . crb_lang_slug(), 'voice' . crb_lang_name() )
+                ->set_attribute( 'placeholder', '(***) ***-****' )
+                ->set_conditional_logic( array(
+                    'relation' => 'AND',
+                    array(
+                        'field' => 'crb_home_contact_type' . crb_lang_slug(),
+                        'value' => 'direct_links',
+                        'compare' => '='
+                    )
+                ) ),
+
+                Field::make( 'text', 'crb_home_contact_email_link' . crb_lang_slug(), 'email' . crb_lang_name() )
+                ->set_attribute( 'placeholder', 'email@domain.com' )
+                ->set_conditional_logic( array(
+                    'relation' => 'AND',
+                    array(
+                        'field' => 'crb_home_contact_type' . crb_lang_slug(),
+                        'value' => 'direct_links',
+                        'compare' => '='
+                    )
+                ) ),
 		) );
 }
