@@ -120,7 +120,7 @@ img {
 
 .link-all {
 	color: var(--color-dark-hex);
-	text-decoration: none;
+	text-transform: lowercase;
 	opacity: 0.66;
 }
 

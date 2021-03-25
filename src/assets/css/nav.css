@@ -411,12 +411,12 @@ body.desktop .site-header.absolute:hover .button-nav a:hover {
 	border-color: transparent;
 	background-color: transparent;
 	color: var(--color-dark-hex);
-	opacity: 0.66;
+	opacity: 0.75;
 	transition: all 0.25s;
 }
 
 .site-nav li.current-lang a:hover {
-	opacity: 0.66;
+	opacity: 0.75;
 }
 
 .site-header.absolute .site-nav li.lang-item {
@@ -477,7 +477,7 @@ body.desktop .site-header.absolute:hover .site-nav li.lang-item a:hover {
 	border-color: transparent;
 	background-color: transparent;
 	color: var(--color-dark-hex);
-	opacity: 0.66;
+	opacity: 0.75;
 	transition: all 0.25s;
 }
 
@@ -495,7 +495,7 @@ body.mobile .site-header.absolute:hover .site-nav li.current-lang a {
 .site-header.sticky .site-nav li.current-lang a:hover,
 .site-header.active .site-nav li.current-lang a:hover,
 body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
-	opacity: 0.66;
+	opacity: 0.75;
 }
 
 /**
@@ -672,12 +672,12 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 	border-color: transparent;
 	background-color: transparent;
 	color: var(--color-dark-hex);
-	opacity: 0.66;
+	opacity: 0.75;
 	transition: all 0.25s;
 }
 
 .site-nav.mobile li.current-lang a:hover {
-	opacity: 0.66;
+	opacity: 0.75;
 }
 
 /**

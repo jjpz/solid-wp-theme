@@ -91,6 +91,11 @@ h1.archive-title {
 	font-size: var(--font-size-h3-dt);
 }
 
+h1.page-title {
+	font-family: var(--font-fam-h2);
+	font-size: var(--font-size-h2-dt);
+}
+
 h2,
 .h2 {
 	line-height: 1;
@@ -101,6 +106,10 @@ h2,
 h2.entry-title {
 	margin-top: 0;
 	margin-bottom: 15px;
+}
+
+h2.footer-title {
+	font-family: var(--font-fam-h1);
 }
 
 h3,
@@ -168,6 +177,10 @@ p {
 
 	h1.archive-title {
 		font-size: var(--font-size-h3-mb);
+	}
+
+	h1.page-title {
+		font-size: var(--font-size-h2-dt);
 	}
 
 	h2,
@@ -316,6 +329,7 @@ h3.home-hero-subtitle {
 .blog-breadcrumbs h4 {
 	margin: 0;
 	line-height: 1;
+	font-family: var(--font-fam-h1);
 }
 
 .blog-breadcrumbs a {
@@ -338,7 +352,7 @@ h3.home-hero-subtitle {
 .side-nav-menu-title {
 	margin-bottom: 30px;
 	font-size: var(--font-size-h4-dt);
-	opacity: 0.5;
+	opacity: 0.66;
 }
 
 .cat-nav-title {
@@ -371,7 +385,7 @@ h3.home-hero-subtitle {
 	line-height: 1;
 	font-weight: 100;
 	color: var(--color-dark-hex);
-	opacity: 0.5;
+	opacity: 0.66;
 	text-decoration: none;
 }
 
@@ -409,7 +423,7 @@ h2.footer-title {
 	line-height: 1;
 	font-family: var(--font-fam-smaller);
 	font-size: var(--font-size-smaller-dt);
-	opacity: 0.5;
+	opacity: 0.66;
 }
 
 .copyright a,
@@ -417,7 +431,7 @@ h2.footer-title {
 	line-height: 1;
 	font-family: var(--font-fam-smaller);
 	font-size: var(--font-size-smaller-dt);
-	opacity: 0.5;
+	opacity: 0.66;
 }
 
 @media (min-width: 1280px) {
