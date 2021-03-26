@@ -33,9 +33,9 @@ add_filter('login_headertext', function () {
 });
 
 // Admin favicon
-//add_filter('admin_head', 'solid_admin_favicon');
+add_filter('admin_head', 'solid_admin_favicon');
 function solid_admin_favicon() {
-	echo '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/favicons/favicon.ico">';
+	echo '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/assets/favicons/favicon.ico">';
 }
 
 add_action( 'init', 'cp_change_post_object' );

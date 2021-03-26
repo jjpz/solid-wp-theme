@@ -91,6 +91,14 @@ h1.archive-title {
 	font-size: var(--font-size-h3-dt);
 }
 
+h1.category-title {
+	margin: 0;
+	font-family: var(--font-fam-smaller);
+	font-size: var(--font-size-h3-dt);
+	font-weight: bold;
+	text-align: center;
+}
+
 h1.page-title {
 	font-family: var(--font-fam-h2);
 	font-size: var(--font-size-h2-dt);
@@ -359,6 +367,7 @@ h3.home-hero-subtitle {
 	color: var(--color-dark-hex);
 	font-family: var(--font-fam-smaller);
 	font-size: var(--font-size-smaller-dt);
+	font-weight: bold;
 	text-decoration: none;
 }
 
@@ -392,6 +401,7 @@ h3.home-hero-subtitle {
 .entry-category {
 	margin-top: 0;
 	margin-bottom: 15px;
+	font-weight: bold;
 }
 
 .entry-meta {

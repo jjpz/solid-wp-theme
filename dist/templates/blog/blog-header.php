@@ -5,7 +5,7 @@ $blog_content = $blog->post_content;
 ?>
 <header class="blog-header">
     <div class="container">
-        <h1 class="page-title blog-title">
+        <h1 class="blog-title">
             <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>"><?php echo get_the_title(get_option('page_for_posts')); ?></a>
         </h1>
         <?php if (is_home() && !empty($blog_content)) { ?>
