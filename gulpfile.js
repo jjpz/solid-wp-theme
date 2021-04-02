@@ -24,12 +24,18 @@ function adminCSS() {
 function css() {
 	return src([
 		'src/assets/css/style.css',
+		'src/assets/css/vars.css',
 		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
 		'src/assets/css/index.css'
 	])
 		.pipe(autoprefix())
 		.pipe(concatCSS('style.css'))
-		.pipe(cleanCSS({ format: { breaks: { afterComment: true } } }))
+		.pipe(cleanCSS({
+			format: {
+				level: 2,
+				breaks: {afterComment: true}
+			}
+		}))
 		.pipe(dest('dist'))
 		.pipe(browserSync.stream());
 }

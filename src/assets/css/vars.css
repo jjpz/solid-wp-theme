@@ -1,5 +1,4 @@
-/* FONTS */
-
+/* clean-css ignore:start */
 @font-face {
 	font-family: 'Chaparral Pro';
 	src: url('assets/fonts/ChaparralPro/ChaparralPro-Regular.eot');
@@ -46,10 +45,7 @@
 	font-display: swap;
 }
 
-/* VARIABLES */
-
 :root {
-	/* COLORS */
 	--color-white-filter: brightness(0) invert(1);
 	--color-dark-hex: #111111;
 	--color-dark-filter: invert(4%) sepia(2%) saturate(55%) hue-rotate(314deg)
@@ -64,40 +60,39 @@
 	--color-lazy-image-overlay: #dddddd;
 	--color-divider: rgba(17, 17, 17, 0.15);
 
-	/* FONTS */
-	/* H1 */
 	--font-fam-h1: 'Gotham Ultra';
 	--font-size-h1-dt: 115px;
 	--font-size-h1-mb: 70px;
 	--font-size-site-title: 30px;
 	--font-size-big-text-dt: 9vw;
 	--font-size-big-text-mb: 70px;
-	/* H2 */
+
 	--font-fam-h2: 'Chaparral Pro';
 	--font-size-h2-dt: 60px;
 	--font-size-h2-mb: 40px;
-	/* H3 */
+
 	--font-fam-h3: 'Gotham Book';
 	--font-size-h3-dt: 30px;
 	--font-size-h3-mb: 30px;
-	/* H3 ALT */
+
 	--font-fam-h3-alt: 'Chaparral Pro';
 	--font-size-h3-alt-dt: 30px;
 	--font-size-h3-alt-mb: 30px;
-	/* H4 */
+
 	--font-fam-h4: 'Chaparral Pro';
 	--font-size-h4-dt: 20px;
 	--font-size-h4-mb: 18px;
-	/* BASE / BODY / P */
+
 	--font-fam-base: 'Chaparral Pro';
 	--font-size-base-dt: 20px;
 	--font-size-base-mb: 18px;
-	/* SMALL */
+
 	--font-fam-small: 'Chaparral Pro';
 	--font-size-small-dt: 16px;
 	--font-size-small-mb: 14px;
-	/* SMALLER */
+
 	--font-fam-smaller: 'Gotham Book';
 	--font-size-smaller-dt: 15px;
 	--font-size-smaller-mb: 13px;
 }
+/* clean-css ignore:end */

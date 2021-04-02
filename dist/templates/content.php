@@ -34,6 +34,7 @@
     $image_id = get_post_thumbnail_id();
     $archive_link = get_post_type_archive_link(get_post_type());
     $label = get_post_type_object(get_post_type())->label;
+    ${'title' . crb_lang_slug()} = get_option('_crb_home_' . get_post_type() . '_title' . crb_lang_slug());
 
     if (get_post_type() === 'service') {
         $divClasses = array('image-aspect-square');
@@ -72,7 +73,7 @@
         <div class="archive-link">
             <a href="<?php echo $archive_link; ?>" class="link link-more link-icon-left font-smaller">
                 <svg class="svg-caret icon-caret icon-caret-left" width="5" height="13" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
-                <span><?php echo $label; ?></span>
+                <span><?php echo ${'title' . crb_lang_slug()}; ?></span>
             </a>
         </div>
 

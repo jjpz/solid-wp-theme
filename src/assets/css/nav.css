@@ -114,9 +114,14 @@ body.desktop .site-header.absolute:hover .site-header-container {
 	text-decoration: none;
 }
 
+.site-header.mobile .site-branding {
+	width: calc(100% - 30px);
+}
+
 img.site-logo {
-	width: 30px;
-	height: 25px;
+	width: auto;
+	height: 100%;
+	max-height: 40px;
 	margin-right: 15px;
 }
 
@@ -158,6 +163,12 @@ body.desktop .site-header.absolute:hover .site-logo {
 body.desktop .site-header.absolute:hover h1.site-title {
 	color: var(--color-dark-hex);
 	transition: all 0.125s linear;
+}
+
+@media (max-width: 767px) {
+	img.site-logo {
+		max-height: 33px;
+	}
 }
 
 /**
@@ -686,6 +697,7 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 
 .nav-toggle {
 	display: none;
+	width: 30px;
 }
 
 .nav-toggle.show {
