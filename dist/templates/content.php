@@ -29,7 +29,7 @@
     <?php
     $ID = get_the_ID();
     $name = get_the_title();
-    $title = get_post_meta($ID, '_crb_team_title', true);
+    $position = get_post_meta($ID, '_crb_team_title', true);
     $link = get_the_permalink($ID);
     $image_id = get_post_thumbnail_id();
     $archive_link = get_post_type_archive_link(get_post_type());
@@ -64,7 +64,7 @@
             <div class="info">
                 <h1 class="name single-cpt-name"><?php echo $name; ?></h1>
                 <?php if ( !empty($title) ) { ?>
-                    <p class="position"><?php echo $title; ?></p>
+                    <p class="position"><?php echo $position; ?></p>
                 <?php } ?>
                 <?php the_content(); ?>
             </div>

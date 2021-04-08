@@ -3,11 +3,18 @@
 if ( ! function_exists( 'getImage' ) ) {
 	function getImage( $mainImgId, $mobileImgId = '', $lazyLoad = 'false', array $divClasses = null, array $imgClasses = null, array $lazyClasses = null ) {
 
+		$mainAttr = '';
+
 		if (!empty($mainImgId)) {
 			$mainSrc = wp_get_attachment_image_src($mainImgId, 'full')[0];
 			$mainSrcset = wp_get_attachment_image_srcset($mainImgId, 'full');
 			$mainType = pathinfo($mainSrc)['extension'];
 			$mainAlt = get_post_meta( $mainImgId, '_wp_attachment_image_alt', true);
+
+			$mainAttr = 'data-src="' . $mainSrc . '" 
+			data-srcset="' . $mainSrcset . '" 
+			data-alt="' . $mainAlt . '" 
+			data-type="' . $mainType . '" ';
 		}
 
 		$mobileAttr = '';
@@ -41,11 +48,8 @@ if ( ! function_exists( 'getImage' ) ) {
 				class="' . $imgClass . '" 
 				src="" 
 				srcset="" 
-				alt="" 
-				data-src="' . $mainSrc . '" 
-				data-srcset="' . $mainSrcset . '" 
-				data-alt="' . $mainAlt . '" 
-				data-type="' . $mainType . '" '
+				alt="" '
+				. $mainAttr 
 				. $mobileAttr .
 			'/>';
 			$lazy = $lazyHtml;

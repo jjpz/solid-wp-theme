@@ -35,6 +35,7 @@ function getSrc(image, targetSrc, targetSrcset) {
 export function checkImages() {
 	let windowWidth = checkWindowWidth();
 	// if (document.body.classList.contains('home')) {
+	if (images) {
 		images.forEach(image => {
 			let img = image.getElementsByTagName('img')[0];
 			if (img) {
@@ -69,5 +70,6 @@ export function checkImages() {
 				}
 			}
 		});
+	}
 	// }
 }

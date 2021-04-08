@@ -9,7 +9,9 @@ ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . 
 
 <section id="cover" class="hero home-hero offset-height">
     <div class="home-hero-banner">
-        <?php getImage($bg_image_id_desktop, $bg_image_id_mobile, 'true', array(), array('img', 'img-cover')); ?>
+        <?php if (!empty($bg_image_id_desktop) || !empty($bg_image_id_mobile)) {
+            getImage($bg_image_id_desktop, $bg_image_id_mobile, 'true', array(), array('img', 'img-cover'));
+        } ?>
         <div class="home-hero-content">
             <?php if (!empty($title_image_id_mobile) || !empty($title_image_id_desktop)) { ?>
             <div class="home-hero-image">
@@ -17,11 +19,13 @@ ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . 
             </div>
             <?php } else { ?>
             <div class="container">
-                <?php if (!empty(${'title' . crb_lang_slug()})) { ?>
                 <h1 class="home-hero-title">
+                <?php if (!empty(${'title' . crb_lang_slug()})) { ?>
                     <?php echo ${'title' . crb_lang_slug()}; ?>
-                </h1>
+                <?php } else { ?>
+                    <?php echo get_bloginfo('name'); ?>
                 <?php } ?>
+                </h1>
                 <?php if (!empty(${'subtitle' . crb_lang_slug()})) { ?>
                 <h3 class="home-hero-subtitle"><?php echo ${'subtitle' . crb_lang_slug()}; ?></h3>
                 <?php } ?>

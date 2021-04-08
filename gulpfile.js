@@ -12,7 +12,7 @@ const webpack = require('webpack-stream');
 function adminCSS() {
 	return src([
 		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
-		'src/assets/css/admin.css',
+		'src/assets/css/admin/admin.css',
 	])
 		.pipe(autoprefix())
 		.pipe(concatCSS('admin.css'))
@@ -21,10 +21,29 @@ function adminCSS() {
 		.pipe(browserSync.stream());
 }
 
-function css() {
+function solidCSS() {
 	return src([
 		'src/assets/css/style.css',
-		'src/assets/css/vars.css',
+		'src/assets/css/vars-solid.css',
+		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
+		'src/assets/css/index.css'
+	])
+		.pipe(autoprefix())
+		.pipe(concatCSS('style.css'))
+		.pipe(cleanCSS({
+			format: {
+				level: 2,
+				breaks: {afterComment: true}
+			}
+		}))
+		.pipe(dest('dist'))
+		.pipe(browserSync.stream());
+}
+
+function clientCSS() {
+	return src([
+		'src/assets/css/style.css',
+		'src/assets/css/vars-client.css',
 		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
 		'src/assets/css/index.css'
 	])
@@ -69,7 +88,16 @@ function js() {
 		.pipe(browserSync.stream());
 }
 
-exports.default = () => {
+exports.client = () => {
+	browserSync.init({
+		proxy: 'http://localhost/solid',
+		port: 3000,
+		open: true,
+	});
+	watch(['src/assets/css/*.css', '!src/assets/css/vars-solid.css'], clientCSS);
+};
+
+exports.solid = () => {
 	browserSync.init({
 		proxy: 'http://localhost/solid',
 		port: 3000,
@@ -77,10 +105,10 @@ exports.default = () => {
 	});
 	watch([
 		'dist/*.php',
-		'dist/includes/*.php',
+		'dist/inc/**/*.php',
 		'dist/templates/**/*.php',
 	]).on('change', browserSync.reload);
-	watch('src/assets/css/admin.css', adminCSS);
-	watch(['src/assets/css/*.css', '!src/assets/css/admin.css'], css);
+	watch('src/assets/css/admin/admin.css', adminCSS);
+	watch(['src/assets/css/*.css', '!src/assets/css/vars-client.css'], solidCSS);
 	watch('src/assets/js/*.js', js);
 };

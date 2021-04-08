@@ -1,16 +1,16 @@
 /* clean-css ignore:start */
 @font-face {
 	font-family: 'Chaparral Pro';
-	src: url('assets/fonts/ChaparralPro/ChaparralPro-Regular.eot');
-	src: url('assets/fonts/ChaparralPro/ChaparralPro-Regular.eot?#iefix')
+	src: url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.eot');
+	src: url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.eot?#iefix')
 			format('embedded-opentype'),
-		url('assets/fonts/ChaparralPro/ChaparralPro-Regular.woff2')
+		url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.woff2')
 			format('woff2'),
-		url('assets/fonts/ChaparralPro/ChaparralPro-Regular.woff')
+		url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.woff')
 			format('woff'),
-		url('assets/fonts/ChaparralPro/ChaparralPro-Regular.ttf')
+		url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.ttf')
 			format('truetype'),
-		url('assets/fonts/ChaparralPro/ChaparralPro-Regular.svg#ChaparralPro-Regular')
+		url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.svg#ChaparralPro-Regular')
 			format('svg');
 	font-weight: normal;
 	font-style: normal;
@@ -19,13 +19,14 @@
 
 @font-face {
 	font-family: 'Gotham Book';
-	src: url('assets/fonts/Gotham/Gotham-Book.eot');
-	src: url('assets/fonts/Gotham/Gotham-Book.eot?#iefix')
+	src: url('assets/fonts/solid/Gotham/Gotham-Book.eot');
+	src: url('assets/fonts/solid/Gotham/Gotham-Book.eot?#iefix')
 			format('embedded-opentype'),
-		url('assets/fonts/Gotham/Gotham-Book.woff2') format('woff2'),
-		url('assets/fonts/Gotham/Gotham-Book.woff') format('woff'),
-		url('assets/fonts/Gotham/Gotham-Book.ttf') format('truetype'),
-		url('assets/fonts/Gotham/Gotham-Book.svg#Gotham-Book') format('svg');
+		url('assets/fonts/solid/Gotham/Gotham-Book.woff2') format('woff2'),
+		url('assets/fonts/solid/Gotham/Gotham-Book.woff') format('woff'),
+		url('assets/fonts/solid/Gotham/Gotham-Book.ttf') format('truetype'),
+		url('assets/fonts/solid/Gotham/Gotham-Book.svg#Gotham-Book')
+			format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -33,13 +34,14 @@
 
 @font-face {
 	font-family: 'Gotham Ultra';
-	src: url('assets/fonts/Gotham/Gotham-Ultra.eot');
-	src: url('assets/fonts/Gotham/Gotham-Ultra.eot?#iefix')
+	src: url('assets/fonts/solid/Gotham/Gotham-Ultra.eot');
+	src: url('assets/fonts/solid/Gotham/Gotham-Ultra.eot?#iefix')
 			format('embedded-opentype'),
-		url('assets/fonts/Gotham/Gotham-Ultra.woff2') format('woff2'),
-		url('assets/fonts/Gotham/Gotham-Ultra.woff') format('woff'),
-		url('assets/fonts/Gotham/Gotham-Ultra.ttf') format('truetype'),
-		url('assets/fonts/Gotham/Gotham-Ultra.svg#Gotham-Ultra') format('svg');
+		url('assets/fonts/solid/Gotham/Gotham-Ultra.woff2') format('woff2'),
+		url('assets/fonts/solid/Gotham/Gotham-Ultra.woff') format('woff'),
+		url('assets/fonts/solid/Gotham/Gotham-Ultra.ttf') format('truetype'),
+		url('assets/fonts/solid/Gotham/Gotham-Ultra.svg#Gotham-Ultra')
+			format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -64,6 +66,7 @@
 	--font-size-h1-dt: 115px;
 	--font-size-h1-mb: 70px;
 	--font-size-site-title: 30px;
+	--font-size-hero-mb: 70px;
 	--font-size-big-text-dt: 9vw;
 	--font-size-big-text-mb: 70px;
 
@@ -94,5 +97,7 @@
 	--font-fam-smaller: 'Gotham Book';
 	--font-size-smaller-dt: 15px;
 	--font-size-smaller-mb: 13px;
+
+	--icon-contact-margin-bottom: -31px;
 }
 /* clean-css ignore:end */

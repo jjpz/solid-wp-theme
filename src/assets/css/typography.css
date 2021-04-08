@@ -164,6 +164,10 @@ p {
 		font-size: var(--font-size-h1-mb);
 	}
 
+	h1.home-hero-title {
+		font-size: var(--font-size-hero-mb);
+	}
+
 	h1.bigtext {
 		font-size: var(--font-size-big-text-mb);
 	}

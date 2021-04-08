@@ -17,9 +17,9 @@ const siteURL = php_vars.site_url;
 let offsetHeightElem = document.querySelector('.offset-height');
 
 export function checkSiteHeaderWidth() {
-	// if (!siteHeader) {
-	// 	return;
-	// }
+	if (!siteHeader) {
+		return;
+	}
 
 	let siteHeaderPaddingLeft = parseInt(
 		window
@@ -128,6 +128,9 @@ export function checkSiteHeader() {
 }
 
 export function checkSiteHeaderRes() {
+	if (!siteHeader) {
+		return;
+	}
 
 	let windowWidth = checkWindowWidth();
 	// console.log('window = ' + windowWidth);
@@ -166,6 +169,10 @@ export function checkSiteHeaderRes() {
 }
 
 export function checkSiteHeaderPos() {
+	if (!siteHeader) {
+		return;
+	}
+
 	if (offsetHeightElem) {
 		siteHeader.classList.add('absolute');
 	} else {
@@ -188,6 +195,10 @@ export function checkSiteHeaderActive() {
 }
 
 export function checkSiteHeaderSticky() {
+	if (!siteHeader) {
+		return;
+	}
+
 	let windowScroll = window.scrollY;
 	let offsetHeight = offsetHeightElem
 		? offsetHeightElem.offsetHeight
@@ -248,11 +259,13 @@ if (siteHeader) {
 	});
 }
 
-navClose.addEventListener('click', e => {
-	e.preventDefault();
-	siteNav.classList.remove('show');
-	siteFooter.classList.remove('site-nav-open');
-});
+if (navClose) {
+	navClose.addEventListener('click', e => {
+		e.preventDefault();
+		siteNav.classList.remove('show');
+		siteFooter.classList.remove('site-nav-open');
+	});
+}
 
 let subToggles = document.querySelectorAll('.submenu-toggle');
 subToggles.forEach(subToggle => {
