@@ -63,7 +63,7 @@
 
             <div class="info">
                 <h1 class="name single-cpt-name"><?php echo $name; ?></h1>
-                <?php if ( !empty($title) ) { ?>
+                <?php if ( !empty($position) ) { ?>
                     <p class="position"><?php echo $position; ?></p>
                 <?php } ?>
                 <?php the_content(); ?>

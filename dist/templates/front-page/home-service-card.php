@@ -17,11 +17,11 @@
 
     <div class="info">
         <h2 class="name"><?php echo $title; ?></h2>
-        <?php if ($display === 'full') { ?>
+        <?php if (empty($display) || $display === 'full') { ?>
             <?php echo $content; ?>
         <?php } else { ?>
             <a 
-                <?php if ($display !== 'full') { ?>
+                <?php if (!empty($display) && $display !== 'full') { ?>
                     href="<?php echo $href; ?>" 
                 <?php } ?>
                 class="link link-more link-icon-right font-smaller" 

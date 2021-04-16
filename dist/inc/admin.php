@@ -2,7 +2,7 @@
 // Admin CSS + JS
 add_action('admin_enqueue_scripts', 'solid_admin_scripts');
 function solid_admin_scripts() {
-    wp_enqueue_style('admin-style', get_template_directory_uri() . '/assets/css/admin.css', array(), '1.0.0');
+    wp_enqueue_style('admin-style', get_template_directory_uri() . '/assets/admin/admin.css', array(), '1.0.0');
 }
 
 // Admin login logo

@@ -1,8 +1,14 @@
 <?php 
 $posts = $args['posts'];
 $display = $args['display'];
-$display_class = $display === 'full' ? 'v-max' : 'v-min';
-$link_class = $display === 'popup' ? 'v-pop' : 'v-ref';
+
+if (!empty($display)) {
+    $display_class = $display === 'full' ? 'v-max' : 'v-min';
+    $link_class = $display === 'popup' ? 'v-pop' : 'v-ref';
+} else {
+    $display_class = 'v-max';
+    $link_class = '';
+}
 
 foreach ($posts as $key => $service) {
 $ID = $service->ID;
@@ -18,8 +24,12 @@ $classes = ['home-service', 'col-lg-6', 'v-'.$post_type];
 ?>
 
 <article id="post-<?php echo $ID; ?>" <?php post_class($classes, $ID) ?>>
-    <?php require 'home-service-card.php';
-    if ($display === 'popup') { require 'home-service-popup.php'; } ?>
+    <?php
+    require 'home-service-card.php';
+    if ($display === 'popup') {
+        require 'home-service-popup.php';
+    }
+    ?>
 </article>
 
 <?php } ?>

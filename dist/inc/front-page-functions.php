@@ -73,6 +73,7 @@ if ( ! function_exists( 'getSectionHeader' ) ) {
 	function getSectionHeader( $title = '', $paragraph = '' ) {
 		$h = !empty($title) ? '<h3 class="box-title section-title">' . $title . '</h3>' : '';
 		$p = !empty($paragraph) ? $paragraph : '';
+		$html = '';
 
 		if (!empty($title) || !empty($paragraph)) {
 			$headerStart = 
@@ -87,9 +88,9 @@ if ( ! function_exists( 'getSectionHeader' ) ) {
 			</div>
 			</div>
 			</header>';
-		}
 
-		$html = $headerStart . $title . $paragraph . $headerEnd;
+			$html = $headerStart . $title . $paragraph . $headerEnd;
+		}
 
 		echo $html;
 	}

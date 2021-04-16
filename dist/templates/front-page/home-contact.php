@@ -6,10 +6,6 @@ ${'form' . crb_lang_slug()} = get_option('_crb_contactform_shortcode' . crb_lang
 ${'text' . crb_lang_slug()} = get_option('_crb_home_contact_text_link' . crb_lang_slug());
 ${'voice' . crb_lang_slug()} = get_option('_crb_home_contact_voice_link' . crb_lang_slug());
 ${'email' . crb_lang_slug()} = get_option('_crb_home_contact_email_link' . crb_lang_slug());
-$file = get_stylesheet_directory_uri() . '/assets/images/contact.svg';
-if (file_exists($file)) {
-    $icon = file_get_contents(get_stylesheet_directory_uri() . '/assets/images/contact.svg');
-}
 ?>
 
 <?php
@@ -98,7 +94,7 @@ if (
     </div>
     <div class="container">
         <div class="icon-contact">
-            <?php echo $icon; ?>
+            <?php get_template_part('assets/icons/home-contact-icon'); ?>
         </div>
     </div>
 </section>

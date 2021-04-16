@@ -1,36 +1,37 @@
-const path = require('path');
 const { src, dest, watch } = require('gulp');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const autoprefix = require('gulp-autoprefixer');
-const concatCSS = require('gulp-concat-css');
-const cleanCSS = require('gulp-clean-css');
-const browserSync = require('browser-sync').create();
+const prefixCss = require('gulp-autoprefixer');
+const concatCss = require('gulp-concat-css');
+const cleanCss = require('gulp-clean-css');
 const webpack = require('webpack-stream');
+const browserSync = require('browser-sync').create();
 
-function adminCSS() {
+let admin = () => {
 	return src([
 		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
-		'src/assets/css/admin/admin.css',
+		'src/css/admin/admin.css',
 	])
-		.pipe(autoprefix())
-		.pipe(concatCSS('admin.css'))
-		.pipe(cleanCSS({ format: { breaks: { afterComment: true } } }))
-		.pipe(dest('dist/assets/css'))
+		.pipe(prefixCss())
+		.pipe(concatCss('admin.css'))
+		.pipe(cleanCss({
+			format: {
+				level: 2,
+				breaks: {afterComment: true}
+			}
+		}))
+		.pipe(dest('dist/assets/admin'))
 		.pipe(browserSync.stream());
 }
 
-function solidCSS() {
+let css = () => {
 	return src([
-		'src/assets/css/style.css',
-		'src/assets/css/vars-solid.css',
+		'src/css/header.css',
+		'src/css/vars.css',
 		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
-		'src/assets/css/index.css'
+		'src/css/index.css'
 	])
-		.pipe(autoprefix())
-		.pipe(concatCSS('style.css'))
-		.pipe(cleanCSS({
+		.pipe(prefixCss())
+		.pipe(concatCss('style.css'))
+		.pipe(cleanCss({
 			format: {
 				level: 2,
 				breaks: {afterComment: true}
@@ -40,30 +41,8 @@ function solidCSS() {
 		.pipe(browserSync.stream());
 }
 
-function clientCSS() {
-	return src([
-		'src/assets/css/style.css',
-		'src/assets/css/vars-client.css',
-		'node_modules/bootstrap/dist/css/bootstrap-grid.min.css',
-		'src/assets/css/index.css'
-	])
-		.pipe(autoprefix())
-		.pipe(concatCSS('style.css'))
-		.pipe(cleanCSS({
-			format: {
-				level: 2,
-				breaks: {afterComment: true}
-			}
-		}))
-		.pipe(dest('dist'))
-		.pipe(browserSync.stream());
-}
-
-function js() {
-	return src('src/assets/js/*.js')
-		//.pipe(babel({ presets: ['@babel/env'] }))
-		//.pipe(concat('script.js'))
-		//.pipe(uglify())
+let js = () => {
+	return src('src/js/*.js')
 		.pipe(webpack({
 			mode: 'production',
 			output: {
@@ -84,18 +63,9 @@ function js() {
 				]
 			},
 		}))
-		.pipe(dest('dist/assets/js'))
+		.pipe(dest('dist'))
 		.pipe(browserSync.stream());
 }
-
-exports.client = () => {
-	browserSync.init({
-		proxy: 'http://localhost/solid',
-		port: 3000,
-		open: true,
-	});
-	watch(['src/assets/css/*.css', '!src/assets/css/vars-solid.css'], clientCSS);
-};
 
 exports.solid = () => {
 	browserSync.init({
@@ -108,7 +78,7 @@ exports.solid = () => {
 		'dist/inc/**/*.php',
 		'dist/templates/**/*.php',
 	]).on('change', browserSync.reload);
-	watch('src/assets/css/admin/admin.css', adminCSS);
-	watch(['src/assets/css/*.css', '!src/assets/css/vars-client.css'], solidCSS);
-	watch('src/assets/js/*.js', js);
+	watch('src/css/admin/admin.css', admin);
+	watch('src/css/*.css', css);
+	watch('src/js/*.js', js);
 };

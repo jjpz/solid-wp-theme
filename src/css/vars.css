@@ -1,4 +1,3 @@
-/* clean-css ignore:start */
 @font-face {
 	font-family: 'Chaparral Pro';
 	src: url('assets/fonts/solid/ChaparralPro/ChaparralPro-Regular.eot');
@@ -54,11 +53,8 @@
 		brightness(113%) contrast(96%);
 	--color-light: #cccccc;
 	--color-lighter: #efefef;
-	--color-site-header-bg: linear-gradient(
-		to bottom,
-		rgba(51, 51, 51, 0.25) 0%,
-		transparent 100%
-	);
+	--color-site-header-bg: transparent;
+	/* --color-site-header-bg: linear-gradient(to bottom, rgba(51, 51, 51, 0.25) 0%, transparent 100%); */
 	--color-lazy-image-overlay: #dddddd;
 	--color-divider: rgba(17, 17, 17, 0.15);
 
@@ -100,4 +96,4 @@
 
 	--icon-contact-margin-bottom: -31px;
 }
-/* clean-css ignore:end */
+/*!*/

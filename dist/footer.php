@@ -119,8 +119,6 @@ $footer = [
                     'container' => 'nav',
                     'container_class' => 'footer-links'
                 ));
-            } else {
-                echo '<nav class="footer-links"></nav>';
             }
             ?>
             <div class="copyright">

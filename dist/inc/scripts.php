@@ -4,8 +4,8 @@ if (!function_exists('solid_scripts')) {
     function solid_scripts() {
         // CSS
         wp_enqueue_style(
-            'style', 
-            get_stylesheet_uri(), 
+            'parent-style', 
+            get_template_directory_uri() . '/style.css', 
             array(), 
             filemtime(get_theme_file_path('style.css')), 
             'all'
@@ -13,9 +13,9 @@ if (!function_exists('solid_scripts')) {
         // JS
         wp_enqueue_script(
             'script', 
-            get_template_directory_uri() . '/assets/js/script.js', 
+            get_template_directory_uri() . '/script.js', 
             array(), 
-            filemtime(get_theme_file_path('/assets/js/script.js')), 
+            filemtime(get_theme_file_path('/script.js')), 
             true
         );
         wp_localize_script(

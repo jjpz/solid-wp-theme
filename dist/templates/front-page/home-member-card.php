@@ -2,7 +2,7 @@
 <?php $href = $display === 'single' ? $link : '#'; ?>
 
 <a 
-    <?php if ($display !== 'full') { ?>
+    <?php if (!empty($display) && $display !== 'full') { ?>
         href="<?php echo $href; ?>" 
     <?php } ?>
     class="card" 
@@ -30,7 +30,7 @@
         <?php if ( !empty($position) ) { ?>
             <p class="position"><?php echo $position; ?></p>
         <?php } ?>
-        <?php if ($display === 'full') { ?>
+        <?php if (empty($display) || $display === 'full') { ?>
             <?php echo $content; ?>
         <?php } else { ?>
             <p class="link link-more link-icon-right font-smaller">

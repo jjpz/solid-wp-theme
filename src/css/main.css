@@ -485,6 +485,7 @@ body.single-post article.post {
 
 .home-hero-banner {
 	height: 100vh;
+	background-color: var(--color-lighter);
 }
 
 .home-hero-content {

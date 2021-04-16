@@ -1,0 +1,6 @@
+/* Admin CSS */
+*,
+::after,
+::before {
+	box-sizing: unset;
+}
