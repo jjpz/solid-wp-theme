@@ -1,8 +1,12 @@
+<?php if (!has_nav_menu('header-main') && !has_nav_menu('header-lang') && !has_nav_menu('header-button') && is_front_page()) { 
+    return;
+} else {
+?>
 <?php
-if (has_nav_menu('main') || has_nav_menu('main-button')) {
 $remove_title = get_option('_crb_theme_remove_nav_site_title');
 $nav_logo_id = get_option('_crb_theme_nav_logo');
 $site_branding_class = '';
+
 if (empty($nav_logo_id) && !empty($remove_title) && $remove_title === 'yes') {
     $site_branding_class = 'no-branding';
 }
@@ -23,6 +27,8 @@ if (empty($nav_logo_id) && !empty($remove_title) && $remove_title === 'yes') {
             )
         ); ?>
 
+        
+
         <?php get_template_part('templates/site-nav'); ?>
 
         <div class="nav-toggle">
@@ -36,8 +42,9 @@ if (empty($nav_logo_id) && !empty($remove_title) && $remove_title === 'yes') {
             </a>
         </div>
 
+        
+
     </div>
 
 </header>
-
 <?php } ?>

@@ -51,7 +51,9 @@ $categories = get_categories('post');
                 }
             ?>
             <li class="side-nav-item post-nav-item">
+                <?php if ($cats) { ?>
                 <div class="post-nav-cat font-smaller"><?php echo $cat_name; ?></div>
+                <?php } ?>
                 <a class="post-nav-title" href="<?php echo $link; ?>"><?php echo $title; ?></a>
             </li>
             <?php } ?>

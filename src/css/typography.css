@@ -46,10 +46,6 @@ h1.site-title {
 	font-size: var(--font-size-site-title);
 }
 
-h1.home-hero-title {
-	margin-bottom: 15px;
-}
-
 h1.bigtext {
 	font-size: var(--font-size-big-text-dt);
 }
@@ -75,8 +71,8 @@ h1.bigtext.home-contact-bigtext.text-center {
 }
 
 h1.entry-title {
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 	font-family: var(--font-fam-h2);
 	font-size: var(--font-size-h2-dt);
 }
@@ -348,6 +344,11 @@ h3.home-hero-subtitle {
 	text-decoration: none;
 }
 
+.blog-breadcrumbs a:hover {
+	opacity: 0.75;
+	transition: all 0.25s;
+}
+
 .blog-title {
 	text-align: center;
 }
@@ -375,8 +376,13 @@ h3.home-hero-subtitle {
 	text-decoration: none;
 }
 
+.cat-nav-title:hover {
+	opacity: 0.75;
+	transition: all 0.25s;
+}
+
 .post-nav-cat {
-	margin-bottom: 5px;
+	margin-bottom: 9px;
 	font-weight: bold;
 }
 
@@ -386,6 +392,11 @@ h3.home-hero-subtitle {
 	font-size: var(--font-size-h3-alt-dt);
 	font-weight: 100;
 	text-decoration: none;
+}
+
+.post-nav-title:hover {
+	opacity: 0.75;
+	transition: all 0.25s;
 }
 
 .see-all-link {

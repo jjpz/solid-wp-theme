@@ -7,6 +7,7 @@ add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
     // General Options
     $theme_options = Container::make( 'theme_options', __( 'Theme Options' . crb_lang_name() ) )
+        ->where('current_user_role', 'IN', array('administrator', 'editor'))
         ->set_page_file( 'theme-options' )
 		->set_page_menu_position( 4 )
         ->set_icon( 'dashicons-admin-generic' )

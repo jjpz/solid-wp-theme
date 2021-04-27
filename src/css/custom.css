@@ -92,6 +92,11 @@
 
 .service {
 	margin-bottom: 90px;
+	padding-right: 60px;
+}
+
+.service.has-post-thumbnail {
+	padding-right: 30px;
 }
 
 .service .card {
@@ -116,11 +121,21 @@
 }
 
 .service .name {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .service .link-more {
 	justify-content: flex-start;
+}
+
+@media (max-width: 991px) {
+	.service {
+		padding-right: 15px;
+	}
+
+	.service.has-post-thumbnail {
+		padding-right: 15px;
+	}
 }
 
 @media (max-width: 767px) {

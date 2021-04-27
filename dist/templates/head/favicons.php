@@ -5,7 +5,9 @@
 <link rel="icon" type="image/png" sizes="16x16"
     href="<?php echo get_stylesheet_directory_uri() ?>/assets/favicons/favicon-16x16.png">
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/assets/favicons/favicon.ico">
-<link rel="manifest" href="<?php echo get_stylesheet_directory_uri() ?>/assets/favicons/site.webmanifest">
+<!-- 
+<link rel="manifest" href="<?php // echo get_stylesheet_directory_uri() ?>/assets/favicons/site.webmanifest"> 
+-->
 <meta name="msapplication-config"
     content="<?php echo get_stylesheet_directory_uri() ?>/assets/favicons/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#00a300">

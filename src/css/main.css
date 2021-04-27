@@ -368,6 +368,11 @@ body.single-post article.post {
 	text-decoration: none;
 }
 
+.entry-link:hover .entry-title {
+	opacity: 0.75;
+	transition: all 0.25s;
+}
+
 .entry-meta {
 }
 
@@ -520,6 +525,10 @@ body.single-post article.post {
 
 /* HOME INTRO */
 
+.home-intro-paragraph p {
+	margin-bottom: -9px;
+}
+
 /* HOME AWARDS */
 
 .home-awards {
@@ -535,6 +544,7 @@ body.single-post article.post {
 .award {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	margin-bottom: 60px;
 }
 

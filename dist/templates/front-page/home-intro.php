@@ -24,7 +24,7 @@ if (
     <div class="container">
         <div class="row align-items-baseline">
             <?php if (!empty(${'paragraph' . crb_lang_slug()})) { ?>
-            <div class="<?php echo $col_class; ?>">
+            <div class="<?php echo $col_class; ?> home-intro-paragraph">
                 <?php echo ${'paragraph' . crb_lang_slug()}; ?>
             </div>
             <?php } ?>

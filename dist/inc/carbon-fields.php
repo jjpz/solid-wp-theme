@@ -6,5 +6,7 @@ function crb_load() {
     \Carbon_Fields\Carbon_Fields::boot();
 }
 
+add_filter( 'carbon_fields_theme_options_container_admin_only_access', '__return_false' );
+
 require_once 'carbon-fields/theme-options.php';
 require_once 'carbon-fields/team.php';

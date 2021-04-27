@@ -4,16 +4,17 @@ const page = document.querySelector('#page');
 const siteHeader = document.querySelector('.site-header');
 const siteHeaderContainer = document.querySelector('.site-header-container');
 const siteBranding = document.querySelector('.site-branding');
+const siteLogo = document.querySelector('.site-logo');
+const siteTitle = document.querySelector('.site-title');
 const siteNav = document.querySelector('.site-nav');
 const mainNav = document.querySelector('.main-nav');
+const langNav = document.querySelector('.lang-nav');
 const buttonNav = document.querySelector('.button-nav');
 const navToggle = document.querySelector('.nav-toggle');
 const navClose = document.querySelector('.nav-close');
 const siteContent = document.querySelector('.site-content');
 const siteFooter = document.querySelector('.site-footer');
 const siteURL = php_vars.site_url;
-
-// let siteHeaderWidth;
 let offsetHeightElem = document.querySelector('.offset-height');
 
 export function checkSiteHeaderWidth() {
@@ -21,97 +22,135 @@ export function checkSiteHeaderWidth() {
 		return;
 	}
 
-	let siteHeaderPaddingLeft = parseInt(
-		window
-			.getComputedStyle(siteHeader)
-			.getPropertyValue('padding-left')
-	);
-	let siteHeaderPaddingRight = parseInt(
-		window
-			.getComputedStyle(siteHeader)
-			.getPropertyValue('padding-right')
-	);
+	// Get site header container padding
+	let siteHeaderPaddingLeft = parseInt(window.getComputedStyle(siteHeaderContainer).getPropertyValue('padding-left'));
+	let siteHeaderPaddingRight = parseInt(window.getComputedStyle(siteHeaderContainer).getPropertyValue('padding-right'));
 	let siteHeaderPadding = siteHeaderPaddingLeft + siteHeaderPaddingRight;
-	let siteBrandingWidth = siteBranding ? siteBranding.offsetWidth : 0;
 
-	// let mainNavWidth = mainNav ? mainNav.offsetWidth : 0;
-	// let buttonNavWidth = buttonNav ? buttonNav.offsetWidth : 0;
+	// Get site branding width
+	let siteBrandingWidth = 0;
+	let siteBrandingPadding = 0;
 
-	let mainItemsWidth = [];
-	let mainItems = document.querySelectorAll('nav.main-nav > ul > li');
-	mainItems.forEach((mainItem, index, array) => {
-		let mainItemWIdth = mainItem.querySelector('span').offsetWidth;
-		let mainItemMargin = (index === array.length - 1) ? 45 : 30;
-		let mainItemFullWidth = mainItemWIdth + mainItemMargin;
-		// console.log(mainItemFullWidth);
-		mainItemsWidth.push(mainItemFullWidth);
-		return mainItemsWidth;
-	});
-	let mainNavWidth = mainItemsWidth.reduce((a, b) => {
-		return a + b;
-	}, 0);
-	// console.log(mainItemsWidth);
-	// console.log(mainNavWidth);
+	if (siteBranding) {
 
-	let langItemsWidth = [];
-	let langItems = document.querySelectorAll('li.lang-item');
-	langItems.forEach(langItem => {
-		let langItemWidth = langItem.offsetWidth;
-		let langItemMarginLeft = parseInt(window.getComputedStyle(langItem).getPropertyValue('margin-left'));
-		let langItemMarginRight = parseInt(window.getComputedStyle(langItem).getPropertyValue('margin-right'));
-		let langItemMargin = langItemMarginLeft + langItemMarginRight;
-		let langItemFullWidth = langItemWidth + langItemMargin;
-		// console.log(langItemFullWidth);
-		langItemsWidth.push(langItemFullWidth);
-	});
-	let langNavWidth = langItemsWidth.reduce((a, b) => {
-		return a + b;
-	}, 0);
-	// console.log(langItemsWidth);
-	// console.log(langNavWidth);
+		if (!siteLogo && !siteTitle) {
 
-	let buttonItemsWidth = [];
-	let buttonItems = document.querySelectorAll('nav.button-nav li:not(.lang-item)');
-	buttonItems.forEach(buttonItem => {
-		let buttonItemWIdth = buttonItem.querySelector('span').offsetWidth;
-		let buttonItemMargin = 30;
-		let buttonItemLink = buttonItem.querySelector('a');
-		let buttonItemPaddingLeft = parseInt(window.getComputedStyle(buttonItemLink).getPropertyValue('padding-left')) + 1;
-		let buttonItemPaddingRight = parseInt(window.getComputedStyle(buttonItemLink).getPropertyValue('padding-right')) + 1;
-		let buttonItemPadding = buttonItemPaddingLeft + buttonItemPaddingRight;
-		let buttonItemFullWidth = buttonItemWIdth + buttonItemMargin + buttonItemPadding;
-		// console.log(buttonItemFullWidth);
-		buttonItemsWidth.push(buttonItemFullWidth);
-	});
-	let buttonNavWidth = buttonItemsWidth.reduce((a, b) => {
-		return a + b;
-	}, 0);
-	// console.log(buttonItemsWidth);
-	// console.log(buttonNavWidth);
+			siteBranding.classList.add('empty');
 
-	buttonNavWidth = buttonNavWidth + langNavWidth;
+		} else {
 
-	let width =
-		siteBrandingWidth +
-		mainNavWidth +
-		buttonNavWidth +
-		siteHeaderPadding;
+			// Get site logo width
+			let siteLogoWidth = siteLogo ? siteLogo.offsetWidth : 0;
+
+			// Get site title width
+			let siteTitleWidth = siteTitle ? siteTitle.offsetWidth : 0;
+
+			// Get site branding padding
+			siteBrandingPadding = 15;
+
+			siteBrandingWidth = siteLogoWidth + siteTitleWidth + siteBrandingPadding;
+
+		}
+
+	}
+
+	// Get main nav width
+	let mainNavWidth = 0;
+	if (mainNav) {
+		let mainItemsArr = [];
+		let mainItems = document.querySelectorAll('nav.main-nav > ul > li');
+
+		mainItems.forEach(item => {
+			mainItemsArr.push(item.querySelector('span').offsetWidth);
+		});
+
+		let mainNavPadding = 30;
+		let mainNavGutters = (mainItems.length - 1) * 30;
+		mainNavWidth = mainNavPadding + mainNavGutters + mainItemsArr.reduce((a, b) => {
+			return a + b;
+		}, 0);
+	}
+
+	// Get lang nav width
+	let langNavWidth = 0;
+	if (langNav) {
+		let langItemsArr = [];
+		let langItems = document.querySelectorAll('nav.lang-nav li.lang-item');
+
+		langItems.forEach(item => {
+			let span = item.querySelector('span').offsetWidth;
+			let paddingLeft = parseInt(window.getComputedStyle(item).getPropertyValue('padding-left'));
+			let paddingRight = parseInt(window.getComputedStyle(item).getPropertyValue('padding-right'));
+			let borderLeft = parseInt(window.getComputedStyle(item).getPropertyValue('border-left'));
+			let borderRight = parseInt(window.getComputedStyle(item).getPropertyValue('border-right'));
+			let padding = paddingLeft + paddingRight;
+			let border = borderLeft + borderRight;
+			let width = span + padding + border;
+			langItemsArr.push(width);
+		});
+
+		let langNavPadding = 60;
+		langNavWidth = langNavPadding + langItemsArr.reduce((a, b) => {
+			return a + b;
+		}, 0);
+	}
+
+	// Get button nav width
+	let buttonNavWidth = 0;
+	if (buttonNav) {
+		let buttonItemsArr = [];
+		let buttonItems = document.querySelectorAll('nav.button-nav li');
+
+		buttonItems.forEach(item => {
+			let span = item.querySelector('span').offsetWidth;
+			let button = item.querySelector('a');
+			let paddingLeft = parseInt(window.getComputedStyle(button).getPropertyValue('padding-left'));
+			let paddingRight = parseInt(window.getComputedStyle(button).getPropertyValue('padding-right'));
+			let padding = paddingLeft + paddingRight;
+			let borderLeft = parseInt(window.getComputedStyle(button).getPropertyValue('border-left-width'));
+			let borderRight = parseInt(window.getComputedStyle(button).getPropertyValue('border-right-width'));
+			let border = borderLeft + borderRight;
+			let width = span + padding + border;
+			buttonItemsArr.push(width);
+		});
+
+		let buttonNavPadding = 30;
+		let buttonNavGutters = (buttonItems.length - 1) * 15;
+		buttonNavWidth = buttonNavPadding + buttonNavGutters + buttonItemsArr.reduce((a, b) => {
+			return a + b;
+		}, 0);
+	}
+
+	// Get site header width
+	let width = siteBrandingWidth + mainNavWidth + langNavWidth + buttonNavWidth + siteHeaderPadding;
 
 	return width;
 }
 
 function checkMobileNavScroll() {
+	if (!siteNav) {
+		return;
+	}
+
 	let siteNavHeight = siteNav.offsetHeight;
 	let siteNavPaddingTop = parseInt(window.getComputedStyle(siteNav).getPropertyValue('padding-top'));
-	let mainNavHeight = mainNav.offsetHeight;
-	let mainNavMarginBottom = parseInt(window.getComputedStyle(mainNav).getPropertyValue('margin-bottom'));
-	let mainNavFullHeight = mainNavHeight + mainNavMarginBottom;
-	let buttonNavHeight = buttonNav.offsetHeight;
-	let buttonNavMarginBottom = parseInt(window.getComputedStyle(buttonNav).getPropertyValue('margin-bottom'));
-	let buttonNavFullHeight = buttonNavHeight + buttonNavMarginBottom;
-	let siteNavContentHeight = siteNavPaddingTop + mainNavFullHeight + buttonNavFullHeight;
-	// console.log(siteNavHeight);
-	// console.log(siteNavContentHeight);
+
+	let mainNavHeight = 0;
+	if (mainNav) {
+		mainNavHeight = mainNav.offsetHeight;
+	}
+
+	let langNavHeight = 0;
+	if (langNav) {
+		langNavHeight = langNav.offsetHeight;
+	}
+
+	let buttonNavHeight = 0;
+	if (buttonNav) {
+		buttonNavHeight = buttonNav.offsetHeight;
+	}
+
+	let siteNavContentHeight = siteNavPaddingTop + mainNavHeight + langNavHeight + buttonNavHeight;
 
 	if (siteNavHeight < siteNavContentHeight) {
 		siteNav.classList.add('scrollable');
@@ -120,11 +159,18 @@ function checkMobileNavScroll() {
 	}
 }
 
+function checkSiteNav() {
+	if (!siteNav) {
+		return;
+	}
+}
+
 export function checkSiteHeader() {
 	checkSiteHeaderRes();
 	checkSiteHeaderPos();
 	//checkSiteHeaderActive();
 	checkSiteHeaderSticky();
+	checkSiteNav();
 }
 
 export function checkSiteHeaderRes() {
@@ -133,10 +179,7 @@ export function checkSiteHeaderRes() {
 	}
 
 	let windowWidth = checkWindowWidth();
-	// console.log('window = ' + windowWidth);
-	
 	let siteHeaderWidth = checkSiteHeaderWidth();
-	// console.log('header = ' + siteHeaderWidth);
 
 	if (windowWidth <= siteHeaderWidth) {
 
@@ -173,10 +216,14 @@ export function checkSiteHeaderPos() {
 		return;
 	}
 
-	if (offsetHeightElem) {
-		siteHeader.classList.add('absolute');
+	if (!document.querySelector('.site-nav-left') && !document.body.classList.contains('home')) {
+		siteHeader.classList.add('relative');
 	} else {
-		siteHeader.classList.add('fixed');
+		if (offsetHeightElem) {
+			siteHeader.classList.add('absolute');
+		} else {
+			siteHeader.classList.add('fixed');
+		}
 	}
 }
 

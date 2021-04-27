@@ -10,8 +10,9 @@ if (!function_exists('solid_setup')) {
 
         register_nav_menus(
             array(
-                'main' => esc_html__('Top', 'solid'),
-                'main-button' => esc_html__('Top Button', 'solid'),
+                'header-main' => esc_html__('Top', 'solid'),
+                'header-lang' => esc_html__('Top Language', 'solid'),
+                'header-button' => esc_html__('Top Button', 'solid'),
                 'footer-links' => esc_html__('Footer', 'solid')
             )
         );

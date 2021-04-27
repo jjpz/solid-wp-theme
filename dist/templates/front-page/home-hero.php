@@ -27,6 +27,7 @@ ${'subtitle' . crb_lang_slug()} = nl2br(get_option('_crb_home_cover_subtitle' . 
                 <?php } ?>
                 </h1>
                 <?php if (!empty(${'subtitle' . crb_lang_slug()})) { ?>
+                <div style="margin-top:15px"></div>
                 <h3 class="home-hero-subtitle"><?php echo ${'subtitle' . crb_lang_slug()}; ?></h3>
                 <?php } ?>
             </div>
