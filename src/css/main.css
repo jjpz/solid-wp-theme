@@ -525,7 +525,7 @@ body.single-post article.post {
 
 /* HOME INTRO */
 
-.home-intro-paragraph p {
+.home-intro-paragraph p:last-child {
 	margin-bottom: -9px;
 }
 

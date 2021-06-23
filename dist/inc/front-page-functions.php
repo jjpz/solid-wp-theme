@@ -1,111 +1,123 @@
 <?php
 if ( ! function_exists( 'getSectionPosts' ) ) {
-    function getSectionPosts( $query, $post_type ) {
-        $posts = [];
-        if ($query->have_posts()) {
-            while ($query->have_posts()) {
-                $query->the_post();
-                if ($query->post->post_type === $post_type) {
-                    array_push($posts, $query->post);
-                }
-            }
-            wp_reset_postdata();
-        }
-        return $posts;
+    function getSectionPosts( $custom_post_type ) {
+		$query = new WP_Query(
+			array(
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'post_type'              => $custom_post_type,
+				'post_status'            => 'publish',
+				'posts_per_page'         => 24,
+				'no_found_rows'          => true,
+				'orderby'                => 'menu_order',
+				'order'                  => 'ASC'
+			)
+		);
+
+        return $query->posts;
     }
 }
 
-if ( ! function_exists( 'getHomeSection' ) ) {
-	function getHomeSection( $query, $post_type ) {
-
-		$section = strtolower(get_post_type_object($post_type)->label);
-
-		$sectionClasses = [];
-
-		if ($post_type === 'member') {
-			array_push($sectionClasses, 'home-section-w-bg');
-		}
-
-		$t = '_crb_home_' . $post_type . '_title';
-		$p = '_crb_home_' . $post_type . '_paragraph';
-		$d = '_crb_home_' . $post_type . '_layout';
+if ( ! function_exists( 'getSectionTitle' ) ) {
+	function getSectionTitle( $custom_post_type ) {
+		$t = '_crb_home_' . $custom_post_type . '_title';
 
 		${'title' . crb_lang_slug()} = get_option($t . crb_lang_slug());
+
+		$h = !empty(${'title' . crb_lang_slug()}) ? '<h3 class="box-title section-title">' . ${'title' . crb_lang_slug()} . '</h3>' : '';
+
+		return $h;
+	}
+}
+
+if ( ! function_exists( 'getSectionParagraph' ) ) {
+	function getSectionParagraph( $custom_post_type ) {
+		$p = '_crb_home_' . $custom_post_type . '_paragraph';
+
 		${'paragraph' . crb_lang_slug()} = apply_filters('the_content', get_option($p . crb_lang_slug()));
-		$display = get_option($d);
 
-		$posts = getSectionPosts($query, $post_type);
+		$p = !empty(${'paragraph' . crb_lang_slug()}) ? ${'paragraph' . crb_lang_slug()} : '';
 
-		if ( 
-			!empty($posts) || 
-			!empty(${'title' . crb_lang_slug()}) || 
-			!empty(${'paragraph' . crb_lang_slug()}) 
-		) {
+		return $p;
+	}
+}
 
-			$start  = getSectionStart($section, $sectionClasses);
-			$header = getSectionHeader(${'title' . crb_lang_slug()}, ${'paragraph' . crb_lang_slug()});
-			$body   = getSectionBody($post_type, $posts, $display);
-			$end    = getSectionEnd();
+function getSectionContent( $custom_post_type ) {
+	$content = array(
+		'posts' => getSectionPosts($custom_post_type),
+		'title' => getSectionTitle($custom_post_type),
+		'paragraph' => getSectionParagraph($custom_post_type)
+	);
 
-			$html = $start . $header . $body . $end;
+	if (array_filter($content)) {
+		return $content;
+	}
+}
 
-			echo $html;
+function renderSection( $content ) {
+	getSectionStart($content['custom_post_type']);
+	getSectionHeader($content['title'], $content['paragraph']);
+	getSectionBody($content['custom_post_type'], $content['posts']);
+	getSectionEnd();
+}
 
+if ( ! function_exists( 'getHomeSection' ) ) {
+	function getHomeSection( $custom_post_type ) {
+		$content = getSectionContent($custom_post_type);
+
+		if (!empty($content)) {
+			$content['custom_post_type'] = $custom_post_type;
+			renderSection($content);
 		}
-
 	}
 }
 
 if ( ! function_exists( 'getSectionStart' ) ) {
-	function getSectionStart( $section, array $sectionClasses = null ) {
-		$sectionClass = $sectionClasses ? ' ' . implode(' ', $sectionClasses) . ' ' : ' ';
-		echo '<section id="' . $section . '" class="home-section' . $sectionClass . 'home-' . $section . '">';
-	}
-}
+	function getSectionStart( $custom_post_type ) {
+		$section = strtolower(get_post_type_object($custom_post_type)->label);
 
-if ( ! function_exists( 'getSectionEnd' ) ) {
-	function getSectionEnd() {
-		echo '</section>';
+		$sectionClasses = ['home-section', 'home-' . $section];
+
+		if ($custom_post_type === 'member') {
+			array_push($sectionClasses, 'home-section-w-bg');
+		}
+
+		$html = '<section id="' . $section . '" class="' . implode(' ', $sectionClasses) . '">';
+
+		echo $html;
 	}
 }
 
 if ( ! function_exists( 'getSectionHeader' ) ) {
-	function getSectionHeader( $title = '', $paragraph = '' ) {
-		$h = !empty($title) ? '<h3 class="box-title section-title">' . $title . '</h3>' : '';
-		$p = !empty($paragraph) ? $paragraph : '';
-		$html = '';
+	function getSectionHeader( $title, $paragraph ) {
+		$headerStart = 
+		'<header class="section-header">
+		<div class="container">
+		<div class="row">
+		<div class="col-lg-8 offset-lg-2">';
+		$headerEnd = 
+		'</div>
+		</div>
+		</div>
+		</header>';
 
-		if (!empty($title) || !empty($paragraph)) {
-			$headerStart = 
-			'<header class="section-header">
-			<div class="container">
-			<div class="row">
-			<div class="col-lg-8 offset-lg-2">';
-			$title = $h; 
-			$paragraph = $p;
-			$headerEnd = 
-			'</div>
-			</div>
-			</div>
-			</header>';
-
-			$html = $headerStart . $title . $paragraph . $headerEnd;
-		}
+		$html = $headerStart . $title . $paragraph . $headerEnd;
 
 		echo $html;
 	}
 }
 
 if ( ! function_exists( 'getSectionBody' ) ) {
-	function getSectionBody( $post_type, $posts = '', $display) {
-		if (is_front_page()) {
-			$path = 'templates/front-page/home-' . $post_type;
-		}
+	function getSectionBody( $custom_post_type, $posts ) {
+		$path = 'templates/front-page/home-' . $custom_post_type;
+		$display = get_option('_crb_home_' . $custom_post_type . '_layout');
+
 		if (!empty($posts)) {
 			$args = array(
 				'posts' => $posts,
 				'display' => $display
 			);
+
 			$bodyStart = getSectionBodyStart();
 			$bodyContent = get_template_part($path, null, $args);
 			$bodyEnd = getSectionBodyEnd();
@@ -119,19 +131,19 @@ if ( ! function_exists( 'getSectionBody' ) ) {
 
 if ( ! function_exists( 'getSectionBodyStart' ) ) {
 	function getSectionBodyStart() {
-		echo 
-		'<section class="section-body">
-		<div class="container">
-		<div class="row">';
+		echo '<section class="section-body"><div class="container"><div class="row">';
 	}
 }
 
 if ( ! function_exists( 'getSectionBodyEnd' ) ) {
 	function getSectionBodyEnd() {
-		echo 
-		'</div>
-		</div>
-		</section>';
+		echo '</div></div></section>';
+	}
+}
+
+if ( ! function_exists( 'getSectionEnd' ) ) {
+	function getSectionEnd() {
+		echo '</section>';
 	}
 }
 ?>

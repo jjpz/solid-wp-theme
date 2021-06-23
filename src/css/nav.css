@@ -661,8 +661,8 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 .site-nav.mobile .main-nav {
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .site-nav.mobile .main-nav li {
@@ -671,12 +671,16 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 	transition: all 0.25s;
 }
 
-.site-nav.mobile .main-nav li:first-child {
-	padding-left: 15px;
+.site-nav.mobile .main-nav ul.menu > li {
+	padding: 0 30px;
 }
 
-.site-nav.mobile .main-nav li:last-child {
-	padding-right: 15px;
+.site-nav.mobile .main-nav ul.menu > li:first-child {
+	padding-left: 30px;
+}
+
+.site-nav.mobile .main-nav ul.menu > li:last-child {
+	padding-right: 30px;
 }
 
 .site-nav.mobile .main-nav a {
@@ -717,7 +721,8 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 .site-nav.mobile .main-nav ul.sub-menu li {
-	margin: 15px 0 15px 5px;
+	margin: 15px 0 15px 15px;
+	padding: 0;
 }
 
 .site-nav.mobile .main-nav ul.sub-menu li:nth-last-child(1) {
@@ -729,7 +734,7 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 .site-nav.mobile .button-nav {
-	padding: 0 30px 45px;
+	padding: 0 0 45px;
 }
 
 .site-nav.mobile .button-nav li {
@@ -739,6 +744,7 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 .site-nav.mobile .button-nav a {
+	max-width: 50%;
 	border-color: var(--color-dark-hex);
 	background-color: transparent;
 	color: var(--color-dark-hex);
@@ -776,16 +782,6 @@ body.desktop .site-header.absolute:hover .site-nav li.current-lang a:hover {
 }
 
 @media (max-width: 767px) {
-	.site-nav.mobile .main-nav {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.site-nav.mobile .button-nav {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-
 	.site-nav.mobile .lang-nav {
 		padding-left: 15px;
 		padding-right: 15px;
